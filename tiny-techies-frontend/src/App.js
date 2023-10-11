@@ -1,9 +1,9 @@
 import './App.css';
-
+import RemarkableSection from './Components/remarkableSection';
 function App() {
   return (
     <div className="App">
-    <p>hello</p>
+      <RemarkableSection />
     </div>
   );
 }
