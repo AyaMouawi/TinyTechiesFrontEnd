@@ -1,11 +1,28 @@
 import '../css/remarkableSection.css'
+import RemarkableProject from './RemarkableProject'
 
-const remarkableSection = () => {
+
+const RemarkableSection = () => {
   return (
-    <div>
-      <h1>hello</h1>
+    <div className='remarkable-wrapper'>
+    <div className='remarkable-title'>
+      <h1>Remarkable Projects</h1>
+    </div>
+    <div className='remarkable-container'>
+      <RemarkableProject/>
+      <RemarkableProject/>
+      <RemarkableProject/>
+      
+      </div>
     </div>
   )
 }
 
-export default remarkableSection
+export default RemarkableSection
+
+
+
+
+
+
+

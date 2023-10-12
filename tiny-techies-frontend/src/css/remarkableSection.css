@@ -1,0 +1,59 @@
+.remarkable-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* height: 100vh; */
+}
+
+.remarkable-title {
+    text-align: center;
+}
+
+
+.remarkable-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap: 20px;
+}
+
+.remarkable-card {
+    border-radius: 50px;
+    background: rgba(176, 245, 247, 0.23);
+    width: 397px;
+    height: 418px;
+    flex-shrink: 0;
+    padding: 2px;
+}
+
+.remarkable-card-title {
+    display: flex;
+    gap: 10px;
+}
+
+.card-des {
+    line-height: 1;
+}
+
+.card-subTitle {
+    color: #A1A1A1;
+}
+
+.remarkable-card-des {
+    font-size: 16px;
+    color: #A1A1A1;
+}
+
+.remarkable-card-image {
+    width: 397px;
+    height: 195px;
+    flex-shrink: 0;
+    border-radius: 50px 50px 0px 0px;
+    background: lightgray 50% / cover no-repeat;
+}
+
+.remarkable-card-image-name {
+    width: 50px;
+    border-radius: 50%;
+}
