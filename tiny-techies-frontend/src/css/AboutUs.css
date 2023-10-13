@@ -61,6 +61,17 @@ flex:1;
   .About-content div{
       margin-right: 0px;
   }
+
+  .About-content {
+    width:300px
+  }
+  .About-content {
+    font-size: small;
+  }
+  .About_P{
+    width:295px
+  
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
  
