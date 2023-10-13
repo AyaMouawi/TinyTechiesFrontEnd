@@ -1,9 +1,10 @@
 import './App.css';
+import SingleCoursPage from './Components/SingleCoursPage';
 
 function App() {
   return (
-    <div className="App">
-    <p>hello</p>
+    <div>
+      <SingleCoursPage />
     </div>
   );
 }
