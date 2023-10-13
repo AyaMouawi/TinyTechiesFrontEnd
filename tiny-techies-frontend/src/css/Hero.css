@@ -416,6 +416,7 @@ img {
     .HeroSection-left h4 {
         font-size: 14px;
         max-width: 425px;
+        font-size: 12px;
     }
     .HeroSection-left h1 {
         font-size: 30px;     
@@ -439,6 +440,7 @@ img {
     .HeroSection-wrapper {
         padding-bottom: 190px;
     }
+    
 }
 @media(max-width:425px){
     .ks-about-wrapper, .ks-counter-wrapper{
