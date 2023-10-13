@@ -4,7 +4,7 @@ import MyCoursesHero from "../src/Components/MyCoursesHero";
 function App() {
   return (
     <div className="App">
-    <MyCoursesHero/>
+    <MyCoursesPage/>
     </div>
   );
 }
