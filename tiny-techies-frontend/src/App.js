@@ -1,5 +1,5 @@
 import './App.css';
-import MyCoursesHero from "../src/Components/MyCoursesHero";
+import MyCoursesPage from "../src/Components/MyCoursesPage";
 
 function App() {
   return (
