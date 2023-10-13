@@ -12,9 +12,7 @@ const RemarkableProject = () => {
           <p className='card-subTitle'>Project name</p>
           </div>
         </div>
-        <div className='remarkable-card-subtitle'>
           <h4 className='remarkable-card-des'>SmallDesc Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h4>
-        </div>
       </div>
     
   )

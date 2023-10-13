@@ -23,17 +23,18 @@
     background: rgba(176, 245, 247, 0.23);
     width: 397px;
     height: 418px;
-    flex-shrink: 0;
     padding: 2px;
 }
 
 .remarkable-card-title {
     display: flex;
     gap: 10px;
+    align-items: center;
+    margin-left: 20px;
 }
 
 .card-des {
-    line-height: 1;
+    line-height: 1
 }
 
 .card-subTitle {
@@ -43,17 +44,44 @@
 .remarkable-card-des {
     font-size: 16px;
     color: #A1A1A1;
+    padding: 10px;
 }
 
 .remarkable-card-image {
-    width: 397px;
+    width: 390px;
     height: 195px;
     flex-shrink: 0;
     border-radius: 50px 50px 0px 0px;
-    background: lightgray 50% / cover no-repeat;
 }
 
 .remarkable-card-image-name {
     width: 50px;
     border-radius: 50%;
+}
+
+/* media */
+@media(max-width:700px) {
+    .remarkable-container {
+
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+    .remarkable-card {
+        width: 300px;
+        /* height: 200px; */
+        padding: 2px;
+    }
+
+    .remarkable-card-image {
+        width: 100%;
+        height: auto;
+        flex-shrink: 0;
+        border-radius: 50px 50px 0px 0px;
+    }
+
+    .remarkable-card-des {
+        font-size: 14px;
+        padding: 3px;
+    }
 }
