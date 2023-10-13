@@ -2,11 +2,13 @@ import '../css/AboutUs.css';
 function About() {
   return (
     <div >
-      <h1>Know More About Us</h1>
       <div className="About-conatiner">
-      <img src="../../Images/about-girl.png" className="About-girl"></img>
+<div className='"AboutImagContainer'><img src="../../Images/about-girl.png" className="About-girl" ></img></div>
+      
 
         <div className="About-content">
+        <h1>Know More About Us</h1>
+
         <div><p className="About_P">Consectetur adipisicing elit, sed do eiusmod tempor incididunt
          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quies nostrud 
          exercitateion ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute
@@ -16,6 +18,7 @@ function About() {
         </div> <p className="About_Question_P"> Already One Of Us ?</p>
         <button className="About-button">Access Your Courses</button>
         </div>
+
         </div>
 
     </div>
