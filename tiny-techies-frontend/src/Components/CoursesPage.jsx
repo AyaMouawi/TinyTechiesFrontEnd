@@ -1,7 +1,6 @@
 import React from "react";
-
 import "../css/CoursesPage.css";
-import CourseRegister from "./CourseRegister.jsx";
+import CourseRegister from "./CourseRegister";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "../css/swiper-bundle.css"
 //  import "../css/font-awesome.min.css"
