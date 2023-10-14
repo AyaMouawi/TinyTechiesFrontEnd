@@ -1,9 +1,8 @@
-import AboutUs from "./AboutUs";
 
 function HomePage() {
   return (
     <div >
-    
+      
     </div>
   );
 }
