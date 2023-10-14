@@ -7,7 +7,7 @@ const Course = () => {
     return (
       <div className="course-container">
       <div className="image-container">
-        <img src="Images/b1.jpg" alt="" />
+        <img src="images/b1.jpg" alt="" />
       </div>
       <div className="course-details">
         <div className="Course-Title">
@@ -21,11 +21,11 @@ const Course = () => {
         <hr className='Horizontal-Course' />
         <div className='Footer-Course'>
           <div className='footer-course-item'>
-            <img src="Images/users-solid.svg" className='CourseFooterImage' alt="" />
+            <img src="images/users-solid.svg" className='CourseFooterImage' alt="" />
             <p>20 Students</p>
           </div>
           <div className='footer-course-item'>
-            <img src="Images/clock-regular.svg" className='CourseFooterImage' alt="" />
+            <img src="images/clock-regular.svg" className='CourseFooterImage' alt="" />
             <p>From 2 July To 12 July</p>
           </div>
         </div>
