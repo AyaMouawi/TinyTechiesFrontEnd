@@ -68,6 +68,9 @@
 .CourseRegister-Title{
   margin-left:7%;
 }
+.CourseRegister-Title h5{
+  overflow-y: hidden;
+}
 .CourseRegister-Description{
   margin-left:7%;
   max-width: 300px;

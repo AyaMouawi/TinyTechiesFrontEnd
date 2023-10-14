@@ -40,7 +40,7 @@
   margin-right: 300px;
   font-size: large;
 }
-.AboutImagContainer{
+.AboutImageContainer{
 max-width: 400px;
 max-height: 400px;
 flex:1;
@@ -48,6 +48,57 @@ flex:1;
 .About-link{
   text-decoration: none;
   color: white;
+}
+.AboutUs-btn{
+  display: flex;
+  align-items: center;
+  margin-top: 35px;
+}
+.AboutUs-main-btn {
+  max-width: 200px;
+  width: 100%;
+}
+.About-btn, .About-btn:hover, .About-btn:focus{	
+	text-transform: capitalize;
+	text-decoration: none;
+	-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    font-family: "Inter";
+}
+.About-btn {
+  position:relative;
+  max-width: 190px;
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;    
+  font-family: "Inter";
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 16px;  
+  color: white;
+    background-color: #00C3C9; 
+  border-radius: 40px; 
+  z-index: 0;  
+  overflow: hidden;   
+  transition: all 0.3s ease-in-out;
+  
+}   
+.About-btn::after{
+  font-weight: 200;
+  top: -30px;
+  left: -20px;
+} 
+.About-btn:hover{
+  box-shadow: 0px 0px 0px 30px #ff6699 inset;
+  color: var(--ks-white-color);
 }
 @media screen and (min-width: 360px) and (max-width: 480px){
   .About-container{
@@ -98,3 +149,12 @@ font-size: x-large;
 width: 200px;
 height: 100px;}
 }
+@media(max-width:575px){
+  .AboutUs-btn{
+  display: block;
+}
+
+.AboutUs-main-btn {        
+  margin-left: auto;
+  margin-right: auto;
+}}

@@ -4,7 +4,7 @@ function About() {
   return (
     <div >
       <div className="About-container" id="About-container">
-<div className='"AboutImagContainer'><img src="../../Images/about-girl.png" className="About-girl" ></img></div>
+<div className='"AboutImageContainer'><img src="../../Images/about-girl.png" className="About-girl" ></img></div>
       
 
         <div className="About-content">
@@ -17,7 +17,13 @@ function About() {
           eeu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
            sunt ien culpa qui officia deserunt mollit anim id est laborum. </p>
         </div> <p className="About_Question_P"> Already One Of Us ?</p>
-        <button className="About-button"><Link className='About-link' to="/MyCoursesPage">Access Your Courses </Link></button>
+        <div className="AboutUs-btn">
+                  <div className="AboutUs-main-btn">
+                    <a href="/MyCoursesPage" className="About-btn">
+                      Access Your Courses
+                    </a>
+                  </div>
+                </div>
         </div>
 
         </div>
