@@ -1,8 +1,9 @@
 import '../css/AboutUs.css';
+import { Link } from "react-router-dom";
 function About() {
   return (
     <div >
-      <div className="About-conatiner">
+      <div className="About-container" id="About-container">
 <div className='"AboutImagContainer'><img src="../../Images/about-girl.png" className="About-girl" ></img></div>
       
 
@@ -16,7 +17,7 @@ function About() {
           eeu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
            sunt ien culpa qui officia deserunt mollit anim id est laborum. </p>
         </div> <p className="About_Question_P"> Already One Of Us ?</p>
-        <button className="About-button">Access Your Courses</button>
+        <button className="About-button"><Link className='About-link' to="/MyCoursesPage">Access Your Courses </Link></button>
         </div>
 
         </div>

@@ -8,9 +8,14 @@
 
 .remarkable-title {
     text-align: center;
+    
 }
 
+.card-des p{
+    overflow-y: hidden;
 
+
+}
 .remarkable-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -21,9 +26,10 @@
 .remarkable-card {
     border-radius: 50px;
     background: rgba(176, 245, 247, 0.23);
-    width: 397px;
-    height: 418px;
-    padding: 2px;
+    width: 390px;
+    height: 384px;
+    margin-bottom: 10%;
+    
 }
 
 .remarkable-card-title {
@@ -31,10 +37,16 @@
     gap: 10px;
     align-items: center;
     margin-left: 20px;
+    margin-top: 5%;
 }
 
 .card-des {
     line-height: 1
+}
+.remarkable-title h1{
+    overflow-y: hidden;
+    margin-bottom: 15%;
+    margin-top: 15%;
 }
 
 .card-subTitle {

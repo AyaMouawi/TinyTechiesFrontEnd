@@ -8,12 +8,22 @@
   .TitleLeftCourses {
     flex: 1;
     margin-left: 14%;
+    
+
+  }
+  .TitleLeftCourses h1{
+    overflow-y: hidden;
+    text-align: center;
+    margin-left: 100px;
+
   }
   
   .TitleRightCourses {
     margin-right: 10%;
   }
-
+  .TitleRightCourses h6{
+    overflow-y: hidden;
+  }
   
   
   .PopularCourses-Title a {
@@ -35,6 +45,9 @@
 
 
 @media (max-width: 500px) {
+  .PopularCourses-Wrapper{
+    height: 100%;
+  }
     .Courses {
       flex-direction: column; 
       align-items: center; 

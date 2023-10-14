@@ -52,6 +52,9 @@
 .Course-Description{
   margin-left:5px;
 }
+.Course-Title h5{
+  overflow-y: hidden;
+}
 
 @media (max-width: 500px) {
   .course-container {

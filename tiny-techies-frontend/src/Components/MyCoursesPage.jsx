@@ -1,5 +1,5 @@
 import React from "react";
-
+import NavBar from "./NavBar";
 import "../css/MyCoursesPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyCoursesHero from "./MyCoursesHero";
@@ -7,6 +7,8 @@ import Course from "./Course";
 
 const MyCoursesPage = () => {
   return (
+    <>
+    <NavBar/>
    <div className="MyCoursesContainer">
      <MyCoursesHero/>
      <div className="MyPageCourses-Wrapper">
@@ -23,7 +25,7 @@ const MyCoursesPage = () => {
       </div>
      </div>
    </div>
- 
+ </>
   );
 };
 
