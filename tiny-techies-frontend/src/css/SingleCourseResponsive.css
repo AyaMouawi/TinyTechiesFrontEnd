@@ -11,48 +11,49 @@
     .single-course-hero-image {
         width: 100%;
     }
-}
 
-/* end single course hero */
 
-/* Assignment section */
-.single-course-assignment-nav {
-    display: grid;
-    place-items: center;
+    /* end single course hero */
 
-}
+    /* Assignment section */
+    .single-course-assignment-nav {
+        display: grid;
+        place-items: center;
 
-.card {
-    width: 100%;
-}
+    }
 
-.assignment-content {
-    width: 323px;
-    height: 477px;
-    gap: 10px;
-}
+    .card {
+        width: 100%;
+    }
 
-.assignment-table {
-    width: 100%;
-}
+    .assignment-content {
+        width: 323px;
+        height: 477px;
+        gap: 10px;
+    }
 
-/* end Assignment Section */
+    .assignment-table {
+        width: 100%;
+    }
 
-/* .project-content */
+    /* end Assignment Section */
 
-.project-content {
-    display: grid;
-    place-items: center;
-}
+    /* .project-content */
 
-.project-card {
-    width: 100%;
-}
+    .project-content {
+        display: grid;
+        place-items: center;
+    }
 
-.project-form-content {
-    width: 100%;
-}
+    .project-card {
+        width: 100%;
+    }
 
-.project-input {
-    width: 80%;
+    .project-form-content {
+        width: 100%;
+    }
+
+    .project-input {
+        width: 80%;
+    }
 }
