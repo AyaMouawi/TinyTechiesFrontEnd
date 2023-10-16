@@ -25,7 +25,7 @@
   
   }
   .accordion {
-    background-color: #eee;
+    background-color: white;
     color:  rgb(55, 198, 213);
   font-weight: 300;
     cursor: pointer;
@@ -48,6 +48,7 @@
   .qstion{
     font-size: 16px;
     margin-left: 5%;
+    margin-top: 55%;
   }
   
   
@@ -56,10 +57,15 @@
     transform: scale(1.1);
     transition: 0.5s;
   }
+  .Footer-lbl{
+    font-weight: 500;
+    color: white;
+    text-decoration: solid;
+  }
   
   .panel {
     padding: 0 18px;
-    background-color: white;
+    background-color:#eee;
     color:  rgb(55, 198, 213);
   
     max-height: 0;
@@ -68,29 +74,31 @@
   }
   
   .footersocialbuttons {
-    width: 30vmax;
+    width: 50vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:25%
+    
     
   }
   .footersocialbuttons,.FAQ{
     margin-bottom: 5%;
   }
-  /* .a{
-    border-radius: 80px 80px;
-    height: fit-content;
-    border-bottom-right-radius: 80px;
-  
-  } */
+ 
 
   
   .white-titles {
     font-size: 25px;
     color: white;
     font-weight: bold;
+    margin: 0;
   }
   
   .footeralignbutton {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
   }
   .footersocialborder,.footersocialbuttons{
     margin: 5%;
@@ -99,9 +107,9 @@
     width: 40px;
     height: 40px;
     border-radius: 50px;
-    /* background-color: white;  */
-    /* filter: invert(48%) sepia(96%) saturate(2970%) hue-rotate(196deg) brightness(103%) contrast(107%); */
+    margin-left: 30%;
     fill: rgb(55, 198, 213); 
+    justify-content: space-evenly;
   
   }
         
@@ -120,7 +128,7 @@
   .footerdiv2 {
     flex:1;
   }
-  
+ 
   .copyright {
     color: white;
     text-align: center;
@@ -142,18 +150,25 @@
     background-color: transparent;
     border: 1px solid white;
     font-size: 20px;
-    padding: 7px 23px 7px 23px;
     border-radius: 5px;
+    cursor: pointer;
+    width:40%;
+    margin-right: 55% ;
+  }
+  .SubmitForm:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+
   }
   
   .ContactForm input[type="text"],
   .ContactForm textarea {
     width: 300px;
-    padding: 7px;
     margin-bottom: 30px;
     border-radius: 5px;
-    border: white;
+    /* border: white; */
     height: 45px;
+    color:black;
   
   }
   
@@ -179,3 +194,150 @@
     justify-content: center;
     background: none;
   }
+
+
+  @media screen and (max-width: 900px) {
+    .Footer {
+        flex-direction: column;
+    }
+    
+    .blockfooter {
+        flex-direction: column;
+    }
+    
+    .div1, .div2 {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .socialbuttons {
+        margin-top: 10%;
+    }
+    
+    .accordion {
+        .accordion {
+            background-color: #eee;
+            color:  rgb(55, 198, 213);
+        font-weight: 300;
+            cursor: pointer;
+            padding: 5px;
+            width: 170px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        align-items: center;    
+            
+        }    }
+    
+    .socialimage1 {
+        margin-left: 0;
+    }
+    
+    .ContactForm input[type="text"],
+    .ContactForm textarea {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .alignbutton {
+        flex-direction: column;
+    }
+}
+/* Your existing styles */
+
+@media screen and (max-width: 900px) {
+  .Footer {
+    padding: 10px;
+}
+
+.blockfooter {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div1, .div2 {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialbuttons {
+    margin-top: 10%;
+  
+}
+
+
+
+.accordion {
+    width: 100%;
+}
+
+.socialimage1 {
+    margin-left: 0;
+}
+
+.ContactForm input[type="text"],
+.ContactForm textarea {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.alignbutton {
+    flex-direction: column;
+}
+
+.white-titles {
+    font-size: 20px;
+}}
+
+@media screen and (max-width: 500px) {
+    .Footer {
+        padding: 10px;
+    }
+    
+    .blockfooter {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .div1, .div2 {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .socialbuttons {
+        margin-top: 10%;
+      
+    }
+  
+    
+    
+    .accordion {
+        width: 100%;
+    }
+    
+    .socialimage1 {
+        margin-left: 0;
+    }
+    
+    .ContactForm input[type="text"],
+    .ContactForm textarea {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .alignbutton {
+        flex-direction: column;
+    }
+    
+    .white-titles {
+        font-size: 20px;
+    }
+}

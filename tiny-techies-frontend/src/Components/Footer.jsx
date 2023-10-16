@@ -1,8 +1,23 @@
 // import React from 'react'
-import React, { useEffect } from "react";
+import React, { useEffect,useRef } from "react";
 import "../css/footer.css";
+import emailjs from '@emailjs/browser';
 
 function Footer() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_rv3ltxg', 'template_80pjlbk', form.current, 'Lvk1L6c9LoarSAiee')
+      .then((result) => {
+          console.log(result.text);
+          console.log("message sent");
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
   useEffect(() => {
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -44,7 +59,7 @@ function Footer() {
             <div className="a">
               <button className="accordion">
                 {" "}
-                <span className="qstion"> question 1 </span><img src="" className="footersocialimage1" />
+                <span className="qstion"> question 1 </span><img src="Images/Capture.PNG" className="footersocialimage1" />
               </button>
               <div className="panel">
                 <p> reponse.</p>
@@ -52,7 +67,7 @@ function Footer() {
               <button className="accordion">
                 {" "}
                 <span className="qstion"> question 2 </span>
-                <img src="" className="footersocialimage1" />{" "}
+                <img src="Images/Capture.PNG" className="footersocialimage1" />{" "}
               </button>
               <div className="panel">
                 <p> reponse2.</p>
@@ -61,10 +76,10 @@ function Footer() {
                 className="accordion"
                 style={{ borderBottomLeftRadius: "30px", borderBottomRightRadius: "30px" }}>              
                 {" "}
-                <span className="qstion"> question 3 </span> <img src="" className="footersocialimage1" />
+                <span className="qstion"> question 3 </span> <img src="Images/Capture.PNG" className="footersocialimage1" />
               </button>
-              <div className="panel">
-                <p> reponse3.</p>
+              <div className="panel"  style={{ borderBottomLeftRadius: "30px", borderBottomRightRadius: "30px" }}>
+                <p > reponse3.</p>
               </div>
             </div>
           </div>
@@ -72,13 +87,13 @@ function Footer() {
             <span className="white-titles">Our social media</span>
             <div className="footeralignbutton">
               <div className="footersocialborder">
-                <img className="footersocialimage" src=" " />
+                <img className="footersocialimage" src="Images/instagram.svg"  />
               </div>
               <div className="footersocialborder">
-                <img className="footersocialimage" src="" />
+                <img className="footersocialimage" src="Images/linkedin-in.svg" />
               </div>
               <div className="footersocialborder">
-                <img className="footersocialimage" src="" />
+                <img className="footersocialimage" src="facebook-f.svg" />
               </div>
             </div>
           </div>
@@ -86,59 +101,44 @@ function Footer() {
         <div className="footerdiv2">
           <div className="FooterContact">
             <h1 className="white-titles">Dont Hesitate, Contact Us </h1>
-            <form className="footerform">
+            <form className="footerform" ref={form} onSubmit={sendEmail}>
               <div className="ContactForm">
-                <table className="footertable">
-                  <tbody>
-                    <tr>
-                      <td>
-                        {" "}
-                        <div className="FormItem">
+               
+                  
+                     
+                        <div className="FormItem" >
                           <label className="Footer-lbl">User Name</label>
                         </div>
-                      </td>
-                      <td>
-                        <input type="text" id="Footer-username" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        {" "}
+                      
+                        <input type="text" id="Footer-username" name="user_name"/>
+                     
+                      
                         <div className="FormItem">
                           <label className="Footer-lbl" htmlfor="email">
                             E-mail
                           </label>
                         </div>
-                      </td>
-                      <td>
-                        <input type="text" id="footer-email" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
+                      
+                        <input type="text" id="footer-email" name="user_email"/>
+                     
+                   
                         <div className="FormItem">
                           <label className="Footer-lbl" htmlfor="message">
                             Message
                           </label>
                         </div>
-                      </td>
-                      <td>
-                        {" "}
-                        <textarea id="Footer-message" defaultValue={""} />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td />
-                      <td>
+                     
+                        <div>
+                        <textarea name="message" id="Footer-message" defaultValue={""} />
+                     </div>
+                    
                         <input
                           type="submit"
                           defaultValue="Submit"
+                          value="send"
                           className="SubmitForm"
                         />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                    
               </div>
             </form>
           </div>
