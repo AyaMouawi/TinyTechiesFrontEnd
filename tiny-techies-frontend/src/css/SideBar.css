@@ -1,0 +1,64 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+
+}
+.SideBarSubContainer{
+    width: 20%;
+    height: 150vh; /* Adjusted to fill the entire screen height */
+    background-image: url("../../public/Images/counter-bg.jpg");
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.SideBarContainer{
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+justify-content: flex-start;
+height: 100%;
+}
+.TinyTechiesImg{
+    width: 100%;
+    height: 150px;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.ChildrenImg{
+    width: 800px;
+    height: 150px;
+}
+.SideBarButton{
+    width: 80%;
+    height: 40px;
+    border-radius: 40%;
+    border: none;
+    color: white;
+    background-color: #5dcedc;
+    font-size: x-large;
+    margin-left: 15px;
+}
+.SideBarSubContainer p{
+    color: white;
+    font-size: x-large;
+    align-self: center;
+}
+hr{
+    margin-top: 5px;
+    color: white;
+}
+.SideBarSubContainer button:nth-child(5){
+margin-top: 100px;
+}
+.SideBarSubContainer button:nth-child(6){
+    margin-top: 20px;
+    }
+    .SideBarSubContainer button:nth-child(7){
+        margin-top: 20px;
+        }
