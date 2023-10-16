@@ -19,7 +19,7 @@ const HeroSection = () => {
                 </p>
                 <div className="HeroSection-btn">
                   <div className="HeroSection-main-btn">
-                    <a href="#" className="Hero-btn">
+                    <a href="/CoursesPage" className="Hero-btn">
                       start taking courses
                     </a>
                   </div>

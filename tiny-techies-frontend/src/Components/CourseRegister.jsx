@@ -1,6 +1,5 @@
 import React from 'react';
 import "../css/CourseRegister.css";
-//import "bootstrap/dist/css/bootstrap.min.css";
 
 
 const CourseRegister = () => {

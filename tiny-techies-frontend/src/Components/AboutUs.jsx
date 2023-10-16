@@ -4,7 +4,7 @@ function About() {
   return (
     <div >
       <div className="About-container" id="About-container">
-<div className='"AboutImageContainer'><img src="../../Images/about-girl.png" className="About-girl" ></img></div>
+<div className='"AboutImageContainer'><img src="Images/about-girl.png" className="About-girl" ></img></div>
       
 
         <div className="About-content">

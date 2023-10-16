@@ -1,5 +1,4 @@
 import React from 'react';
-
 import '../css/statistics.css';
 
 function Statistics() {

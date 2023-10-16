@@ -168,9 +168,11 @@ img {
 }
 .NavBar-header-parent {
     background-color: var(--ks-white-color);
-    border-radius: 5px;        
-    padding: 0px 0 0px 40px;    
-}
+    border-radius: 5px;
+    padding: 0px 0 0px 40px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
 .NavBar-header-inner{
     overflow-y: hidden;
     display: flex;
@@ -194,6 +196,8 @@ img {
     padding: 32px 0;
     display: inline-block;  
     position: relative;  
+    text-decoration: none;
+    
 }
 .NavbarMenu li a:before {
    

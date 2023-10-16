@@ -4,9 +4,7 @@ import CourseRegister from "./CourseRegister";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./NavBar";
 
-// import "../css/swiper-bundle.css"
-//  import "../css/font-awesome.min.css"
-// import '../../node_modules/font-awesome/css/font-awesome.min.css';
+
 
 const CoursesPage = () => {
   return (
