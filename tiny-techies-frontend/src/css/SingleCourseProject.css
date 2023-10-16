@@ -9,11 +9,12 @@
 
 /* project content */
 .project-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+    margin-left: 5%;
+    margin-top: 5%;
 }
-
 /* end project content */
 
 /* project card */
@@ -22,6 +23,7 @@
     background: #ffffff;
     width: 300px;
     height: 350px;
+    margin-bottom: 10px;
 }
 
 .project-card-title {
@@ -104,6 +106,10 @@
     border-radius: 10px;
     border: 1px solid #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.p-3{
+    margin-top: 5%;
 }
 
 /* end project form */

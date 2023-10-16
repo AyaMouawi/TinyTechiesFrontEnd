@@ -5,7 +5,7 @@ import "../css/SingleCourseProject.css";
 const ProjectForm = () => {
   return (
     <div className='project-form-content'>
-      <h3 className='project-form-title'>Submit A New Project</h3>
+     
       <div className='project-input'>
         <label htmlFor='userName'>User name</label>
         <input type='text' />

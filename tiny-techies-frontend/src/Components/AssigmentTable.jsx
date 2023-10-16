@@ -3,7 +3,7 @@ import React from "react";
 function AssigmentTable() {
   return (
     <div>
-      <h2 className='assignment-content-title'>Your Grades</h2>
+      
       <div className='assignment-items '>
         <p className='assignment-subtitle'>Assignment</p>
         <p className='assignment-grades'>Grades</p>

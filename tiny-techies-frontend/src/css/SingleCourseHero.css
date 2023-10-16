@@ -8,11 +8,14 @@
     margin-bottom: 11px;
 }
 
-
+.single-course-hero-subTitle{
+   width: 80%;
+   color: grey; 
+}
 .single-course-hero-time {
-    display: flex;
+    
     align-items: center;
-    gap: 20px;
+    
 }
 
 .single-course-hero-Tutor {
@@ -32,4 +35,9 @@
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.single-course-hero-navbar{
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

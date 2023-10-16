@@ -1,11 +1,8 @@
 import React from "react";
-// bootstrap
-import "bootstrap/dist/css/bootstrap.css";
-// css
 import "../css/SingleCourseHero.css";
 const SingleCourseHero = () => {
   return (
-    <div className=' single-course-hero-navbar d-flex align-items-center justify-content-between '>
+    <div className=' single-course-hero-navbar d-flex align-items-center justify-content-between  '>
       <div className='single-course-hero'>
         <h1 className='single-course-hero-title'>Course Name</h1>
         <p className='single-course-hero-subTitle'>
