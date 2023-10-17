@@ -123,3 +123,7 @@ body {
 .AssignmentModalHeader{
     background-image: url("../../public/Images/counter-bg.jpg");
 }
+
+.text-center{
+    overflow-y: hidden;
+}

@@ -1,7 +1,9 @@
 .single-course-hero-image {
-    width: 600px;
+    width: 2000px;
+    height: 500px;
     border-radius: 20px;
 }
+
 
 .single-course-hero-icon {
     width: 24px;
@@ -16,6 +18,10 @@
     
     align-items: center;
     
+}
+
+.single-course-hero-title{
+    overflow-y: hidden;
 }
 
 .single-course-hero-Tutor {

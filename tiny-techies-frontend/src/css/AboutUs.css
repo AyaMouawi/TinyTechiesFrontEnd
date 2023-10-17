@@ -6,11 +6,12 @@
   height:70%;
 }
 .About-container{
-  margin-bottom: 3%;
+ 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  background-color: white;
 }
 .About-content h1{
   overflow-y: hidden;

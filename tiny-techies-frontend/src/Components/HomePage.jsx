@@ -6,6 +6,7 @@ import CoursesSection from "./CoursesSection";
 import Statistics from "./Statistics";
 import RemarkableSection from "./RemarkableSection";
 
+
 const HomePage = () => {
   return (
     <div>

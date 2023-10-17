@@ -1,12 +1,14 @@
 import React from 'react';
 import "../css/Course.css";
+import { Link } from "react-router-dom";
 
 const Course = () => {
     return (
       <div className="course-container">
-      <div className="image-container">
+    <Link to="/SingleCoursePage"><div className="image-container">
         <img src="Images/b1.jpg" alt="" />
-      </div>
+        </div></Link>
+      
       <div className="course-details">
         <div className="Course-Title">
           <h5>Course Name</h5>

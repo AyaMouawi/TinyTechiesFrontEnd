@@ -63,7 +63,7 @@
 
 /* project form */
 .project-form-content {
-   
+   overflow-y: hidden;
     border-radius: 20px;
     width: 450px;
     height: 490px;
@@ -112,6 +112,10 @@
 
 .p-3{
     margin-top: 5%;
+}
+
+.assignment-content-title{
+    overflow-y: hidden;
 }
 
 /* end project form */
