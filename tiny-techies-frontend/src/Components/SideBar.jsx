@@ -1,6 +1,6 @@
-
 import '../css/SideBar.css';
-import TrainerDashboeardWelcome from './TrainerDashboardWelcome'
+import TrainerDashboardWelcome from './TrainerDashboardWelcome'
+
 function SideBar() {
   return (
     <div className='SideBarContainer'>
@@ -15,7 +15,7 @@ function SideBar() {
 </div>
    <div>
    <img src="../../Images/Children.png" className='ChildrenImg'></img>
-   <TrainerDashboeardWelcome/>
+   <TrainerDashboardWelcome/>
    </div>
    
    </div>
