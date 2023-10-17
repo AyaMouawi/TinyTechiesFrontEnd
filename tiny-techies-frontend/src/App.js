@@ -1,10 +1,10 @@
 import './App.css';
-import SingleCoursPage from './Components/SingleCoursPage';
+import SingleCoursePage from './Components/SingleCoursePage';
 
 function App() {
   return (
     <div>
-      <SingleCoursPage />
+      <SingleCoursePage />
     </div>
   );
 }
