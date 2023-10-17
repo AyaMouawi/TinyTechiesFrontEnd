@@ -13,9 +13,9 @@ import React from 'react';
 function App() {
   return (
     <div className="App">
-   {/* <Team/> */}
-   <Login/>
-   {/* <Footer/> */}
+   {/* <Team/>  */}
+   {/* <Login/>  */}
+   <Footer/>
   
 
     </div>
