@@ -1,6 +1,4 @@
 import React from "react";
-
-// css
 import "../css/SingleCourseProject.css";
 const ProjectForm = () => {
   return (

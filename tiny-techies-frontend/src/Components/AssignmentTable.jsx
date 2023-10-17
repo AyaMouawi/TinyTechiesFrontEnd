@@ -1,6 +1,6 @@
 import React from "react";
 
-function AssigmentTable() {
+function AssignmentTable() {
   return (
     <div>
       
@@ -38,4 +38,4 @@ function AssigmentTable() {
   );
 }
 
-export default AssigmentTable;
+export default AssignmentTable;

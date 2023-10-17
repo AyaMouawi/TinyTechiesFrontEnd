@@ -3,7 +3,7 @@ import {Modal, ModalHeader, ModalBody } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/SingleCourseAssignment.css';
 import AssignmentCard from './AssignmentCard';
-import AssigmentTable from './AssigmentTable';
+import AssignmentTable from './AssignmentTable';
 
 const SingleCourseAssignment = () => {
   const [modal, setModal] = useState(false);
@@ -23,7 +23,7 @@ const SingleCourseAssignment = () => {
           <ModalHeader toggle={toggle} className='AssignmentModalHeader'><h2 className='assignment-content-title'>Your Grades</h2></ModalHeader>
           <ModalBody  className='AssignmentModalBody' >
             <div className='assignment-content'>
-              <AssigmentTable />
+              <AssignmentTable />
             </div>
           </ModalBody>
 
