@@ -1,5 +1,4 @@
 import '../css/AboutUs.css';
-import { Link } from "react-router-dom";
 function About() {
   return (
     <div >
