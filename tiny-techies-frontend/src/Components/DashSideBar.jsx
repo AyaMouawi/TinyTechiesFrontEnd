@@ -1,11 +1,11 @@
-import '../css/SideBar.css';
-import TrainerDashboardWelcome from './TrainerDashboardWelcome'
+import '../css/DashSideBar.css';
+import DashWelcomeTrainer from '../DashPages/TrainerDashboardWelcome'
 
-function SideBar() {
+function DashSideBar() {
   return (
     <div className='SideBarContainer'>
     <div className='SideBarSubContainer' >
-    <img src="../../Images/TinyTechiesDashLogo.png" className='TinyTechiesImg'></img>
+    <img src="Images/TinyTechiesDashLogo.png" className='TinyTechiesImg'></img>
     <p>Welcome</p>
     <p>Trainer Name</p>
     <hr></hr>
@@ -14,12 +14,12 @@ function SideBar() {
 <button className='SideBarButton'>Courses</button>   
 </div>
    <div>
-   <img src="../../Images/Children.png" className='ChildrenImg'></img>
-   <TrainerDashboardWelcome/>
+   <img src="Images/Children.png" className='ChildrenImg'></img>
+   <DashWelcomeTrainer/>
    </div>
    
    </div>
   );
 }
 
-export default SideBar;
+export default DashSideBar;

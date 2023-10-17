@@ -1,8 +1,7 @@
 import React from 'react';
+import '../css/DashTrainer.css';
 
-import '../css/Trainer.css';
-
-function Trainer() {
+function DashWelcomeTrainer() {
   return (
     <div className="Welcome-Trainer-Dashboard-container">
         <div className='SubWelcome-Trainer-Dashboard-container'>
@@ -26,4 +25,4 @@ function Trainer() {
   );
 }
 
-export default Trainer;
+export default DashWelcomeTrainer;

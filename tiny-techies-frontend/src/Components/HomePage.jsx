@@ -1,8 +1,8 @@
-import SideBar from "./SideBar";
+import DashSideBar from "./DashSideBar";
 function HomePage() {
   return (
     <div >
-     <SideBar/>
+     <DashSideBar/>
     </div>
   );
 }
