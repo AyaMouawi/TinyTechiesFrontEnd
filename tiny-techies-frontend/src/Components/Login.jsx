@@ -21,6 +21,8 @@ function Login() {
             <form action="#">
               <h1>Create Account</h1>
               <input type="text" placeholder="Name" />
+              <input type="number" placeholder="Age" />
+
               <input type="email" placeholder="Email" />
               <input type="password" placeholder="Password" />
               <br />

@@ -1,12 +1,13 @@
 /*footer css*/
 
 
-.Footer {
-    background-image: url(../../public/Images/counter-bg.jpg); 
-    background-size: cover; 
-    background-position: center; 
+
+.Footer {  background-image: url(../../public/Images/counter-bg.jpg); 
+  background-size: cover !important; 
+    /* background-position: center;  */
     display: flex;
     flex-direction: column;
+    max-width: 100%;
   
   }
   .blockfooter{

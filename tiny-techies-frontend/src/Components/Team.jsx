@@ -5,10 +5,9 @@ import Slider from "react-slick";
 
 
 function Team() {
-  let message = "Our trainers";
 
   var settings = {
-    dots: true,
+    dots:false,
     infinite: false,
     speed: 500,
     slidesToShow: 4,
@@ -21,7 +20,7 @@ function Team() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -42,9 +41,14 @@ function Team() {
     ],
   };
 
-  return (
+  return (          
+
     <section className="section-white">
-              <h2>Our trainers</h2>
+              
+              <h2 >Our trainers</h2>
+              
+
+
               <div className="carousel">
 
             <Slider {...settings}>
@@ -54,71 +58,71 @@ function Team() {
 
                   <div className="team-item">
                     <img
-                      src="../../public/Images/counter-bg.jpg"
+                      src="Images/Trainer.png"
                       className="team-img"
                       alt="pic"
                     />
-                    <h3>Marianne Pharaon </h3>
-                    <p>Description</p>
+                    <h3>Trainer </h3>
+                    <p className="pslider">Description</p>
                   </div>
               
 
 
                   <div className="team-item">
                     <img
-                      src="../../public/Images/counter-bg.jpg"
+                      src="Images/Trainer.png"
                       className="team-img"
                       alt="pic"
                     />
-                    <h3>Marianne Pharaon </h3>
-                    <p>Description</p>
+                    <h3>Trainer </h3>
+                    <p className="pslider">Description</p>
                   </div>
 
 
                   <div className="team-item">
                     <img
-                      src="../../public/Images/counter-bg.jpg"
+                      src="Images/Trainer.png"
                       className="team-img"
                       alt="pic"
                     />
-                    <h3>Marianne Pharaon </h3>
-                    <p>Description</p>
+                    <h3>Trainer </h3>
+                    <p className="pslider">Description</p>
                   </div>
             
 
             
                   <div className="team-item">
                     <img
-                      src="../../public/Images/counter-bg.jpg"
+                      src="Images/Trainer.png"
                       className="team-img"
                       alt="pic"
                     />
-                    <h3>Marianne Pharaon </h3>
-                    <p>Description</p>
+                    <h3>Trainer </h3>
+                    <p className="pslider">Description</p>
                   </div>
 
 
                   
                   <div className="team-item">
                     <img
-                      src="../../public/Images/counter-bg.jpg"
+                      src="Images/Trainer.png"
                       className="team-img"
                       alt="pic"
                     />
-                    <h3>Marianne Pharaon </h3>
-                    <p>Description</p>
+                    <h3>Trainer </h3>
+                    <p className="pslider">Description</p>
                   </div>
 
 
                   
                   <div className="team-item">
                     <img
-                      src="../../public/Images/counter-bg.jpg"
+                      src="Images/Trainer.png"
                       className="team-img"
                       alt="pic"
                     />
-                    <h3>Marianne Pharaon </h3>
-                    <p>Description</p>
+                    <h3>Trainer </h3>
+                    <p className="pslider">Description</p>
                   </div>
 
               
