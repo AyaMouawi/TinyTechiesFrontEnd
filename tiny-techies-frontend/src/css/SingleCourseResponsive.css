@@ -1,0 +1,59 @@
+/* single course hero */
+@media(max-width:768px) {
+    .single-course-hero-navbar {
+        flex-direction: column-reverse;
+    }
+
+    .single-course-hero-time {
+        display: block;
+    }
+
+    .single-course-hero-image {
+        width: 100%;
+    }
+
+
+    /* end single course hero */
+
+    /* Assignment section */
+    .single-course-assignment-nav {
+        display: grid;
+        place-items: center;
+
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .assignment-content {
+        width: 323px;
+        height: 477px;
+        gap: 10px;
+    }
+
+    .assignment-table {
+        width: 100%;
+    }
+
+    /* end Assignment Section */
+
+    /* .project-content */
+
+    .project-content {
+        display: grid;
+        place-items: center;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+
+    .project-form-content {
+        width: 100%;
+    }
+
+    .project-input {
+        width: 80%;
+    }
+}
