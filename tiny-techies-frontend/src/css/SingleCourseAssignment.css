@@ -8,7 +8,7 @@ body {
     flex-direction: row;
     align-items: center;
     margin-left: 8%;
-
+    margin-top: 3%;
     flex-wrap: wrap; 
     max-width: 100%; 
 }
@@ -84,6 +84,13 @@ body {
 
 }
 
+.assignment-grades{
+    margin-right: 20%;
+}
+
+.assignment-subtitle{
+    margin-left: 15%;
+}
 .assignment-table tr td {
     border: 1px solid #000000;
 }
