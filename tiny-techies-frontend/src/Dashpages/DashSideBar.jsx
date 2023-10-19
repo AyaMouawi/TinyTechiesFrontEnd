@@ -1,5 +1,3 @@
-import AttendanceCourse from "./AttendanceCourse";
-import AttendanceTable from "./AttendanceTable";
 import DashWelcomeTrainer from "./DashWelcome";
 import "../css/DashSideBar.css";
 import DashSideBarButtons from "./DashSideBarButtons";
@@ -18,9 +16,7 @@ function DashSideBar() {
       </div>
       <div>
         <img src='Images/Children.png' className='ChildrenImg' />
-        {/* <DashWelcomeTrainer />
-        <AttendanceCourse />
-        <AttendanceTable /> */}
+        <DashWelcomeTrainer />
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import './App.css';
-import Attendance from './Dashpages/Attendance';
+import DashSideBar from './Dashpages/DashSideBar';
 
 function App() {
   return (
     <div >
-      <Attendance />
+      <DashSideBar />
     </div>
   );
 }

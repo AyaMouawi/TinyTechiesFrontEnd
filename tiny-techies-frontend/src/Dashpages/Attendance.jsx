@@ -1,10 +1,12 @@
 import React from "react";
-import DashSideBar from "./DashSideBar";
+import AttendanceCourse from "./AttendanceCourse";
+import AttendanceTable from "./AttendanceTable";
 
 const Attendance = () => {
   return (
     <div>
-      <DashSideBar />
+      <AttendanceCourse />
+      <AttendanceTable />
     </div>
   );
 };

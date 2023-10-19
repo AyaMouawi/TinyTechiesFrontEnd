@@ -1,15 +1,12 @@
 .SideBarSubContainer {
-    width: 20%;
-    height: 150vh;
+    width: 280px;
+    height: 100vh;
     /* Adjusted to fill the entire screen height */
     background-image: url("../../public/Images/counter-bg.jpg");
     background-size: 100% 100%;
-    background-position: center center;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-
-
 }
 
 .SideBarContainer {

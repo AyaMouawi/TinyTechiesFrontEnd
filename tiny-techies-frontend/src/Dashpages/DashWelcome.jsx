@@ -1,5 +1,5 @@
 import React from "react";
-// import "../css/DashTrainer.css";
+import "../css/DashWelcome.css";
 
 function DashWelcomeTrainer() {
   return (
