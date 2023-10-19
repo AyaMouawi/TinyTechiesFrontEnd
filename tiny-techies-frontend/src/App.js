@@ -1,5 +1,5 @@
 import './App.css';
-import Attendance from './pages/Attendance';
+import Attendance from './Dashpages/Attendance';
 
 function App() {
   return (

@@ -1,10 +1,10 @@
 import React from "react";
-import AttendanceCourse from "./AttendanceCourse";
+import DashSideBar from "./DashSideBar";
 
 const Attendance = () => {
   return (
     <div>
-      <AttendanceCourse />
+      <DashSideBar />
     </div>
   );
 };

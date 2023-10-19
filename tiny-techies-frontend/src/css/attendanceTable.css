@@ -1,0 +1,31 @@
+.table-attendance {
+    background-image: url(/public/Images/counter-bg.jpg);
+    width: 37rem;
+    height: 29rem;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.attendance-table-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.table {
+    width: 30rem;
+
+    border-radius: 20px;
+    background: white;
+}
+
+tr {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid;
+    padding: 10px 5px;
+}
