@@ -1,0 +1,322 @@
+/*footer css*/
+
+.Footer {
+  padding-top: 3%;
+  background-image: url(../../public/Images/counter-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+}
+.blockfooter {
+  display: flex;
+  flex-direction: row;
+}
+.footerdiv1 {
+  padding-left: 5%;
+}
+.FAQ,
+.white-titles {
+  margin-bottom: 20%;
+}
+.accordion {
+  background-color: white;
+  color: rgb(55, 198, 213);
+  font-weight: 300;
+
+  padding: 5px;
+  width: 40vw;
+
+  font-size: 15px;
+}
+
+/* .accordion:first-child {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  } */
+.qstion {
+  font-size: 16px;
+  margin-left: 5%;
+  margin-top: 55%;
+}
+
+/* .active, .accordion:hover {
+    background-color:  rgb(145, 220, 228),;
+    transform: scale(1.1);
+    transition: 0.5s;
+  } */
+.Footer-lbl {
+  font-weight: 500;
+  color: white;
+  text-decoration: solid;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: #eee;
+  color: rgb(55, 198, 213);
+
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.footersocialbuttons {
+  width: 50vmax;
+  display: flex;
+  flex-direction: column;
+
+  margin: 25%;
+  align-items: flex-start;
+}
+.footersocialbuttons,
+.FAQ {
+  margin-bottom: 5%;
+}
+
+.white-titles {
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  margin: 0;
+}
+
+.footeralignbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.footersocialborder,
+.footersocialbuttons {
+  margin: 5%;
+}
+
+.footersocialborder {
+  min-width: 60px;
+
+  height: 60px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  margin: 5%;
+}
+.footersocialimage {
+  width: 40px;
+  height: 40px;
+
+  justify-content: space-evenly;
+}
+#Footer-message {
+  height: 13vh;
+}
+
+.footersocialimage1 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px 50px;
+  margin-left: 90%;
+}
+
+.footersocialborder:hover {
+  transform: scale(1.5);
+  transition: 0.5s;
+}
+.footerdiv2 {
+  flex: 1;
+}
+
+.copyright {
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 1%;
+}
+
+.footertable {
+  text-align: center;
+  color: #eee;
+  font-size: 24px;
+}
+.SubmitForm {
+  border-color: white;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  margin-right: 55%;
+  padding: 6px 30px;
+}
+.SubmitForm:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.accordion-button {
+  color: rgb(55, 198, 213) !important;
+  font-weight: 400 !important;
+  font-size: x-large !important;
+}
+
+.ContactForm input[type="text"],
+.ContactForm textarea {
+  border: none;
+  width: 25vw;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  /* border: white; */
+  height: 45px;
+  color: black;
+}
+
+.ContactForm label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.Footercontact,
+.ContactForm {
+  margin-bottom: 20%;
+}
+.Footercontact {
+  align-items: center;
+  justify-content: center;
+}
+.white-titles,
+.Footercontact {
+  margin-bottom: 7%;
+}
+.footerform {
+  padding: 0px;
+
+  text-align: left;
+  display: block;
+  background: none;
+}
+
+@media screen and (max-width: 900px) {
+  .Footer {
+    padding: 10px;
+    height: 100%;
+    flex-direction: column;
+  }
+  .footerdiv1 {
+    padding-left: 0px;
+  }
+  .accordion {
+    width: 60vw;
+  }
+  .FooterContact {
+    width: 60vw;
+  }
+
+  .blockfooter {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .footersocialbuttons {
+    align-items: center;
+    width: initial;
+  }
+  .div1,
+  .div2 {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .socialbuttons {
+    margin-top: 10%;
+  }
+
+  /* .accordion {
+        
+            background-color: #eee;
+            color:  rgb(55, 198, 213);
+        font-weight: 300;
+            cursor: pointer;
+            padding: 5px;
+            width: 170px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        align-items: center;    
+            
+         } */
+
+  .socialimage1 {
+    margin-left: 0;
+  }
+
+  .ContactForm input[type="text"],
+  .ContactForm textarea {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .alignbutton {
+    flex-direction: column;
+  }
+
+  .white-titles {
+    font-size: 20px;
+  }
+}
+/* Your existing styles */
+
+@media screen and (max-width: 500px) {
+  .Footer {
+    padding: 10px;
+  }
+
+  .blockfooter {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .div1,
+  .div2 {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .socialbuttons {
+    margin-top: 10%;
+  }
+
+  .footerdiv1 {
+    padding-left: 0px;
+  }
+
+  .accordion {
+    width: 90vw;
+  }
+
+  .socialimage1 {
+    margin-left: 0;
+  }
+
+  .ContactForm input[type="text"],
+  .ContactForm textarea {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .alignbutton {
+    flex-direction: column;
+  }
+
+  .white-titles {
+    font-size: 20px;
+  }
+}

@@ -38,7 +38,7 @@
   }
 .PopularCourses-Wrapper{
     background-color: rgba(176, 245, 247, 0.23);
-    margin-top: 5%;
+    padding-top: 5%;
     height: 100vh;
 
 }    
@@ -77,6 +77,9 @@
       
       .PopularCourses-Title a {
         visibility: collapse;}
+        .TitleLeftCourses h1 {
+          margin-left: 0px
+      }
   }
 
 
@@ -85,4 +88,4 @@
         flex-wrap: wrap;
      
     }
-  }
+    }

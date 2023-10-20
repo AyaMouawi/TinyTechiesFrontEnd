@@ -117,8 +117,10 @@ body {
     margin-bottom: 0px;
 }
 .AssignmentModalBody{
-    height: 100vh;
+    height: 90vh;
+    padding-bottom: 0px;
     background-image: url("../../public/Images/counter-bg.jpg");
+    background-size: cover;
 }
 .AssignmentModalHeader{
     background-image: url("../../public/Images/counter-bg.jpg");
@@ -127,3 +129,18 @@ body {
 .text-center{
     overflow-y: hidden;
 }
+
+
+
+@media (max-width: 500px) {
+    .single-course-assignment-nav{
+        margin-left: 0px;
+    }
+    .card {
+        width: 250px;
+        border-radius: 30px;
+     margin:0;
+        margin-bottom: 10px;
+    }
+    
+  }

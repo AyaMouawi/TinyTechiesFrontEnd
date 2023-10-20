@@ -102,7 +102,7 @@
 }
 
 .project-form-btn-submit {
-    padding: 12px 46px 21px 40px;
+   
     border-radius: 10px;
     border: 1px solid #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -119,3 +119,13 @@
 }
 
 /* end project form */
+
+@media (max-width: 500px) {
+    
+    .project-content {
+       
+        margin-left:0px;
+      
+    }
+    
+  }

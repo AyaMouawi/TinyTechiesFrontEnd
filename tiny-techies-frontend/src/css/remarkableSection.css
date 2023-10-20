@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* height: 100vh; */
+    height: 100vh;
 }
 
 .remarkable-title {
@@ -95,5 +95,9 @@
     .remarkable-card-des {
         font-size: 14px;
         padding: 3px;
+    }
+
+    .remarkable-wrapper{
+        height: initial;
     }
 }

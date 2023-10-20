@@ -28,3 +28,22 @@
     width: 30%;
     padding-top: 5%;
   }
+
+  @media (max-width: 500px) {
+    .MyCoursesHeroContainer {
+        display: flex;
+        
+        flex-direction: column;
+    }
+        .MyCoursesHeroImage {
+        padding-top: 6%;
+        max-width: 500px;
+       
+    }
+    .MyCoursesHeroDescription {
+        padding-left: 5%;
+        
+        width: initial;
+        padding-top: 5%;
+    }
+      }

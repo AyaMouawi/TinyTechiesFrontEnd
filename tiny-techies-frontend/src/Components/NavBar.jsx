@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../css/Hero.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 const NavBar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
   return (
     <div className="NavBar-wrapper">
  
@@ -13,12 +18,14 @@ const NavBar = () => {
                 <img className='Navbar-Logo' src="Images/BookTinyTechiesLogo.png" alt="" />
 
               </a>
+             
          
             </div>
-            <div className="ks-navbar-menu">
+            
+            <div className={`ks-navbar-menu ${menuOpen ? 'menu-open' : ''}`}>
               <ul className="NavbarMenu ks-ul">
                 <li className="responsive-logo">
-                  <a href="javascript:;">
+                  <a href="">
                     <img src="/Images/" alt="" />
                   </a>
                 </li>
@@ -30,15 +37,28 @@ const NavBar = () => {
                   <a href="/#About-container">Know More</a>
                 </li>
                 <li>
-                  <a href="#">Contact Us</a>
+                  <a href="/#Footer">Contact Us</a>
                 </li>
-          
+                <li>
+                <a href="/login">
+              
+              <img className='LoginLogo inside' src="Images/users-solid.svg" alt="" />
+                
+              </a>
+                </li>
               </ul>
 
             </div>
-            <div className="NavBar-brand-logo">
-              <a href="#">
-                <img className='LoginLogo' src="Images/users-solid.svg" alt="" />
+            <div className="ks-toggle-btn" onClick={toggleMenu}>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+            <div className="NavBar-brand-logo outside">
+              <a href="/login">
+              
+              <img className='LoginLogo' src="Images/users-solid.svg" alt="" />
+                
               </a>
          
             </div>

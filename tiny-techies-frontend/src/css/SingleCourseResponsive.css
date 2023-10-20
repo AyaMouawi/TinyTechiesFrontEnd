@@ -57,3 +57,15 @@
         width: 80%;
     }
 }
+
+@media (max-width: 500px) {
+    
+    .project-content {
+       
+        margin-left:0px;
+      
+    }
+    .single-course-hero-navbar {
+        margin-top:23%;
+    }
+  }

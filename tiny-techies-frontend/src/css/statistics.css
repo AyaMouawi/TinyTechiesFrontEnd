@@ -1,8 +1,8 @@
-* {
+/* * {
     margin: 0px;
     padding: 0px;
 overflow-x: hidden;
-}
+} */
 .counter-image {
     width: 100%;
   
@@ -78,13 +78,32 @@ overflow-x: hidden;
   @media screen and (min-width: 360px) and (max-width: 480px){
 
     .counter-image{
+      height: 100%;
         flex-direction: column;
     }
     .sub-stat-container > div {
         margin: 20px; /* Adjust the margin as needed */
       }
-    
-  }
+     .image-section{
+        width:100px;
+        height:100px;}
+        
+  
+  .counter-image > div {
+    margin-bottom: initial;
+    /* margin: 10px; */
+}
+.sub-stat-container > div> p {
+
+  font-size: large;
+}
+.counter-image button {
+  
+  font-size: large;
+}
+
+
+}
   @media screen and (min-width: 481px) and (max-width: 1024px) {
     .icon_stat {
       width: 50px;
