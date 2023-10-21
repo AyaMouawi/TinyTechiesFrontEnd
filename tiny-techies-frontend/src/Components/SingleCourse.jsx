@@ -1,13 +1,15 @@
 import React from 'react';
 import "../css/Course.css";
+import { Link } from "react-router-dom";
 
-
-const Course = ({CourseName , CourseDesc , StudentsCount , Duration ,imageUrl }) => {
+const SingleCourse = ({CourseName , CourseDesc , StudentsCount , Duration ,imageUrl, CourseId }) => {
     return (
       <div className="course-container">
-   <div className="image-container">
-    <img src={imageUrl} alt={CourseName} />
+     <Link to={`/SingleCoursePage/${CourseId}`}>
+        <div className="image-container">
+          <img src={imageUrl} alt={CourseName} />
         </div>
+      </Link>
       
       <div className="course-details">
         <div className="Course-Title">
@@ -35,4 +37,4 @@ const Course = ({CourseName , CourseDesc , StudentsCount , Duration ,imageUrl })
     );
   };
   
-  export default Course;
+  export default SingleCourse;

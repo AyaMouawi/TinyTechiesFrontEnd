@@ -1,11 +1,12 @@
-// import React from 'react'
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "../css/footer.css";
 import emailjs from "@emailjs/browser";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+
 function Footer() {
   const form = useRef();
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -28,37 +29,17 @@ function Footer() {
       );
   };
 
-  // useEffect(() => {
-  //   var acc = document.getElementsByClassName("accordion");
-  //   var i;
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentYear(new Date().getFullYear());
+    }, 1000 * 60 * 60); 
 
-  //   for (i = 0; i < acc.length; i++) {
-  //     acc[i].addEventListener("click", function () {
-  //       this.classList.toggle("active");
-  //       var panel = this.nextElementSibling;
-  //       if (panel.style.maxHeight) {
-  //         panel.style.maxHeight = null;
-  //       } else {
-  //         panel.style.maxHeight = panel.scrollHeight + "px";
-  //       }
-  //     });
-  //   }
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
-  //   // Cleanup event listeners on component unmount
-  //   return () => {
-  //     for (i = 0; i < acc.length; i++) {
-  //       acc[i].removeEventListener("click", function () {
-  //         this.classList.toggle("active");
-  //         var panel = this.nextElementSibling;
-  //         if (panel.style.maxHeight) {
-  //           panel.style.maxHeight = null;
-  //         } else {
-  //           panel.style.maxHeight = panel.scrollHeight + "px";
-  //         }
-  //       });
-  //     }
-  //   };
-  // }, []);
+  
 
   return (
     <div className="Footer" id="Footer">
@@ -81,7 +62,7 @@ function Footer() {
                     aria-expanded="false"
                     aria-controls="flush-collapseOne"
                   >
-                    Question #1
+                    What is STEM education?
                   </button>
                 </h2>
                 <div
@@ -90,9 +71,7 @@ function Footer() {
                   data-bs-parent="#accordionFlushExample"
                 >
                   <div className="accordion-body">
-                    Placeholder content for this accordion, which is intended to
-                    demonstrate the <code>.accordion-flush</code> className.
-                    This is the first item's accordion body.
+                  STEM education integrates science, technology, engineering, and mathematics to inspire young learners.
                   </div>
                 </div>
               </div>
@@ -106,7 +85,7 @@ function Footer() {
                     aria-expanded="false"
                     aria-controls="flush-collapseTwo"
                   >
-                    Question #2
+                    What age group is Tiny Techies suitable for?
                   </button>
                 </h2>
                 <div
@@ -115,10 +94,7 @@ function Footer() {
                   data-bs-parent="#accordionFlushExample"
                 >
                   <div className="accordion-body">
-                    Placeholder content for this accordion, which is intended to
-                    demonstrate the <code>.accordion-flush</code> className.
-                    This is the second item's accordion body. Let's imagine this
-                    being filled with some actual content.
+                  Tiny Techies is designed for children aged 6 to 12.
                   </div>
                 </div>
               </div>
@@ -132,7 +108,7 @@ function Footer() {
                     aria-expanded="false"
                     aria-controls="flush-collapseThree"
                   >
-                    Question #3
+                    How can I access Tiny Techies' learning materials?
                   </button>
                 </h2>
                 <div
@@ -141,29 +117,33 @@ function Footer() {
                   data-bs-parent="#accordionFlushExample"
                 >
                   <div className="accordion-body">
-                    Placeholder content for this accordion, which is intended to
+                  You can access our STEM content by signing up on our website.
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="footersocialbuttons">
-            <span className="white-titles">Our social media</span>
-            <div className="footeralignbutton">
-              <div className="footersocialborder">
-                <img className="footersocialimage" src="Images/instagram.svg" />
-              </div>
-              <div className="footersocialborder">
-                <img
-                  className="footersocialimage"
-                  src="Images/linkedin-in.svg"
-                />
-              </div>
-              <div className="footersocialborder">
-                <img className="footersocialimage" src="Images/facebook.svg" />
-              </div>
-            </div>
-          </div>
+                  <span className="white-titles">Our social media</span>
+                  <div className="footeralignbutton">
+                    <div class="footersocialborder">
+                      <a href="https://www.instagram.com/" target="_blank">
+                        <img class="footersocialimage" src="Images/instagram.svg" />
+                      </a>
+                    </div>
+                    <div class="footersocialborder">
+                      <a href="https://www.linkedin.com/" target="_blank">
+                        <img class="footersocialimage" src="Images/linkedin-in.svg" />
+                      </a>
+                    </div>
+                    <div class="footersocialborder">
+                      <a href="https://www.facebook.com/" target="_blank">
+                        <img class="footersocialimage" src="Images/facebook.svg" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
         </div>
         <div className="footerdiv2">
           <div className="FooterContact">
@@ -205,7 +185,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="copyright">© 2023 by Group 4 </div>
+      <div className="copyright">© {currentYear} by Group 4 </div>
     </div>
   );
 }
