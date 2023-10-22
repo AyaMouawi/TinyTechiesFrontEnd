@@ -38,11 +38,11 @@ const SingleCourseAssignment = () => {
   }
 
   return (
-    <div className='p-3'>
+    <div className='p-3' id='SingleAssignment'>
       <div className='single-course-assignment'>
         <h1 className='text-center'>Your Assignments</h1>
         <div className="text-center">
-          <button className='btn' onClick={toggle}>
+          <button className='btnSingleCourse' onClick={toggle}>
             Show Your Grades
           </button>
         </div>

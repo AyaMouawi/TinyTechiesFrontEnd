@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import SingleCourseHero from "./SingleCourseHero";
 import SingleCourseAssignment from "./SingleCourseAssignment";
 import SingleCourseProject from "./SingleCourseProject";
-import NavBar from "./NavBar";
+import SingleNav from "./SingleNav";
 
 function SingleCoursePage() {
   const {CourseId } = useParams();
@@ -43,7 +43,7 @@ function SingleCoursePage() {
 
   return (
     <div className="container">
-      <NavBar/>
+      <SingleNav/>
       <SingleCourseHero {...courseData} />
       <SingleCourseAssignment />
       <SingleCourseProject />

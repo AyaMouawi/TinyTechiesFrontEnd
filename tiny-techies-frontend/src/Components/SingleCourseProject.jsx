@@ -27,11 +27,11 @@ function SingleCourseProject() {
   }, []);
 
   return (
-    <div className="p-3">
+    <div className="p-3" id='SingleProjects'>
       <h1 className="text-center">Your Projects</h1>
 
       <div className="text-center">
-        <button className="btn" onClick={toggle}>
+        <button className="btnSingleCourse" onClick={toggle}>
           Add a New Project
         </button>
       </div>

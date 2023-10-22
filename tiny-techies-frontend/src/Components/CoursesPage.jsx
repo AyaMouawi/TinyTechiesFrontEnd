@@ -127,7 +127,7 @@ const CoursesPage = () => {
       </div>
 
       <Modal isOpen={modal} toggle={toggleModal} centered className="RegisterModal">
-        <ModalHeader toggle={toggleModal}>You Sure You Want to Register ?</ModalHeader>
+        <ModalHeader toggle={toggleModal} className="RegConfirmation">You Sure You Want to Register ?</ModalHeader>
         <ModalBody>
           {selectedCourse && (
             <>
