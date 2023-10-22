@@ -1,10 +1,9 @@
 import React from 'react';
 import "../css/CourseRegister.css";
 
-
-const CourseRegister = ({CourseImage, CourseName,CourseDesc, StudentCount, Duration} ) => {
-    return (
-      <div className="courseRegister-container">
+const CourseRegister = ({ CourseImage, CourseName, CourseDesc, StudentCount, Duration, onRegister }) => {
+  return (
+    <div className="courseRegister-container">
       <div className="image-container">
         <img src={CourseImage} alt="" />
       </div>
@@ -14,7 +13,7 @@ const CourseRegister = ({CourseImage, CourseName,CourseDesc, StudentCount, Durat
         </div>
         <div className='CourseRegister-Description'>
           <p>
-           {CourseDesc}
+            {CourseDesc}
           </p>
         </div>
         <hr className='Horizontal-CourseRegister' />
@@ -28,12 +27,14 @@ const CourseRegister = ({CourseImage, CourseName,CourseDesc, StudentCount, Durat
             <p>{Duration}</p>
           </div>
           <div className='footer-courseRegister-item'>
-            <button className='CourseRegisterbtn'>Register</button>
+            <button className='CourseRegisterbtn' onClick={onRegister}>
+              Register
+            </button>
           </div>
         </div>
       </div>
     </div>
-    );
-  };
-  
-  export default CourseRegister;
+  );
+};
+
+export default CourseRegister;

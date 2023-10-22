@@ -1,17 +1,20 @@
 import React from "react";
 
-const AssignmentCard = () => {
+const AssignmentCard = ({AssignmentName, AssignmentDesc, FileUrl, ZoomUrl, ZoomDate, DueDate}) => {
   return (
     <div>
       <div className='card'>
         <img src='/Images/b1.jpg' className='card-img-top' alt='card-sora' />
         <div className='card-body'>
-        <h5 className='card-title' style={{ overflow: 'hidden' }}>Assignment Name</h5>
+        <h5 className='card-title' style={{ overflow: 'hidden' }}>{AssignmentName}</h5>
           <p className='card-text'>
-            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Assignment Desc
+            {AssignmentDesc}
           </p>
-          <p className='card-text'>ZoomLink: wertuioiuygtfrdsfghui </p>
+          <a href={FileUrl} target="_blank"  className='card-text'> <p className='card-text'>Accsess The Assignment File </p></a>
+          <a href={ZoomUrl} target="_blank"  className='card-text'> <p className='card-text'>ZoomLink</p></a>
+          <p className='card-text'>zoom Date: {ZoomDate}</p>
+         
+          
           <hr />
           <div className='assignment-card-time'>
             <img
@@ -19,7 +22,7 @@ const AssignmentCard = () => {
               alt='icon'
               className='assignment-card-icon'
             />
-            <p>12 July</p>
+            <p>{DueDate}</p>
           </div>
 
           <div className='d-flex justify-content-evenly'>

@@ -69,7 +69,7 @@
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
-form {
+.logInForm {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;

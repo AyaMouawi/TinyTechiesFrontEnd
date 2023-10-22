@@ -122,7 +122,8 @@ font-size:xxx-large;
         border-radius:10%;
         display: block;
         margin: 0 auto;
-        border: 0;
+        border: 1px solid black;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     }
     /* .carousel{

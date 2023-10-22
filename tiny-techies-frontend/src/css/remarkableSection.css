@@ -31,6 +31,19 @@
     height: 400px;
     max-width: 100%;
     margin-bottom: 10%;
+    border: 1px solid slategray;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.Project-card{
+    border-radius: 50px;
+    background: rgb(255, 255, 255);
+    width: 390px;
+    height: 400px;
+    max-width: 100%;
+    margin-bottom: 10%;
+   
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .remarkable-card-title {
