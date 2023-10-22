@@ -1,21 +1,19 @@
+a {
+    text-decoration: none;
+}
+
 .SideBarSubContainer {
     width: 280px;
     height: 100vh;
-    /* Adjusted to fill the entire screen height */
     background-image: url("../../public/Images/counter-bg.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
 }
 
-.SideBarContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 100%;
-}
+
 
 .TinyTechiesImg {
     width: 100%;
@@ -26,22 +24,25 @@
 }
 
 .ChildrenImg {
-    width: 800px;
-    height: 150px;
+    width: 76%;
+    height: 106px;
+    position: absolute;
+    left: 17.5rem;
 }
 
 .SideBarButton {
     width: 80%;
+    text-align: center;
     height: 40px;
     border-radius: 26px;
     border: none;
     color: white;
     background-color: #5dcedc;
-    font-size: x-large;
-    margin-left: 15px;
+    font-size: 1.7rem;
+    margin: 10px;
 }
 
-.SideBarSubContainer p {
+.SideBarSubContainer-p {
     color: white;
     font-size: x-large;
     align-self: center;
@@ -50,6 +51,13 @@
 hr {
     margin-top: 5px;
     color: white;
+}
+
+.main-content {
+    padding: 7px;
+    position: absolute;
+    top: 6.5rem;
+    left: 28rem;
 }
 
 .SideBarSubContainer button:nth-child(5) {

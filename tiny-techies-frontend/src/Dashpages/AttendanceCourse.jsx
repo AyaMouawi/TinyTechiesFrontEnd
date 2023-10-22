@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import "../css/attendanceCourse.css";
+
 const AttendanceCourse = () => {
   const [selectedCourse, setSelectedCourse] = useState("");
 
@@ -10,11 +12,11 @@ const AttendanceCourse = () => {
 
   return (
     <div>
-      <div className=''>
+      <div className='attendance-course'>
         <select
           value={selectedCourse}
           onChange={handleCourseChange}
-          className=''
+          className='attendance-course-btn'
         >
           <option value=''>Your Course</option>
           {courses.map((course, index) => (

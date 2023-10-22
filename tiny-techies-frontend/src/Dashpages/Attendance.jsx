@@ -1,6 +1,6 @@
 import React from "react";
-import AttendanceCourse from "./AttendanceCourse";
-import AttendanceTable from "./AttendanceTable";
+import AttendanceCourse from "../Dashpages/AttendanceCourse";
+import AttendanceTable from "../Dashpages/AttendanceTable";
 
 const Attendance = () => {
   return (

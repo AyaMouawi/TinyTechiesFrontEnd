@@ -1,0 +1,33 @@
+.dash-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+.assignment-toggle-btn {
+    padding: 20px 30px;
+    background-image: url("../../public/Images/counter-bg.jpg");
+    border: none;
+    color: #ffffff;
+    border-radius: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.grade-toggle-btn {
+    padding: 20px 30px;
+    background-image: url("../../public/Images/counter-bg.jpg");
+    border: none;
+    color: #ffffff;
+    border-radius: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.dash-toggle-center {
+    display: grid;
+    place-items: center;
+    margin-top: 30px;
+}
