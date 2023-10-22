@@ -1,45 +1,43 @@
-.MyCoursesHeroContainer{
+.AllCoursesHeroContainer{
     display: flex;
     justify-content: center;
-    background-color: rgba(176, 245, 247, 0.23);
-    padding-top: 10%;
-    height: 100%;
+    height: 100vh;
 
 }
 
-.MyCoursesHeroImage{
+.AllCoursesHeroImage{
     max-width: 600px;
     max-height: 600px;
     padding-right:30%;
 }
 
 
-.MyCoursesHeroTitle{
+.AllCoursesHeroTitle{
     font-size: xx-large;
 }
 
-.KeepLearning {
+.StartLearning {
     color: rgb(151, 150, 150);
 }
 
-.MyCoursesHeroDescription {
+.AllCoursesHeroDescription {
     text-align: left; 
     width: 30%;
     padding-top: 5%;
   }
 
   @media (max-width: 500px) {
-    .MyCoursesHeroContainer {
+    .AllCoursesHeroContainer {
         display: flex;
         
         flex-direction: column;
     }
-        .MyCoursesHeroImage {
+        .AllCoursesHeroImage {
         padding-top: 6%;
         max-width: 500px;
        
     }
-    .MyCoursesHeroDescription {
+    .AllCoursesHeroDescription {
         padding-left: 5%;
         
         width: initial;

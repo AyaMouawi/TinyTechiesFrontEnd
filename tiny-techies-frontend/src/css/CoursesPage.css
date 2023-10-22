@@ -1,23 +1,4 @@
-.PageCourses-search {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5%;
-}
 
-.PageCourses-search-image {
-  width: 50px;
-}
-
-.PageCourses-input-search {
-  border-radius: 40px;
-  height: 50px;
-  width: 300px;
-  background-image: url(../../public/Images/counter-bg.jpg);
-  text-align: center;
-  font-size: large;
-  border: 0;
-  color: rgb(255, 255, 255);
-}
 .RegisterModalConfirm, .RegisterModalCancel{
   border-radius: 10px;
   border: 2px solid #00C3C9;
@@ -34,9 +15,9 @@
 .PageCourses-input-search::placeholder{color: rgb(255, 255, 255);}
 
 .PageCourses-Wrapper {
-  background-color: rgba(176, 245, 247, 0.23);
-  padding-top: 10%;
-  height: 100%;
+  background-color: #b0f5f73b;
+  padding-top: 5%;
+  height: 100vh;
 }
 
 .RegisterModalConfirm , .RegisterModalCancel{

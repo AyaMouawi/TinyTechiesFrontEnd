@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../css/CoursesPage.css";
 import CourseRegister from "./CourseRegister";
+import HeroAllCourses from "./HeroAllCourses";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./NavBar";
 import axios from "axios";
@@ -47,17 +48,7 @@ const CoursesPage = () => {
       });
   };
 
-  const handleIconClick = () => {
-    if (searchCourseName.trim() !== "") {
-      handleSearch();
-    } else {
-      
-    }
-  };
-
-  const handleInputChange = (e) => {
-    setSearchCourseName(e.target.value);
-  };
+ 
 
   const enrollStudent = () => {
     if (selectedCourse) {
@@ -85,33 +76,10 @@ const CoursesPage = () => {
     <>
       <NavBar />
       <div className="PageCourses-Wrapper">
-        <div className="PageCourses-search">
-          <img
-            className="PageCourses-search-image"
-            src="Images/magnifying-glass-solid.svg"
-            alt=""
-            onClick={handleIconClick}
-          />
-          <input
-            className="PageCourses-input-search"
-            type="text"
-            placeholder="Search By Name"
-            value={searchCourseName}
-            onChange={handleInputChange}
-          />
-        </div>
+       <HeroAllCourses/>
         <div className="PageCourses">
-          {foundCourse ? (
-            <CourseRegister
-              CourseImage={foundCourse.CourseImage}
-              CourseName={foundCourse.CourseName}
-              CourseDesc={foundCourse.CourseDescription}
-              StudentCount={foundCourse.StudentCount}
-              Duration={`From ${new Date(foundCourse.CourseStartTime).getDate()} ${new Date(foundCourse.CourseStartTime).getMonth() + 1} To ${new Date(foundCourse.CourseEndTime).getDate()} ${new Date(foundCourse.CourseEndTime).getMonth() + 1}`}
-              onRegister={() => openModal(foundCourse)} 
-            />
-          ) : (
-            courses.map((course) => (
+      
+           { courses.map((course) => (
               <CourseRegister
                 key={course.Course_id}
                 CourseImage={course.CourseImage}
@@ -121,8 +89,8 @@ const CoursesPage = () => {
                 Duration={formatDuration(course.CourseStartTime, course.CourseEndTime)}
                 onRegister={() => openModal(course)} 
               />
-            ))
-          )}
+            ))}
+        
         </div>
       </div>
 
