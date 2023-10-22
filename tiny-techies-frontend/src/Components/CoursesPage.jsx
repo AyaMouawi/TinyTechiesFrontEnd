@@ -77,8 +77,9 @@ const CoursesPage = () => {
       <NavBar />
       <div className="PageCourses-Wrapper">
        <HeroAllCourses/>
+       <h1 className="OurCourses">Our Courses</h1>
         <div className="PageCourses">
-      
+        
            { courses.map((course) => (
               <CourseRegister
                 key={course.Course_id}
