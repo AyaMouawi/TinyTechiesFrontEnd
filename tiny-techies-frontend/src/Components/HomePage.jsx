@@ -4,7 +4,7 @@ import HeroSection from "./HeroSection";
 import AboutUs from "./AboutUs";
 import CoursesSection from "./CoursesSection";
 import Statistics from "./Statistics";
-import remarkableSection from "./remarkableSection";
+import RemarkableSection from "./RemarkableSection";
 import Team from "./Team"
 import Footer from "./Footer"
 
@@ -18,7 +18,7 @@ const HomePage = () => {
       <CoursesSection/>
       <Statistics/>
       <Team/> 
-      <remarkableSection/>
+      <RemarkableSection/>
       <Footer />
 
 
