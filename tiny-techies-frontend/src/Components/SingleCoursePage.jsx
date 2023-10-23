@@ -43,7 +43,7 @@ function SingleCoursePage() {
 
   return (
     <div className="container">
-      <SingleNav/>
+      {/* <SingleNav/> */}
       <SingleCourseHero {...courseData} />
       <SingleCourseAssignment />
       <SingleCourseProject />

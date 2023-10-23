@@ -66,6 +66,7 @@ const SingleCourseAssignment = () => {
               ZoomUrl={assignment.ZoomLink}
               ZoomDate={formatZoomDate(assignment.MeetingDate)} 
               DueDate={formatDueDate(assignment.AssignmentDueDate)}
+              AssignmentID={assignment.AssignmentContent_id} 
             />
           ))}
         </div>
