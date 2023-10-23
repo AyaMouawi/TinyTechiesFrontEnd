@@ -167,7 +167,7 @@ function Login() {
       </div>
 
       {userRole === 'Student' && <Navigate to="/" replace={true} />}
-      {userRole === 'Trainer' && <Navigate to="/CoursesPage" replace={true} />}
+      {userRole === 'Trainer' && <Navigate to="/TrainerDashboard" replace={true} />}
       {userRole === 'Admin' && <Navigate to="/MyCoursesPage" replace={true} />}
     </div>
   );
