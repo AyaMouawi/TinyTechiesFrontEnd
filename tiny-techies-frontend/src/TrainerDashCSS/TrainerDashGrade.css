@@ -4,7 +4,7 @@
     /* justify-content: center; */
     flex-direction: column;
     width: 24rem;
-    height: 23rem;
+    height: 24rem;
     background-image: url("../../public/Images/counter-bg.jpg");
     color: #ffffff;
     border-radius: 40px;
@@ -15,7 +15,19 @@
     display: grid;
     gap: 1rem;
 }
+.GradeBtnContainer{
+    margin-left: 6rem;
+    align-self: normal;
+    
+}
 
+.GradeBtnContainer button{
+    border-radius: 25px;
+    background-color: white ;
+    color : #00C3C9;
+    border-width: 0cap;
+    
+}
 .grades-input {
     display: flex;
     flex-direction: column;
