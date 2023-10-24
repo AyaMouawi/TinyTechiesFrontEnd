@@ -9,12 +9,10 @@ function About() {
         <div className="About-content">
         <h1>Know More About Us</h1>
 
-        <div><p className="About_P">Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-         ut labore et dolore magna aliqua. Ut enim ad minim veniam, quies nostrud 
-         exercitateion ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute
-          irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-          eeu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-           sunt ien culpa qui officia deserunt mollit anim id est laborum. </p>
+        <div><p className="About_P">Through hands-on experiences, your little techies will explore cutting-edge technologies, 
+        create their own projects, and learn to innovate like never before We foster critical thinking, problem-solving, and creativity,
+       equipping your kids with skills that will be invaluable in the future Join us on this exciting journey of discovery and exploration.
+        Your child's future begins here, at Tiny Techies.</p>
         </div> <p className="About_Question_P"> Already One Of Us ?</p>
         <div className="AboutUs-btn">
                   <div className="AboutUs-main-btn">

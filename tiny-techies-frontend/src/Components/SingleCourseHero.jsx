@@ -1,17 +1,12 @@
 import React from "react";
 import "../css/SingleCourseHero.css";
-const SingleCourseHero = () => {
+const SingleCourseHero = ({CourseName, CourseDesc, TutorName, Duration, StudentsCount, CourseFile}) => {
   return (
     <div className=' single-course-hero-navbar d-flex align-items-center justify-content-between  '>
       <div className='single-course-hero'>
-        <h1 className='single-course-hero-title'>Course Name</h1>
+        <h1 className='single-course-hero-title'>{CourseName}</h1>
         <p className='single-course-hero-subTitle'>
-          Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua.Consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.Consectetur
-          adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua.Consectetur adipisicing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua.
+         {CourseDesc}
         </p>
         <div className='single-course-hero-Tutor'>
           <img
@@ -19,7 +14,7 @@ const SingleCourseHero = () => {
             alt='icon'
             className='single-course-hero-icon'
           />
-          <p>TutorName</p>
+          <p>{TutorName}</p>
         </div>
         <div className='single-course-hero-time   '>
           <div className='single-course-hero-time-one '>
@@ -28,7 +23,7 @@ const SingleCourseHero = () => {
               alt='icon'
               className='single-course-hero-icon'
             />
-            <p>From 2 July To 12 July </p>
+            <p>{Duration} </p>
           </div>
           <div className='single-course-hero-students '>
             <img
@@ -36,16 +31,15 @@ const SingleCourseHero = () => {
               alt='icon'
               className='single-course-hero-icon'
             />
-            <p>20 students </p>
+            <p>{StudentsCount} </p>
           </div>
         </div>
       </div>
-      <div className=' '>
-        <img
-          src='/Images/b1.jpg'
-          alt='icon'
-          className='single-course-hero-image'
-        />
+      <div  className="single-course-hero-video">
+        <video controls >
+          <source src={CourseFile} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   );

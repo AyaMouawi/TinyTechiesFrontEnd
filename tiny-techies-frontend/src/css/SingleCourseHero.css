@@ -1,9 +1,14 @@
-.single-course-hero-image {
-    width: 2000px;
+
+.single-course-hero-video video {
     height: 500px;
+    width: 600px;
     border-radius: 20px;
+    object-fit: cover; 
 }
 
+.single-course-hero{
+    margin-bottom: 15%;
+}
 
 .single-course-hero-icon {
     width: 24px;
@@ -11,7 +16,7 @@
 }
 
 .single-course-hero-subTitle{
-   width: 80%;
+   width: 100%;
    color: grey; 
 }
 .single-course-hero-time {
@@ -44,6 +49,5 @@
 }
 
 .single-course-hero-navbar{
-    margin-top: 7%;
     margin-bottom: 5%;
 }

@@ -1,55 +1,54 @@
-.PageCourses-search {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5%;
-  }
-  
-  .PageCourses-search-image {
-    width: 50px;
-  }
-  
-  .PageCourses-input-search {
-    border-radius: 40px;
-    height: 50px;
-    width: 300px;
-    background-image: url(../../public/Images/counter-bg.jpg);
-    text-align: center;
-    font-size: large;
-    border: 0;
-    color: rgb(255, 255, 255);
-  }
 
-  .PageCourses-input-search::placeholder{color: rgb(255, 255, 255);}
-  
-  .PageCourses-Wrapper {
-    background-color: rgba(176, 245, 247, 0.23);
-    padding-top: 10%;
-    height: 100%;
-  }
-  
+.RegisterModalConfirm, .RegisterModalCancel{
+  border-radius: 10px;
+  border: 2px solid #00C3C9;
+  background: #FFF;
+  padding: 5px 10px;
+  text-align: center;
+
+}
+.OurCourses{
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.RegConfirmation{
+  color: #00C3C9;
+}
+
+.PageCourses-input-search::placeholder{color: rgb(255, 255, 255);}
+
+.PageCourses-Wrapper {
+  padding-top: 5%;
+  height: 100vh;
+}
+
+.RegisterModalConfirm , .RegisterModalCancel{
+  color: black;
+}
+.PageCourses {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 500px) {
   .PageCourses {
-    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .PageCourses-Wrapper {
+    padding-top: 30%;
+  }
+  .PageCourses-search-image {
+      width: 50px;
+    }
+ 
+  
+}
+
+@media (min-width: 501px) and (max-width: 900px) {
+  .PageCourses {
     flex-wrap: wrap;
-    justify-content: center;
   }
-  
-  @media (max-width: 500px) {
-    .PageCourses {
-      flex-direction: column;
-      align-items: center;
-    }
-    .PageCourses-Wrapper {
-      padding-top: 30%;
-    }
-    .PageCourses-search-image {
-        width: 50px;
-      }
-   
-    
-  }
-  
-  @media (min-width: 501px) and (max-width: 900px) {
-    .PageCourses {
-      flex-wrap: wrap;
-    }
-  }
+}

@@ -1,0 +1,16 @@
+.attendance-course {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.attendance-course-btn {
+    color: #ffff;
+    background: #00C3C9;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}

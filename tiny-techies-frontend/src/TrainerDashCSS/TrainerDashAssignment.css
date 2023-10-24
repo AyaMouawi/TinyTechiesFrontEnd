@@ -1,0 +1,118 @@
+.dash-assignment {
+    background-image: url("../../public/Images/counter-bg.jpg");
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    width: 28rem;
+    height: 32rem;
+    color: #fff;
+    border-radius: 40px;
+    background-size: cover;
+
+}
+
+.assignment-title {
+    text-align: center;
+}
+.TrainerDashAssignmentDates{
+     position: relative;
+}
+.assignment-input-list {
+    display: grid;
+    gap: 0.4rem
+}
+
+.assignment-input {
+    display: grid;
+    place-content: center;
+    gap: 10px;
+    width: 100%;
+}
+.assignment-input label{
+    display: block;
+    text-align:left ;
+}
+.TrainerDashAssignmentFile{
+    margin-right: auto;
+    margin-left: 5rem;
+}
+
+.TrainerDashAssignmentFile label{
+    display: block;
+    text-align: left;
+}
+.assignment-select {
+ 
+    padding: 10px;
+    width: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+.assignment-zoom {
+    padding: 10px;
+    width: 19rem;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+.assignment-input-meeting {
+   margin:0 auto;
+    display: flex;
+    gap: 2rem;
+    
+}
+
+.meeting-date {
+    padding: 10px;
+    width: 7rem;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+.assignment-files {
+    display: flex;
+    width: 100%;
+    margin-left: 1.5rem;
+}
+
+.due-date {
+    padding: 10px;
+    width: 6rem;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+.assignment-requirement {
+    padding: 10px;
+    width: 20rem;
+    height: 80px;
+    resize: none;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+.assignment-btn-submit {
+
+    width: 23%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}

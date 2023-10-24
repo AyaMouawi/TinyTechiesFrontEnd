@@ -1,32 +1,33 @@
 import React from 'react';
 import "../css/Course.css";
-import { Link } from "react-router-dom";
 
-const Course = () => {
+
+const Course = ({CourseName , CourseDesc , StudentsCount , Duration ,imageUrl }) => {
     return (
       <div className="course-container">
-    <Link to="/SingleCoursePage"><div className="image-container">
-        <img src="Images/b1.jpg" alt="" />
-        </div></Link>
+   <div className="image-container">
+    <img src={imageUrl} alt={CourseName} />
+        </div>
       
       <div className="course-details">
         <div className="Course-Title">
-          <h5>Course Name</h5>
+          <h5>{CourseName}</h5>
         </div>
         <div className='Course-Description'>
           <p>
-            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {CourseDesc}
           </p>
+          
         </div>
         <hr className='Horizontal-Course' />
         <div className='Footer-Course'>
           <div className='footer-course-item'>
             <img src="Images/users-solid.svg" className='CourseFooterImage' alt="" />
-            <p>20 Students</p>
+            <p>{StudentsCount}</p>
           </div>
           <div className='footer-course-item'>
             <img src="Images/clock-regular.svg" className='CourseFooterImage' alt="" />
-            <p>From 2 July To 12 July</p>
+            <p>{Duration}</p>
           </div>
         </div>
       </div>

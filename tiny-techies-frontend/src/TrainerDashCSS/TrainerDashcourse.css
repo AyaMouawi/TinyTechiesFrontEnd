@@ -1,0 +1,73 @@
+.trainerdash-course-container {
+    border: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: 300px;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-left: 5rem;
+    background-color: white;
+    margin-bottom: 30px;
+    margin-right: 0.1rem;
+    padding-bottom: 0.2rem;
+}
+.TrainerDashCoursesContainer {
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
+
+.trainerdash-image-container {
+    margin-bottom: 10px;
+    width: 300px;
+
+}
+
+.trainerdash-Horizontal-Course {
+    opacity: 1;
+    width: 100%;
+}
+
+.trainerdash-Footer-Course {
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.trainerdash-CourseFooterImage {
+    width: 20px;
+    margin-right: 5px;
+
+}
+
+.trainerdash-footer-course-item {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.trainerdash-footer-course-item p {
+    width: 55px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.trainerdash-Course-Description {
+    color: rgba(0, 0, 0, 0.37);
+    margin-left: 0.4rem;
+}
+
+.trainerdash-Course-Title {
+    margin-left: 5px;
+}
+
+.trainerdash-Course-Description {
+    margin-left: 5px;
+}
+.trainerdash-Course-Title h2{
+    margin-top: 0px;
+}

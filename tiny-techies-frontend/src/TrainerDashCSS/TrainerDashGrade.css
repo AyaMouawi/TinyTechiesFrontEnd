@@ -1,0 +1,66 @@
+.dash-grades {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    width: 24rem;
+    height: 23rem;
+    background-image: url("../../public/Images/counter-bg.jpg");
+    color: #ffffff;
+    border-radius: 40px;
+    gap: 1rem;
+}
+
+.grades-input-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.grades-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.grades-input input[type="text"],
+textarea {
+    padding: 15px 40px;
+    border-radius: 1rem;
+    border: none;
+}
+
+.grades-input textarea {
+    resize: none;
+    width: 200px;
+}
+
+
+
+
+.grade-select {
+    color: #00C3C9;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+
+.grades-selected {
+    padding: 10px 8px;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: #00C3C9;
+}
+
+.grades-selecteds {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+}

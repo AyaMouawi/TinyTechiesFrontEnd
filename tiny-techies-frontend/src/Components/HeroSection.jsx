@@ -13,9 +13,9 @@ const HeroSection = () => {
                 <h4 className='HeroSection-Title'>welcome to tiny techies</h4>
                 <h1 className='HeroSection-Title'>better future for your kids</h1>
                 <p className='HeroSection-Description'>
-                  Consectetur adipiscing elit, sed do eiusmod tempor incididunt uit laborese eset
-                  dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Riesus commodo viverra
-                  maecenas accumsan lacus vel facilisis.
+                We nurture your child's natural curiosity and channel it towards the fascinating world 
+                of STEM (Science, Technology, Engineering, and Mathematics) Together, we're shaping the leaders and change-makers of tomorrow, 
+                building a better world for all..
                 </p>
                 <div className="HeroSection-btn">
                   <div className="HeroSection-main-btn">

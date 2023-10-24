@@ -12,7 +12,10 @@ const MyCoursesHero = () => {
         <div className="MyCoursesHeroDescription">
          <b className="MyCoursesHeroTitle">Congratulations On starting Your Courses</b>
             <h3 className="KeepLearning">KEEP LEARNING !! </h3>
-            <p>You Have 10 Courses And 3 Assignments</p>     
+            <p>Tiny Techies, your STEM adventure awaits! Dive into your courses, 
+              tackle those assignments, and unleash your inner scientist, techie, 
+              engineer, and math whiz. Each task is a step toward becoming a STEM hero. 
+              Let's rock this, Tiny Techy  ! <br/>    🚀💡🔬👨‍🔬👩‍💻</p>     
         </div>
 
     </div>

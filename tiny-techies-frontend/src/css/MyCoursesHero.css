@@ -1,8 +1,6 @@
 .MyCoursesHeroContainer{
     display: flex;
     justify-content: center;
-    padding-top: 5%;
-    background-color: rgba(176, 245, 247, 0.23);
     padding-top: 10%;
     height: 100%;
 

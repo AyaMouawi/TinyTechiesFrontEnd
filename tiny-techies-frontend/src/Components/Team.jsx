@@ -1,37 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import TrainerContainer from './TrainerContainer'
-import "../css/Team.css"
-
+import TrainerContainer from './TrainerContainer';
+import "../css/Team.css";
 
 function Team() {
+  const [trainers, setTrainers] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/trainers/getAllTrainers')
+      .then(response => {
+        setTrainers(response.data.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
       <img
         className={className}
-       
         onClick={onClick}
         src="Images/arrow-right-solid.svg"
       />
     );
   }
-  
+
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
       <img
         className={className}
-     
         onClick={onClick}
         src="Images/arrow-left-solid.svg"
       />
     );
   }
+
   var settings = {
-    dots:false,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
@@ -67,44 +78,18 @@ function Team() {
     ],
   };
 
-  return (          
-
-    <div  className="team-carousel">
-              
-               <h1 className="OurTrainers" >Our trainers</h1>
-          
-
-
-        
-
-            <Slider {...settings}>
-              
-           
-
-
-                <TrainerContainer/>
-              
-
-
-                <TrainerContainer/>
-
-
-                <TrainerContainer/>
-            
-
-            
-                <TrainerContainer/>
-
-
-                  
-                <TrainerContainer/>
-
-                  
-                <TrainerContainer/>
-
-              
-            </Slider>
-           
+  return (
+    <div className="team-carousel">
+      <h1 className="OurTrainers">Our trainers</h1>
+      <Slider {...settings}>
+        {trainers.map(trainer => (
+          <TrainerContainer
+            key={trainer.User_id}
+            TrainerName={trainer.UserFullName}
+            TrainerImage={trainer.TrainerImage}
+          />
+        ))}
+      </Slider>
     </div>
   );
 }
