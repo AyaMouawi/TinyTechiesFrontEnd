@@ -1,31 +1,85 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../TrainerDashCSS/TrainerDashGrade.css";
 
 const TrainerDashGrade = () => {
-  // this for selecting the course
   const [selectedCourse, setSelectedCourse] = useState("");
-  // for selecting student name
   const [selectedStudent, setSelectedStudent] = useState("");
-  // selecting grades
   const [selectedGrades, setSelectedGrades] = useState("");
+  const [courses, setCourses] = useState([]);
+  const [studentNames, setStudentNames] = useState([]);
+  const [selectedAssignment, setSelectedAssignment] = useState("");
+  const [assignmentNames, setAssignmentNames] = useState([]);
 
-  // courses array to get it from database later on
-  const courses = ["Course 1", "Course 2", "Course 3", "Course 4"];
-  // to handle the course chaning
+  useEffect(() => {
+
+    axios.get(`http://localhost:8000/courses/getCoursesByTrainerId/${localStorage.getItem('userId')}`)
+      .then((response) => {
+        const courseNames = response.data.data.map((course) => course.CourseName);
+        setCourses(courseNames);
+      })
+      .catch((error) => {
+        console.error("Error fetching course data: " + error);
+      });
+  }, []);
+
   const handleCourseChange = (event) => {
-    setSelectedCourse(event.target.value);
+    const selectedCourse = event.target.value;
+    setSelectedCourse(selectedCourse);
+
+   
+    axios.get(`http://localhost:8000/student/getByCourseName/${selectedCourse}`)
+      .then((response) => {
+        const studentNames = response.data.data.map((student) => student.UserFullName);
+        setStudentNames(studentNames);
+      })
+      .catch((error) => {
+        console.error("Error fetching student data: " + error);
+      });
+
+
+    axios.get(`http://localhost:8000/assignmentContent/getAssignmentByCourse/${selectedCourse}`)
+      .then((response) => {
+        const assignmentNames = response.data.data.map((assignment) => assignment.AssignmentName);
+        setAssignmentNames(assignmentNames);
+      })
+      .catch((error) => {
+        console.error("Error fetching assignment data: " + error);
+      });
   };
 
-  // array to get student name from data base later on
-  const studentNames = ["Mohamad", "Aya", "Alaa", "Marian"];
-  // handle change
+  const grades = ["A", "B", "C"];
+  
+  const handleGradeChange = (event) => {
+    setSelectedGrades(event.target.value);
+  };
+
+  const handleAssignmentChange = (event) => {
+    setSelectedAssignment(event.target.value);
+  };
+
   const handleStudentChange = (event) => {
     setSelectedStudent(event.target.value);
   };
-  // array to get student grades from database later
-  const grades = ["grade 1", "grade 2", " 3", " 4"];
-  const handleGradeChange = (event) => {
-    setSelectedGrades(event.target.value);
+
+  const handleViewAssignment = () => {
+    if (selectedStudent && selectedAssignment) {
+      const apiUrl = `http://localhost:8000/myAssignments/getAssignmentFile/${selectedStudent}/${selectedAssignment}`;
+    
+      console.log("API URL:", apiUrl);
+
+      axios.get(apiUrl)
+        .then((response) => {
+          const assignmentFileURL = response.data.data;
+          console.log("Fetched Assignment File URL:", assignmentFileURL);
+          window.open(assignmentFileURL, '_blank');
+        })
+        .catch((error) => {
+          console.error("Error fetching assignment file: " + error);
+        });
+    } else {
+      alert("Please select a student and assignment.");
+    }
   };
 
   return (
@@ -62,8 +116,23 @@ const TrainerDashGrade = () => {
             </select>
           </div>
           <div className='grades-input'>
-            <label htmlFor=''>Student Assignment</label>
-            <textarea name='' id=''></textarea>
+            <select
+              value={selectedAssignment}
+              onChange={handleAssignmentChange}
+              className='grade-select'
+            >
+              <option value=''>Assignment Name</option>
+              {assignmentNames.map((assignment, index) => (
+                <option key={index} value={assignment}>
+                  {assignment}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className='grades-input'>
+            <a href="#" onClick={handleViewAssignment}>
+              <div>Student Assignment</div>
+            </a>
           </div>
         </div>
         <div className='grades-selecteds'>
@@ -73,9 +142,9 @@ const TrainerDashGrade = () => {
             className='grades-selected'
           >
             <option value=''>Grades</option>
-            {grades.map((grades, index) => (
-              <option key={index} value={grades} className=' grades-option'>
-                {grades}
+            {grades.map((grade, index) => (
+              <option key={index} value={grade} className='grades-option'>
+                {grade}
               </option>
             ))}
           </select>
