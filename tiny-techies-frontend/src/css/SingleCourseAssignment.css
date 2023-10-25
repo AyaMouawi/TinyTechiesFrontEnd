@@ -57,7 +57,7 @@ body {
     
     border-radius: 20px;
     width: 450px;
-    height: 490px;
+    min-height: 490px;
     display: flex;
     flex-direction: column;
     justify-content: center;

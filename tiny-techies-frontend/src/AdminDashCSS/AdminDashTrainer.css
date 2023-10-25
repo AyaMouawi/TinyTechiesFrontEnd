@@ -1,0 +1,61 @@
+
+  
+  .Welcome-Trainer-Dashboard-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 25px;
+    }
+  .SubWelcome-Trainer-Dashboard-content p {
+   color: white;
+   font-size: x-large;
+   margin-left: 5px;
+   margin-right: 5px;
+   margin-bottom: 15px;
+  }
+  
+  .icon_stat_Dash {
+    width: 70%;
+    height: 70%;
+  }
+  
+  .SubWelcome-Trainer-Dashboard-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 15%; /* Adjusted to fill the entire screen height */
+    background-image: url("../../public/Images/counter-bg.jpg");
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: 20px; /* Adjust as needed */
+    margin-bottom: 20px; /* Adjust as needed */
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius:26px;
+  }
+ 
+  .SubWelcome-Trainer-Dashboard-container  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+ .image-section-dash{
+    width: 90px;
+    height:90px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  .third_Div{
+    width: 450px;
+  }

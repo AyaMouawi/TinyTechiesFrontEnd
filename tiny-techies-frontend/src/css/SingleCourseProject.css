@@ -22,7 +22,7 @@
     border-radius: 50px;
     background: #ffffff;
     width: 300px;
-    height: 350px;
+    min-height: 350px;
     margin-bottom: 10px;
 }
 
@@ -66,7 +66,7 @@
  
     border-radius: 20px;
     width: 450px;
-    height: 490px;
+    min-height: 490px;
     display: flex;
     flex-direction: column;
     justify-content: center;

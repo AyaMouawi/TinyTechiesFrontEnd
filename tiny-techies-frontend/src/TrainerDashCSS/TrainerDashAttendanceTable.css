@@ -1,4 +1,4 @@
-.table-attendance {
+.TrainerDashAttendancetable-attendance {
     background-image: url(/public/Images/counter-bg.jpg);
     width: 37rem;
     height: 29rem;
@@ -10,7 +10,7 @@
     padding-bottom: 1rem;
 }
 
-.attendance-table-title {
+.TrainerDashAttendance-table-title {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,14 +19,14 @@
     font-size: 1.5rem;
 }
 
-.table {
+.TrainerDashAttendancetable {
     width: 30rem;
 
     border-radius: 20px;
     background: white;
 }
 
-tr {
+.TrainerDashAttendanceTR {
     display: flex;
     justify-content: space-around;
     align-items: center;

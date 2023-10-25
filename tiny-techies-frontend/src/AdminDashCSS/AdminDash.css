@@ -1,0 +1,388 @@
+
+.transitionbtns {
+    gap: 20px;
+    display: flex;
+    justify-content: center;}
+    .AdminDashMainContainer {
+        width: 72vw;}
+        .Admindash-toggle-center {
+            display: grid;
+            place-items: center;
+        }
+.mainbuttons{
+    padding: 10px 20px 10px 20px;
+    border-radius: 80px 80px;
+    width: initial;
+    background: rgb(204,248,250);
+    display: flex;
+    color: rgb(54,209,214);
+    font-size: 24px;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+
+.mainbuttons:hover{
+    color: black;
+}
+
+.cardiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.bgcard{
+    scale: 0.8;
+    width: 70%; 
+    height: 600px;
+    background-image: url('../../public/Images/counter-bg.jpg'); 
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 80px 80px;
+}
+.bgcardcourses{
+    padding:0.7rem;
+    margin-top: 4rem;
+
+    width: 80%; 
+    /* height: 200%; */
+    background-image: url('../../public/Images/counter-bg.jpg'); 
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 80px 80px;
+}
+.inputsdivcourses{
+    width: 95%; 
+    height: fit-content;
+background: white; 
+border-radius: 80px 80px;
+display: flex;
+    flex-direction: column;
+    align-items: left;
+    /* justify-content: center;
+    text-align: center; */
+
+}
+
+.inputsdiv{
+    scale: 0.95;
+    width: 90%;
+    height: 500px;
+    background: white;
+    border-radius: 80px 80px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inputfield{
+    border: none;
+    background: none;
+    outline: none;
+    /* padding: 3%; */
+    margin: 2%;
+    width: 60%;
+    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
+    color: black;
+    font-size: 24px;
+}
+
+.buttons1{
+    border-radius: 10px 10px;
+    width: 60%;
+    height: 40px;
+    background: rgb(204,248,250);
+    display: flex;
+    color: rgb(54,209,214);
+    font-size: 24px;
+    justify-content: center;
+    cursor: pointer;
+border: none;
+margin-left: 20%;
+
+}
+.date{
+    font-size: 24px;
+    margin-left: 2%;
+}
+.inputfield1{
+    border: none;
+        background: none;
+        outline: none;
+        margin: 2%;
+        width: 50%;
+        border-bottom: 1px solid black;
+        border-bottom: 2px solid black;
+        color: black;
+        font-size: 16px;
+        height: fit-content;
+}
+
+.buttons2{
+    border-radius: 10px 10px;
+    width: 60%;
+    height: 40px;
+    background: rgb(204,248,250);
+    display: flex;
+    color: rgb(54,209,214);
+    font-size: 24px;
+    justify-content: center;
+    cursor: pointer;
+border: none;
+margin-left: 20%;
+
+}
+.buttons1:hover{
+    color: black;
+}
+
+.buttons2:hover{
+    color: black;
+}
+.addcoursebutton{
+   
+    border-radius: 10px 10px;
+    width: 300px;
+    height: 40px;
+    background: rgb(204,248,250);
+    display: flex;
+    color: rgb(54,209,214);
+    font-size: 24px;
+    justify-content: center;
+    cursor: pointer;
+border: none;
+margin: 0 auto;
+margin-top: 1rem;
+}
+.addcoursebutton:hover{
+    color: black;
+}
+.buttons2,.addcoursebutton{
+    margin-bottom: 2%;
+}
+.checkbox{
+    font-size: 24px;
+    margin-right: 18%;
+    width: 30px;
+    height: 30px;
+}
+.checkbox,.buttons1{
+    margin-bottom: 1%;
+}
+.buttons1,.buttons2{
+    margin-bottom: 0px;
+}
+.project1edit{
+    width: 100%;
+    height:70px;
+    background-color: rgb(126, 213, 215);
+    display: flex;
+    flex-direction: row;
+}
+.pjname{
+    flex:1;
+    background-color: rgb(126, 213, 215);
+    
+}
+.editicon{
+    flex: 1;
+}
+.deleteicon{
+    flex:1
+}
+.Adminfile-uploadfile-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Adminfile-upload label {
+    margin-bottom: 5px;
+    font-size: xx-large;
+}
+.AdminFileInputs{
+    padding: 0 3rem;
+    display: flex;
+}
+.AdminFile{
+    font-size: larger;
+    width: -webkit-fill-available;
+}
+.tbcourse >tr>td {
+    border: 2px solid black !important;
+   
+}
+.tbcourse >tr >th {
+    border: 2px solid black !important;
+}
+
+@media screen and (max-width: 900px) {
+    .buttons1{
+        border-radius: 10px 10px;
+        width: 150px;
+        height: 40px;
+        background: rgb(204,248,250);
+        display: flex;
+        color: rgb(54,209,214);
+        font-size: 20px;
+        justify-content: center;
+        cursor: pointer;
+    border: none;
+    margin-left: 20%;
+    
+    }
+    
+    .buttons2{
+        border-radius: 10px 10px;
+        width: 150px;
+        height: 40px;
+        background: rgb(204,248,250);
+        display: flex;
+        color: rgb(54,209,214);
+        font-size: 20px;
+        justify-content: center;
+        cursor: pointer;
+    border: none;
+    margin-left: 20%;
+    
+    }
+    
+    .addcoursebutton{
+        border-radius: 10px 10px;
+        width: 200px;
+        height: 40px;
+        background: rgb(204,248,250);
+        display: flex;
+        color: rgb(54,209,214);
+        font-size: 20px;
+        justify-content: center;
+        cursor: pointer;
+    border: none;
+    margin-left: 35%;
+    }
+    .checkbox{
+        font-size: 20px;
+        margin-right: 12%;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .buttons1{
+        border-radius: 10px 10px;
+        width: 150px;
+        height: 40px;
+        background: rgb(204,248,250);
+        display: flex;
+        color: rgb(54,209,214);
+        font-size: 20px;
+        justify-content: center;
+        cursor: pointer;
+    border: none;
+    margin-left: 20%;
+    
+    }
+    
+    .buttons2{
+        border-radius: 10px 10px;
+        width: 150px;
+        height: 40px;
+        background: rgb(204,248,250);
+        display: flex;
+        color: rgb(54,209,214);
+        font-size: 20px;
+        justify-content: center;
+        cursor: pointer;
+    border: none;
+    margin-left: 20%;
+    
+    }
+    
+    .addcoursebutton{
+        border-radius: 10px 10px;
+        width: 150px;
+        height: 40px;
+        background: rgb(204,248,250);
+        display: flex;
+        color: rgb(54,209,214);
+        font-size: 20px;
+        justify-content: center;
+        cursor: pointer;
+    border: none;
+    margin-left: 20%;
+    }
+    .checkbox{
+        font-size: 16px;
+        /* margin-right: 5%; */
+        width: 20px;
+        height: 20px;
+    }
+    .inputfield{
+        border: none;
+        background: none;
+        outline: none;
+        margin: 2%;
+        width: 60%;
+        border-bottom: 1px solid black;
+        border-bottom: 2px solid black;
+        color: black;
+        font-size: 16px;
+        height: fit-content;
+    }
+    .inputsdiv{
+        width: 90%; 
+        height: 450px;
+    background: white; 
+    border-radius: 80px 80px;
+    display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+        text-align: center;
+    
+    }
+    .bgcard{
+        width: 70%; 
+        height: 500px;
+        background-image: url('../../public/Images/counter-bg.jpg'); 
+        background-size: cover; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 80px 80px;
+    }
+    .mainbuttons{
+        border-radius: 80px 80px;
+        width: 100px;
+        height: 40px;
+        background: rgb(204,248,250);
+        display: flex;
+        color: rgb(54,209,214);
+        font-size: 16px;
+        justify-content: center;
+        cursor: pointer;
+    border: none;
+    
+    }
+}
+
+.imgedit{
+    width:30px;
+    height: 30px;
+}

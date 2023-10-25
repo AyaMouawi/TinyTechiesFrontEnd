@@ -79,10 +79,10 @@ const AssignmentCard = ({
           </div>
 
           <div className="d-flex justify-content-evenly">
-            <button className="btn" onClick={handleChooseFileClick}>
+            <button className="btnSingleCourse" onClick={handleChooseFileClick}>
               Choose File
             </button>
-            <button className="btn"  onClick={SubmitFileSelected}>Submit</button>
+            <button className="btnSingleCourse"  onClick={SubmitFileSelected}>Submit</button>
           </div>
 
           {/* Hidden file input element */}

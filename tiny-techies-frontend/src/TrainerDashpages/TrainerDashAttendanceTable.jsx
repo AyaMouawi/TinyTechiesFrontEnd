@@ -2,13 +2,13 @@ import React from "react";
 import "../TrainerDashCSS/TrainerDashAttendanceTable.css";
 const TrainerDashAttendanceTable = ({StudentName}) => {
   return (
-    <div className='table-attendance'>
-      <div className='attendance-table-title'>
+    <div className='TrainerDashAttendancetable-attendance'>
+      <div className='TrainerDashAttendance-table-title'>
         <h4>Student</h4>
         <h4> Attendance</h4>
       </div>
-      <table className='table'>
-        <tr>
+      <table className='TrainerDashAttendancetable'>
+        <tr className="TrainerDashAttendanceTR">
           <td>{StudentName}</td>
           <td>
             <input type='checkbox' value='check' />
