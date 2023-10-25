@@ -1,7 +1,6 @@
 import React from "react";
-
 import "../TrainerDashCSS/TrainerDashAttendanceTable.css";
-const TrainerDashAttendanceTable = () => {
+const TrainerDashAttendanceTable = ({StudentName}) => {
   return (
     <div className='table-attendance'>
       <div className='attendance-table-title'>
@@ -10,51 +9,9 @@ const TrainerDashAttendanceTable = () => {
       </div>
       <table className='table'>
         <tr>
-          <td>student Name</td>
+          <td>{StudentName}</td>
           <td>
             <input type='checkbox' value='check' />
-          </td>
-        </tr>
-        <tr>
-          <td>student Name</td>
-          <td>
-            <input type='checkbox' value='check' />
-          </td>
-        </tr>
-        <tr>
-          <td>student Name</td>
-          <td>
-            <input type='checkbox' value='check' />
-          </td>
-        </tr>
-        <tr>
-          <td>student Name</td>
-          <td>
-            <input type='checkbox' value='check' />
-          </td>
-        </tr>
-        <tr>
-          <td>student Name</td>
-          <td>
-            <input type='checkbox' value='check' />
-          </td>
-        </tr>
-        <tr>
-          <td>student Name</td>
-          <td>
-            <input type='checkbox' value='check' />
-          </td>
-        </tr>
-        <tr>
-          <td>student Name</td>
-          <td>
-            <input type='checkbox' name='check' value='check' />
-          </td>
-        </tr>
-        <tr>
-          <td>student Name</td>
-          <td>
-            <input type='checkbox' name='check' value='check' />
           </td>
         </tr>
       </table>

@@ -16,14 +16,14 @@ const TrainerDashGrade = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/courses/getCoursesByTrainerId/${localStorage.getItem('userId')}`)
+    axios.get(`http://localhost:8000/courses/getCoursesByTrainerId/${localStorage.getItem('userId')}`)
       .then((response) => {
         const courseNames = response.data.data.map((course) => course.CourseName);
         setCourses(courseNames);
       })
       .catch((error) => {
         console.error("Error fetching course data: " + error);
+        setError(error);
       });
   }, []);
 
@@ -31,24 +31,24 @@ const TrainerDashGrade = () => {
     const selectedCourse = event.target.value;
     setSelectedCourse(selectedCourse);
 
-    axios
-      .get(`http://localhost:8000/student/getByCourseName/${selectedCourse}`)
+    axios.get(`http://localhost:8000/student/getByCourseName/${selectedCourse}`)
       .then((response) => {
         const studentNames = response.data.data.map((student) => student.UserFullName);
         setStudentNames(studentNames);
       })
       .catch((error) => {
         console.error("Error fetching student data: " + error);
+        setError(error);
       });
 
-    axios
-      .get(`http://localhost:8000/assignmentContent/getAssignmentByCourse/${selectedCourse}`)
+    axios.get(`http://localhost:8000/assignmentContent/getAssignmentByCourse/${selectedCourse}`)
       .then((response) => {
         const assignmentNames = response.data.data.map((assignment) => assignment.AssignmentName);
         setAssignmentNames(assignmentNames);
       })
       .catch((error) => {
         console.error("Error fetching assignment data: " + error);
+        setError(error);
       });
   };
 
@@ -77,104 +77,104 @@ const TrainerDashGrade = () => {
         })
         .catch((error) => {
           toast.error("Error adding grade: " + error);
+          setError(error);
         });
-      } else {
-        toast.error("Please select Assignment, Student, and Grade.");
-      }
-    };
+    } else {
+      toast.error("Please select Assignment, Student, and Grade.");
+    }
+  };
 
-    useEffect(() => {
-      if (selectedStudent && selectedAssignment) {
-        const apiUrl = `http://localhost:8000/myAssignments/getAssignmentFile/${selectedStudent}/${selectedAssignment}`;
+  useEffect(() => {
+    if (selectedStudent && selectedAssignment) {
+      const apiUrl = `http://localhost:8000/myAssignments/getAssignmentFile/${selectedStudent}/${selectedAssignment}`;
 
-        axios
-          .get(apiUrl)
-          .then((response) => {
-            const assignmentFileURL = response.data.data;
-            console.log("Fetched Assignment File URL:", assignmentFileURL);
-            setAssignmentFileURL(assignmentFileURL);
-          })
-          .catch((error) => {
-            console.error("Error fetching assignment file: " + error);
-            setError(error);
-          });
-      }
-    }, [selectedStudent, selectedAssignment]);
+      axios.get(apiUrl)
+        .then((response) => {
+          const assignmentFileURL = response.data.data;
+          console.log("Fetched Assignment File URL:", assignmentFileURL);
+          setAssignmentFileURL(assignmentFileURL);
+        })
+        .catch((error) => {
+          console.error("Error fetching assignment file: " + error);
+          setError(error);
+        });
+    }
+  }, [selectedStudent, selectedAssignment]);
 
-    return (
-      <div>
-        <div className="dash-grades">
-          <h2 className="grade-title">Student Grades</h2>
-          <div className="grades-input-list">
-            <div className="grades-input">
-              <select
-                value={selectedCourse}
-                onChange={handleCourseChange}
-                className="grade-select"
-              >
-                <option value="">Your Course</option>
-                {courses.map((course, index) => (
-                  <option key={index} value={course}>
-                    {course}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="grades-input">
-              <select
-                value={selectedStudent}
-                onChange={handleStudentChange}
-                className="grade-select"
-              >
-                <option value="">Student Name</option>
-                {studentNames.map((name, index) => (
-                  <option key={index} value={name}>
-                    {name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="grades-input">
-              <select
-                value={selectedAssignment}
-                onChange={handleAssignmentChange}
-                className="grade-select"
-              >
-                <option value="">Assignment Name</option>
-                {assignmentNames.map((assignment, index) => (
-                  <option key={index} value={assignment}>
-                    {assignment}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="grades-input">
-              <a href={assignmentFileURL} target="_blank">
-                <div>Student Assignment</div>
-              </a>
-            </div>
-          </div>
-          <div className="grades-selecteds">
+  return (
+    <div>
+      <div className="dash-grades">
+        <h2 className="grade-title">Student Grades</h2>
+        <div className="grades-input-list">
+          <div className="grades-input">
             <select
-              value={selectedGrades}
-              onChange={handleGradeChange}
-              className="grades-selected"
+              value={selectedCourse}
+              onChange={handleCourseChange}
+              className="grade-select"
             >
-              <option value="">Grades</option>
-              {grades.map((grade, index) => (
-                <option key={index} value={grade} className="grades-option">
-                  {grade}
+              <option value="">Your Course</option>
+              {courses.map((course, index) => (
+                <option key={index} value={course}>
+                  {course}
                 </option>
               ))}
             </select>
           </div>
-          <div className="GradeBtnContainer">
-            <button onClick={handleGradeUpdate}>Update Grade</button>
+          <div className="grades-input">
+            <select
+              value={selectedStudent}
+              onChange={handleStudentChange}
+              className="grade-select"
+            >
+              <option value="">Student Name</option>
+              {studentNames.map((name, index) => (
+                <option key={index} value={name}>
+                  {name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="grades-input">
+            <select
+              value={selectedAssignment}
+              onChange={handleAssignmentChange}
+              className="grade-select"
+            >
+              <option value="">Assignment Name</option>
+              {assignmentNames.map((assignment, index) => (
+                <option key={index} value={assignment}>
+                  {assignment}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="grades-input">
+            <a href={assignmentFileURL} target="_blank">
+              <div>Student Assignment</div>
+            </a>
           </div>
         </div>
-        <ToastContainer />
+        <div className="grades-selecteds">
+          <select
+            value={selectedGrades}
+            onChange={handleGradeChange}
+            className="grades-selected"
+          >
+            <option value="">Grades</option>
+            {grades.map((grade, index) => (
+              <option key={index} value={grade} className="grades-option">
+                {grade}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="GradeBtnContainer">
+          <button onClick={handleGradeUpdate}>Update Grade</button>
+        </div>
       </div>
-    );
-  };
+      <ToastContainer />
+    </div>
+  );
+};
 
-  export default TrainerDashGrade;
+export default TrainerDashGrade;

@@ -1,6 +1,6 @@
 import React from "react";
 import "../TrainerDashCSS/TrainerDashcourse.css";
-const TrainerDashCourses = () => {
+const TrainerDashCourses = ({CourseName, CourseDesc, StudentCount, Duration}) => {
   return (
  
     <div className='trainerdash-course-container'>
@@ -9,12 +9,11 @@ const TrainerDashCourses = () => {
       </div>
       <div className='trainerdash-course-details'>
         <div className='trainerdash-Course-Title'>
-          <h2>Course Name</h2>
+          <h4>{CourseName}</h4>
         </div>
         <div className='trainerdash-Course-Description'>
           <p>
-            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua.
+            {CourseDesc}
           </p>
         </div>
         <hr className='trainerdash-Horizontal-Course' />
@@ -26,7 +25,7 @@ const TrainerDashCourses = () => {
               className='trainerdash-CourseFooterImage'
               alt=''
             />
-            <p>20 Students</p>
+            <p>{StudentCount}</p>
           </div>
           <div className='trainerdash-footer-course-item'>
             <img
@@ -34,7 +33,7 @@ const TrainerDashCourses = () => {
               className='trainerdash-CourseFooterImage'
               alt=''
             />
-            <p>From 2 July To 12 July</p>
+            <p>{Duration}</p>
           </div>
         </div>
       </div>
