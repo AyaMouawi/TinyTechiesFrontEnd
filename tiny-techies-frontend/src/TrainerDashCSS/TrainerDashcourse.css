@@ -1,4 +1,8 @@
-.trainerdash-course-container {
+.trainerdash-course-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.trainerdash {
     border: 1px black solid;
     display: flex;
     flex-direction: column;
@@ -12,6 +16,7 @@
     margin-bottom: 30px;
     margin-right: 0.1rem;
     padding-bottom: 0.2rem;
+   
 }
 .TrainerDashCoursesContainer {
     display: flex;

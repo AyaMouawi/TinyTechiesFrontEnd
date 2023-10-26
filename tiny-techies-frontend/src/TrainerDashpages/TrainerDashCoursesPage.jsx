@@ -6,11 +6,6 @@ const TrainerDashCoursesPage = () => {
   <div className="TrainerDashMainContainer">
     <div className="TrainerDashCoursesContainer">
     <TrainerDashCourses />
-    <TrainerDashCourses />
-    <TrainerDashCourses />
-    <TrainerDashCourses />
-    <TrainerDashCourses />
-  
     </div>
     </div>
   );
