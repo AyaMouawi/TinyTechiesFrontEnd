@@ -1,17 +1,28 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import TrainerDashCoursesPage from "../TrainerDashpages/TrainerDashCoursesPage.jsx";
 import TrainerDashAttendance from "../TrainerDashpages/TrainerDashAttendance.jsx";
 import TrainerDashWelcome from "../TrainerDashpages/TrainerDashWelcome.jsx";
 import TrainerDashAssignment from "../TrainerDashpages/TrainerDashToggles.jsx";
 
+
 import "../TrainerDashCSS/TrainerDashboard.css";
 const TrainerDashboardButtons = () => {
   const [activePage, setActivePage] = useState("TrainerDashWelcome");
+  const navigate = useNavigate();
 
   const handleMenuClick = (page) => {
     setActivePage(page);
   };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/');
+  };
+
+
+
   return (
     <div className='SideBarContainer'>
       <div className='SideBarButtons'>
@@ -50,7 +61,8 @@ const TrainerDashboardButtons = () => {
         </div>
         </a>
         <a className="PagesLink"
-           href='#' >
+           href='#'
+           onClick={handleLogout} >
         <div className='SideBarButton SideBarButtonLogout'>
          <img src="Images/right-from-bracket-solid.svg" alt="" />
             Logout

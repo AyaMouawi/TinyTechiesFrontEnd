@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import TrainerDashAssignment from "./TrainerDashAssignment";
 import TrainerDashGrade from "./TrainerDashGrade";
-// css
 import "../TrainerDashCSS/TrainerDashToggle.css";
 const TrainerDashToggles = () => {
   const [assignment, setAssignment] = useState(false);

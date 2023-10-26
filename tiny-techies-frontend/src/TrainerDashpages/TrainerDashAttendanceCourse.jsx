@@ -1,11 +1,24 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../TrainerDashCSS/TrainerDashAttendanceCourse.css";
 
 const TrainerDashAttendanceCourse = () => {
   const [selectedCourse, setSelectedCourse] = useState("");
+  const [courses, setCourses] = useState([]);
 
-  const courses = ["Course 1", "Course 2", "Course 3", "Course 4"];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/courses/getCoursesByTrainerId/${localStorage.getItem('userId')}`);
+        setCourses(response.data.data);
+      } catch (error) {
+        console.error("Error fetching course data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleCourseChange = (event) => {
     setSelectedCourse(event.target.value);
   };
@@ -20,8 +33,8 @@ const TrainerDashAttendanceCourse = () => {
         >
           <option value=''>Your Course</option>
           {courses.map((course, index) => (
-            <option key={index} value={course}>
-              {course}
+            <option key={index} value={course.Course_id}>
+              {course.CourseName}
             </option>
           ))}
         </select>

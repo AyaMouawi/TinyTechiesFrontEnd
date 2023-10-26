@@ -1,0 +1,63 @@
+
+.AdminDashSideBarSubContainer{
+    width: 20vw;
+    height: 150vh; /* Adjusted to fill the entire screen height */
+    background-image: url("../../public/Images/counter-bg.jpg");
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.AdminDashSideBarContainer{
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+justify-content: flex-start;
+height: 100%;
+}
+.AdminDashTinyTechiesImg{
+    margin: 0 auto;
+    width: 40%;
+ 
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.AdminDashChildrenImgg{
+    width: 76%;
+    
+}
+.AdminDashSideBarButton{
+    
+    width: 80%;
+    text-align: center;
+    height: 40px;
+    border-radius: 26px;
+    border: none;
+    background-color: #5dcedc;
+    font-size: 1.7rem;
+    margin: 10px auto; 
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+}
+.AdminDashSideBarButton a{
+    color: white;
+    text-decoration: none;
+}
+.AdminDashSideBarSubContainer p{
+    color: white;
+    font-size: x-large;
+    align-self: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.AdminDashSideBarSubContainer button:nth-child(3){
+    margin-top: 40px;
+}
+
+      

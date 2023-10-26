@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../css/Login.css';
 import NavBar from './NavBar';
-import { Link, Navigate } from 'react-router-dom'; 
+import {  Navigate } from 'react-router-dom'; 
 import axios from "axios";
 
 
@@ -168,7 +168,7 @@ function Login() {
 
       {userRole === 'Student' && <Navigate to="/" replace={true} />}
       {userRole === 'Trainer' && <Navigate to="/TrainerDashboard" replace={true} />}
-      {userRole === 'Admin' && <Navigate to="/MyCoursesPage" replace={true} />}
+      {userRole === 'Admin' && <Navigate to="/AdminDashboard" replace={true} />}
     </div>
   );
 }

@@ -15,7 +15,7 @@ const SingleNav = () => {
           <div className="NavBar-header-inner">
             <div className="NavBar-brand-logo">
               <a href="/">
-                <img className='Navbar-Logo' src="Images/BookTinyTechiesLogo.png" alt="" />
+                <img className='Navbar-Logo' src="../Images/BookTinyTechiesLogo.png" alt="" />
 
               </a>
              
@@ -42,7 +42,7 @@ const SingleNav = () => {
                 <li>
                 <a href="/login">
               
-              <img className='LoginLogo inside' src="Images/users-solid.svg" alt="" />
+              <img className='LoginLogo inside' src="../Images/users-solid.svg" alt="" />
                 
               </a>
                 </li>
@@ -57,7 +57,7 @@ const SingleNav = () => {
             <div className="NavBar-brand-logo outside">
               <a href="/login">
               
-              <img className='LoginLogo' src="Images/users-solid.svg" alt="" />
+              <img className='LoginLogo' src="../Images/users-solid.svg" alt="" />
                 
               </a>
          

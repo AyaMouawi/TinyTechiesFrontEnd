@@ -13,10 +13,22 @@
   
 }
 
+.ProjectShowCheckbox{
+    display: flex;
+    margin-left: 1rem;
+}
+.ProjectInputCheckbox{
+    margin: 0 0 3% 3%;
+}
 .card-des p {
     overflow-y: hidden;
 }
-
+.AdminprojectWrap{
+    display: flex;
+    width: 79vw;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .remarkable-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -28,7 +40,7 @@
     border-radius: 50px;
     background: rgba(176, 245, 247, 0.23);
     width: 390px;
-    height: 400px;
+    min-height: 400px;
     max-width: 100%;
     margin-bottom: 10%;
     border: 1px solid slategray;
@@ -39,7 +51,7 @@
     border-radius: 50px;
     background: rgb(255, 255, 255);
     width: 390px;
-    height: 400px;
+    min-height: 400px;
     max-width: 100%;
     margin-bottom: 10%;
    
