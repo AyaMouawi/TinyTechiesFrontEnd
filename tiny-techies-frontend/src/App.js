@@ -8,8 +8,13 @@ import MyCoursesPage from "./Components/MyCoursesPage"
 import TrainerDashboard from "./Components/TrainerDashboard"
 import AdminDashboard from './Components/AdminDashboard';
 
+
+
 function App() {
-  return (
+  return ( 
+   
+  
+
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<Login />} />
@@ -18,7 +23,7 @@ function App() {
       <Route path="/MyCoursesPage" element={<MyCoursesPage />} />
       <Route path="/TrainerDashboard" element={<TrainerDashboard />} />
      <Route path="/AdminDashboard" element={<AdminDashboard />} /> 
-    </Routes>
+    </Routes> 
   );
 }
 

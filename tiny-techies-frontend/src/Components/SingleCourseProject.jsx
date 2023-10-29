@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import '../css/SingleCourseProject.css';
 import '../css/SingleCourseResponsive.css';
 
+
 function SingleCourseProject() {
   const {CourseId } = useParams();
   const [modal, setModal] = useState(false);
@@ -20,7 +21,9 @@ function SingleCourseProject() {
       .then(response => {
         const data = response.data.data;
         setProjects(data);
+     
       })
+      
       .catch(error => {
         console.error('Error fetching data:', error);
       });
@@ -58,6 +61,7 @@ function SingleCourseProject() {
           />
         ))}
       </div>
+  
     </div>
   );
 }

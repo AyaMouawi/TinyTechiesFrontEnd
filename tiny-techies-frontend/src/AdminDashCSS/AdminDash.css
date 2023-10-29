@@ -36,6 +36,7 @@
 }
 
 .bgcard{
+    margin-top: -5%;
     scale: 0.8;
     width: 70%; 
     height: 600px;
@@ -52,7 +53,7 @@
     padding:0.7rem;
     margin-top: 4rem;
 
-    width: 80%; 
+ 
     /* height: 200%; */
     background-image: url('../../public/Images/counter-bg.jpg'); 
     background-size: cover; 
@@ -78,8 +79,8 @@ display: flex;
 
 .inputsdiv{
     scale: 0.95;
-    width: 90%;
-    height: 500px;
+    width: 95%;
+    height: initial;
     background: white;
     border-radius: 80px 80px;
     display: flex;

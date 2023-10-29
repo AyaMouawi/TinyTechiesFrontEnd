@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import SingleCourseHero from "./SingleCourseHero";
 import SingleCourseAssignment from "./SingleCourseAssignment";
 import SingleCourseProject from "./SingleCourseProject";
+
 import SingleNav from "./SingleNav";
 
 function SingleCoursePage() {

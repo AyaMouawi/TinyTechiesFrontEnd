@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/remarkableSection.css";
 
+
 const SingleProjectCard = ({StudentImage, StudentName, ProjectName, ProjectDesc, StudentProject, ProjectUrl}) => {
   return (
     <div className='Project-card'>

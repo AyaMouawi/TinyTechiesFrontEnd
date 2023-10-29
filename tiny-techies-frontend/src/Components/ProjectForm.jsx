@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useParams } from "react-router-dom";
 
@@ -24,7 +24,7 @@ const ProjectForm = () => {
     formData.append("Course_id", CourseId);
     formData.append("ProjectName", formState.ProjectName);
     formData.append("ProjectDescription", formState.ProjectDescription);
-    formData.append("ShowProject", formState.ProjectVideo ? 1 : 0);
+    formData.append("ShowProject", 0);
 
     if (formState.StudentImage) {
       formData.append("image", formState.StudentImage);
@@ -55,6 +55,7 @@ const ProjectForm = () => {
         ProjectDescription: "",
       });
 
+      toast.success("Great Job Buddy");
       setSuccessMessage("Thank you! Data added successfully.");
 
       setTimeout(() => {
@@ -135,6 +136,7 @@ const ProjectForm = () => {
       {successMessage && (
         <div className="success-message">{successMessage}</div>
       )}
+       <ToastContainer />
     </div>
   );
 };

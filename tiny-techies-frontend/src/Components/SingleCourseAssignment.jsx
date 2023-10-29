@@ -75,10 +75,5 @@ const SingleCourseAssignment = () => {
   );
 };
 
-function formatDueDate(dueDate) {
-  const date = new Date(dueDate);
-  const options = { day: 'numeric', month: 'short' };
-  return date.toLocaleDateString('en-US', options);
-}
 
 export default SingleCourseAssignment;

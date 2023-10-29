@@ -46,6 +46,9 @@
     border: 1px solid slategray;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+.AdminCard{
+    margin-bottom: 6% !important;
+}
 
 .Project-card{
     border-radius: 50px;

@@ -1,15 +1,9 @@
 import React, { useRef, useState } from "react";
 import axios from 'axios'; 
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const AssignmentCard = ({
-  AssignmentName,
-  AssignmentDesc,
-  FileUrl,
-  ZoomUrl,
-  ZoomDate,
-  DueDate,
-  AssignmentID,
-}) => {
+const AssignmentCard = ({ AssignmentName, AssignmentDesc,FileUrl, ZoomUrl, ZoomDate, DueDate, AssignmentID,}) => {
   const fileInputRef = useRef(null);
   const [selectedFile, setSelectedFile] = useState('');
   const handleChooseFileClick = () => {
@@ -39,7 +33,7 @@ const AssignmentCard = ({
         },
       });
 
-    
+      toast.success("Great Job Buddy");
       console.log(response.data);
 
     } catch (error) {
@@ -94,6 +88,7 @@ const AssignmentCard = ({
           />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

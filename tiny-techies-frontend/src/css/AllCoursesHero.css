@@ -33,6 +33,7 @@
     .AllCoursesHeroContainer {
         display: flex;
         
+        
         flex-direction: column;
     }
         .AllCoursesHeroImage {
@@ -45,5 +46,10 @@
         
         width: initial;
         padding-top: 5%;
+    }
+
+    .AllCoursesHeroContainer{
+        margin-top: 25%;
+        margin-bottom: 50%;
     }
       }
