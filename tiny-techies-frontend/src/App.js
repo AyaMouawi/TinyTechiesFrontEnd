@@ -7,6 +7,7 @@ import CoursesPage from "./Components/CoursesPage"
 import MyCoursesPage from "./Components/MyCoursesPage"
 import TrainerDashboard from "./Components/TrainerDashboard"
 import AdminDashboard from './Components/AdminDashboard';
+import PageNotFound from './Components/PageNotFound';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/MyCoursesPage" element={<MyCoursesPage />} />
       <Route path="/TrainerDashboard" element={<TrainerDashboard />} />
      <Route path="/AdminDashboard" element={<AdminDashboard />} /> 
+     <Route path='*' element={<PageNotFound/>}/>
     </Routes>
   );
 }
