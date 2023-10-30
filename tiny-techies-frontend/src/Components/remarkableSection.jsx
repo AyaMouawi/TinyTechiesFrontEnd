@@ -5,7 +5,9 @@ import RemarkableProject from './RemarkableProject';
 const RemarkableSection = () => {
   const [projects, setProjects] = useState([]);
 
+
   useEffect(() => {
+    console.log(process.env.REACT_APP_API_URL);
     axios.get(`${process.env.REACT_APP_API_URL}/projects/getRemarkableProjects`)
       .then((response) => {
         setProjects(response.data.data);

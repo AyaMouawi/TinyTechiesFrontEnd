@@ -7,7 +7,9 @@ import CoursesPage from './Components/CoursesPage';
 import MyCoursesPage from './Components/MyCoursesPage';
 import TrainerDashboard from './Components/TrainerDashboard';
 import AdminDashboard from './Components/AdminDashboard';
+import PageNotFound from './Components/PageNotFound';
 import PrivateRoute from './PrivateRoute';
+import NoAccess from './Components/NoAccess';
 
 function App() {
   return (
@@ -17,13 +19,17 @@ function App() {
       <Route path="/SingleCoursePage/:CourseId" element={<SingleCoursePage/>} />
       <Route path="/CoursesPage" element={<CoursesPage/>} />
       <Route path="/MyCoursesPage" element={<MyCoursesPage/>} />
+      <Route path='/NotAuth' element={<NoAccess/>}/>
+      <Route path='*' element={<PageNotFound/>}/>
+
       <Route
         path="/TrainerDashboard"
-        element={<PrivateRoute component={<TrainerDashboard/>} allowedRoles={['Trainer']} fallbackPath="/login" />}
+        element={<PrivateRoute element={<TrainerDashboard/>} allowedRoles={'Trainer'} fallbackPath="/NotAuth" />}
+  
       />
       <Route
         path="/AdminDashboard"
-        element={<PrivateRoute component={<AdminDashboard/>} allowedRoles={['Admin']} fallbackPath="/login" />}
+        element={<PrivateRoute element={<AdminDashboard/>} allowedRoles={'Admin'} fallbackPath="/NotAuth" />}
       />
     </Routes>
   );

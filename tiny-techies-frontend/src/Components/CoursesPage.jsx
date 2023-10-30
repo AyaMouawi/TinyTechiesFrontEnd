@@ -9,8 +9,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
-  const [searchCourseName, setSearchCourseName] = useState("");
-  const [foundCourse, setFoundCourse] = useState(null);
   const [modal, setModal] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [successMessageModal, setSuccessMessageModal] = useState(false);
@@ -57,25 +55,25 @@ const CoursesPage = () => {
   };
 
   function handleCourseRegistration(course) {
-    // Check if the user is logged in
+ 
     const userId = localStorage.getItem('userId');
     if (!userId) {
       setLoginRequiredModal(true);
       return;
     }
 
-    // Check if the user has the role of a student
+  
     const userRole = localStorage.getItem('userRole');
     if (userRole !== 'Student') {
       setStudentRoleRequiredModal(true);
       return;
     }
 
-    // If the user is logged in and is a student, open the registration modal
+  
     openModal(course);
   }
 
-  // Function to close the success message modal
+
   const closeSuccessModal = () => {
     setSuccessMessageModal(false);
   };
