@@ -15,7 +15,7 @@ const SingleCourseAssignment = () => {
 
   useEffect(() => {
    
-    axios.get(`http://localhost:8000/myAssignments/get/${CourseId}/${localStorage.getItem('userId')}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/myAssignments/get/${CourseId}/${localStorage.getItem('userId')}`)
       .then(response => {
         const data = response.data.data;
         setAssignments(data);

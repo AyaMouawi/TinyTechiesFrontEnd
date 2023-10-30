@@ -38,7 +38,7 @@ const ProjectForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/projects/add",
+        `${process.env.REACT_APP_API_URL}/projects/add`,
         formData,
         {
           headers: {

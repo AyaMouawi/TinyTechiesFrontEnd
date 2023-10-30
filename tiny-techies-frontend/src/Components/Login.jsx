@@ -1,31 +1,24 @@
 import React, { useState } from 'react';
 import '../css/Login.css';
 import NavBar from './NavBar';
-import {  Navigate } from 'react-router-dom'; 
 import axios from "axios";
-
-
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
-  const [email, setEmail] = useState(''); 
+  const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [userRole, setUserRole] = useState(null);
-  const [messageTimeout, setMessageTimeout] = useState(null);
-  
+  const navigate = useNavigate();
+
   const showMessage = (message) => {
     setMessage(message);
-    if (messageTimeout) {
-      clearTimeout(messageTimeout); 
-    }
-    setMessageTimeout(
-      setTimeout(() => {
-        setMessage(''); 
-      }, 5000)
-    );
+    setTimeout(() => {
+      setMessage('');
+    }, 5000);
   };
+
   const handleSignUpClick = () => {
     const LoginContainer = document.getElementById("LoginContainer");
     LoginContainer.classList.add("right-panel-active");
@@ -37,9 +30,8 @@ function Login() {
   };
 
   const handleLogin = async () => {
-  
     try {
-      const response = await fetch('http://localhost:8000/user/login', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,31 +42,38 @@ function Login() {
       const data = await response.json();
 
       if (response.ok) {
-       
         showMessage(data.message);
         localStorage.setItem('userId', data.userId);
-        setUserRole(data.role);
+        localStorage.setItem('userRole', data.role);
 
+        if (data.role === 'Trainer') {
+          navigate('/TrainerDashboard');
+        } else if (data.role === 'Admin') {
+          navigate('/AdminDashboard');
+        } else {
+          navigate('/');
+        }
       } else {
-      
         showMessage(data.message);
       }
     } catch (error) {
       console.error('Error during login:', error);
     }
   };
+
   const handleSignUp = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/user/addStudent', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/user/addStudent`, {
         UserFullName: name,
         UserEmail: email,
         UserAge: age,
         Password: password,
       });
-  
+
       if (response.status === 201) {
-        showMessage('Data added successfully'); 
-        setUserRole('Student');
+        showMessage('Data added successfully');
+        localStorage.setItem('userRole', 'Student');
+        navigate('/');
       } else {
         showMessage('Unable to add new data');
       }
@@ -109,7 +108,7 @@ function Login() {
           </form>
         </div>
         <div className="form-container sign-up-container">
-        <form className="logInForm" onSubmit={(e) => { e.preventDefault(); handleSignUp(); }}>
+          <form className="logInForm" onSubmit={(e) => { e.preventDefault(); handleSignUp(); }}>
             <h1 className="h1login">Create Account</h1>
             <input
               className='inputlogin'
@@ -165,10 +164,6 @@ function Login() {
           </div>
         </div>
       </div>
-
-      {userRole === 'Student' && <Navigate to="/" replace={true} />}
-      {userRole === 'Trainer' && <Navigate to="/TrainerDashboard" replace={true} />}
-      {userRole === 'Admin' && <Navigate to="/AdminDashboard" replace={true} />}
     </div>
   );
 }

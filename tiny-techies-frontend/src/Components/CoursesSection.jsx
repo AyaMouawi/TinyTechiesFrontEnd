@@ -9,7 +9,7 @@ const CoursesSection = () => {
 
   useEffect(() => {
 
-    axios.get('http://localhost:8000/courses/getPopular')
+    axios.get(`${process.env.REACT_APP_API_URL}/courses/getPopular`)
       .then((response) => {
         setCourses(response.data.data);
       })

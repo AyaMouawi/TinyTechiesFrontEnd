@@ -8,16 +8,17 @@ import axios from "axios";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const CoursesPage = () => {
- 
   const [courses, setCourses] = useState([]);
   const [searchCourseName, setSearchCourseName] = useState("");
   const [foundCourse, setFoundCourse] = useState(null);
   const [modal, setModal] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [successMessageModal, setSuccessMessageModal] = useState(false);
+  const [loginRequiredModal, setLoginRequiredModal] = useState(false);
+  const [studentRoleRequiredModal, setStudentRoleRequiredModal] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/courses/getByStudent/${localStorage.getItem('userId')}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/courses/getByStudent/${localStorage.getItem('userId')}`)
       .then((response) => {
         const courseData = response.data.data;
         setCourses(courseData);
@@ -36,24 +37,10 @@ const CoursesPage = () => {
     toggleModal();
   };
 
-  const handleSearch = () => {
-    axios.get(`http://localhost:8000/courses/getByName/${searchCourseName}`)
-      .then((response) => {
-        const courseData = response.data;
-        setFoundCourse(courseData);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-        setFoundCourse(null);
-      });
-  };
-
- 
-
   const enrollStudent = () => {
     if (selectedCourse) {
       const courseId = selectedCourse.Course_id;
-      axios.post("http://localhost:8000/student/Enroll", {
+      axios.post(`${process.env.REACT_APP_API_URL}/student/Enroll`, {
         Course_id: courseId,
         Student_id: localStorage.getItem('userId'),
       })
@@ -61,15 +48,36 @@ const CoursesPage = () => {
         if (response.data.success) {
           setSuccessMessageModal(true);
           toggleModal();
-          setTimeout(() => {
-            setSuccessMessageModal(false);
-          }, 3000); // 
         }
       })
       .catch((error) => {
         console.error("Error enrolling the student: ", error);
       });
     }
+  };
+
+  function handleCourseRegistration(course) {
+    // Check if the user is logged in
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      setLoginRequiredModal(true);
+      return;
+    }
+
+    // Check if the user has the role of a student
+    const userRole = localStorage.getItem('userRole');
+    if (userRole !== 'Student') {
+      setStudentRoleRequiredModal(true);
+      return;
+    }
+
+    // If the user is logged in and is a student, open the registration modal
+    openModal(course);
+  }
+
+  // Function to close the success message modal
+  const closeSuccessModal = () => {
+    setSuccessMessageModal(false);
   };
 
   return (
@@ -79,8 +87,8 @@ const CoursesPage = () => {
        <HeroAllCourses/>
        <h1 className="OurCourses">Our Courses</h1>
         <div className="PageCourses">
-        
-           { courses.map((course) => (
+          {courses.map((course) => {
+            return (
               <CourseRegister
                 key={course.Course_id}
                 CourseImage={course.CourseImage}
@@ -88,10 +96,10 @@ const CoursesPage = () => {
                 CourseDesc={course.CourseDescription}
                 StudentCount={course.StudentCount}
                 Duration={formatDuration(course.CourseStartTime, course.CourseEndTime)}
-                onRegister={() => openModal(course)} 
+                onRegister={() => handleCourseRegistration(course)}
               />
-            ))}
-        
+            );
+          })}
         </div>
       </div>
 
@@ -118,13 +126,30 @@ const CoursesPage = () => {
         </ModalFooter>
       </Modal>
 
-      {successMessageModal && (
-        <Modal isOpen={successMessageModal} centered>
-          <ModalBody>
-            Registered Successfully, Champ
-          </ModalBody>
-        </Modal>
-      )}
+      <Modal isOpen={loginRequiredModal} centered>
+        <ModalHeader toggle={() => setLoginRequiredModal(false)} className="RegConfirmation">
+          Please log in first
+        </ModalHeader>
+        <ModalBody>
+          You need to be logged in to register for courses.
+        </ModalBody>
+      </Modal>
+
+      <Modal isOpen={studentRoleRequiredModal} centered>
+        <ModalHeader toggle={() => setStudentRoleRequiredModal(false)} className="RegConfirmation">
+          You should be a Student to register
+        </ModalHeader>
+        <ModalBody>
+          You need to have the role of a student to register for courses.
+        </ModalBody>
+      </Modal>
+
+      <Modal isOpen={successMessageModal} centered>
+        <ModalHeader toggle={closeSuccessModal} className="RegConfirmation">Success</ModalHeader>
+        <ModalBody>
+          Registered Successfully, Champ
+        </ModalBody>
+      </Modal>
     </>
   );
 };

@@ -27,7 +27,7 @@ const AssignmentCard = ({ AssignmentName, AssignmentDesc,FileUrl, ZoomUrl, ZoomD
 
     try {
     
-      const response = await axios.post('http://localhost:8000/myAssignments/add', formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/myAssignments/add`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data', 
         },

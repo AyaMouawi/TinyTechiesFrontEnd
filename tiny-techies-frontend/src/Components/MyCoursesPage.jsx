@@ -11,7 +11,7 @@ const MyCoursesPage = () => {
 
   useEffect(() => {
     
-    axios.get(`http://localhost:8000/courses/getStudentCourse/${localStorage.getItem('userId')}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/courses/getStudentCourse/${localStorage.getItem('userId')}`)
       .then((response) => {
         setCourses(response.data.data);
       })

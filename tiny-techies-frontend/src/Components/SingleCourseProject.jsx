@@ -17,7 +17,7 @@ function SingleCourseProject() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/projects/getStudentProjects/${CourseId}/${localStorage.getItem('userId')}`)
+      .get(`${process.env.REACT_APP_API_URL}/projects/getStudentProjects/${CourseId}/${localStorage.getItem('userId')}`)
       .then(response => {
         const data = response.data.data;
         setProjects(data);

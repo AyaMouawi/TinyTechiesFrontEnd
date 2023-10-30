@@ -11,8 +11,7 @@ function Statistics() {
   });
 
   useEffect(() => {
-    // Make an Axios request to fetch data from the API
-    axios.get('http://localhost:8000/statistics/getCount')
+    axios.get(`${process.env.REACT_APP_API_URL}/statistics/getCount`)
       .then(response => {
         const { data } = response.data;
         setData({

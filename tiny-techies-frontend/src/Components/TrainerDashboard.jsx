@@ -7,7 +7,7 @@ function TrainerDashboard() {
   const [trainerData, setTrainerData] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/trainers/getTrainerByID/${localStorage.getItem('userId')}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/trainers/getTrainerByID/${localStorage.getItem('userId')}`)
       .then(response => {
         const data = response.data.data[0];
         setTrainerData(data);
