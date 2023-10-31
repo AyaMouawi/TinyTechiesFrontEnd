@@ -17,7 +17,7 @@ const AdminDashAddcourse = () => {
   useEffect(() => {
     const fetchTrainers = async () => {
       try {
-        const response = await fetch('http://localhost:8000/trainers/getAllTrainers');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/trainers/getAllTrainers`);
         if (response.ok) {
           const data = await response.json();
           if (data.success) {
@@ -62,14 +62,14 @@ const AdminDashAddcourse = () => {
     formData.append('file', courseData.file);
 
     try {
-      const response = await fetch('http://localhost:8000/courses/add', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/courses/add`, {
         method: 'POST',
         body: formData,
       });
 
       if (response.ok) {
         toast.success('Course Added Successfully');
-        // Clear the input fields
+  
         setCourseData({
           Trainer_id: '',
           CourseName: '',
@@ -80,7 +80,7 @@ const AdminDashAddcourse = () => {
           file: null,
         });
 
-        // Clear file inputs
+
         document.getElementById('image-upload').value = '';
         document.getElementById('file-upload').value = '';
       } else {

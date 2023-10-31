@@ -12,7 +12,7 @@ const AdminDashSideBar = () => {
   const [AdminData, setAdminData] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/user/get/${localStorage.getItem('userId')}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/user/get/${localStorage.getItem('userId')}`)
       .then(response => {
         const data = response.data.data[0];
         setAdminData(data);

@@ -9,7 +9,7 @@ const AdminDashStudents = () => {
 
   useEffect(() => {
     
-    axios.get('http://localhost:8000/student/getAllStudentsAndCourses')
+    axios.get(`${process.env.REACT_APP_API_URL}/student/getAllStudentsAndCourses`)
       .then((response) => {
         setStudentsData(response.data.data);
       })
@@ -20,7 +20,7 @@ const AdminDashStudents = () => {
 
   const handleDeleteStudent = (studentId) => {
     
-    axios.delete(`http://localhost:8000/user/delete/${studentId}`)
+    axios.delete(`${process.env.REACT_APP_API_URL}/user/delete/${studentId}`)
       .then(() => {
         setStudentsData(studentsData.filter(student => student.User_id !== studentId));
         toast.success('Student Deleted successfully');

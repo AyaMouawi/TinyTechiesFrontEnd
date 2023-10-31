@@ -21,14 +21,14 @@ const AdminDashCourseToggle = () => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:8000/courses/getAll')
+    fetch(`${process.env.REACT_APP_API_URL}/courses/getAll`)
       .then((response) => response.json())
       .then((data) => setCourses(data.data))
       .catch((error) => console.error('Error fetching courses:', error));
   }, []);
 
   const handleDeleteCourse = (courseId) => {
-    fetch(`http://localhost:8000/courses/delete/${courseId}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/courses/delete/${courseId}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())

@@ -13,9 +13,9 @@ const AdminDashRemarkableSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/projects/getAllProjects");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/projects/getAllProjects`);
         setProjectsData(response.data.data);
-        // Initialize checkedProjects with initially checked projects
+        
         setCheckedProjects(response.data.data.filter((project) => project.ShowProject).map((project) => project.Project_id));
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -27,19 +27,19 @@ const AdminDashRemarkableSection = () => {
 
   const handleShowProjectChange = async (id, showProject, projectName) => {
     if (showProject && checkedProjects.length >= 3) {
-      // Maximum of 3 projects already checked
+
       toast.error('You can only show 3 projects');
       return;
     }
 
     try {
       const url = showProject
-        ? `http://localhost:8000/projects/updateShow/${id}`
-        : `http://localhost:8000/projects/updateUnShow/${id}`;
+        ? `${process.env.REACT_APP_API_URL}/projects/updateShow/${id}`
+        : `${process.env.REACT_APP_API_URL}/projects/updateUnShow/${id}`;
 
       await axios.put(url);
 
-      // Update the local state with the new showProject value
+   
       setProjectsData((prevProjectsData) => {
         return prevProjectsData.map((project) => {
           if (project.Project_id === id) {

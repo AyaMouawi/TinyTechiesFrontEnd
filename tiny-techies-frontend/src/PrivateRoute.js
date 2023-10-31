@@ -8,10 +8,6 @@ const PrivateRoute = ({ element, allowedRoles, fallbackPath }) => {
     return <Navigate to="/login" />;
   }
 
-  console.log(typeof allowedRoles)
-  console.log(typeof userRole)
-  console.log(allowedRoles != userRole)
-
   if (allowedRoles != userRole) {
     return <Navigate to={fallbackPath} />;
   }

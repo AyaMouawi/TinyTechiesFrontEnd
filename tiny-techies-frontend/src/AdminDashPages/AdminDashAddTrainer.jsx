@@ -40,7 +40,7 @@ const AdminDashAddTrainer = () => {
       formData.append('UserAge', UserAge);
       formData.append('image', image);
 
-      const response = await axios.post('http://localhost:8000/trainers/add', formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/trainers/add`, formData);
 
       if (response.status === 201) {
         setUserFullName('');

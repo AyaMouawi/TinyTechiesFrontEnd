@@ -7,14 +7,14 @@ const AdminDashViewTrainers = () => {
   const [trainers, setTrainers] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/trainers/getAllTrainers')
+    fetch(`${process.env.REACT_APP_API_URL}/trainers/getAllTrainers`)
       .then((response) => response.json())
       .then((data) => setTrainers(data.data))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
   const handleDelete = (trainerId) => {
-    fetch(`http://localhost:8000/trainers/delete/${trainerId}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/trainers/delete/${trainerId}`, {
       method: 'DELETE',
     })
       .then((response) => {

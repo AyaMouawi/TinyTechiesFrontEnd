@@ -16,7 +16,7 @@ const TrainerDashGrade = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/courses/getCoursesByTrainerId/${localStorage.getItem('userId')}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/courses/getCoursesByTrainerId/${localStorage.getItem('userId')}`)
       .then((response) => {
         const courseNames = response.data.data.map((course) => course.CourseName);
         setCourses(courseNames);
@@ -31,7 +31,7 @@ const TrainerDashGrade = () => {
     const selectedCourse = event.target.value;
     setSelectedCourse(selectedCourse);
 
-    axios.get(`http://localhost:8000/student/getByCourseName/${selectedCourse}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/student/getByCourseName/${selectedCourse}`)
       .then((response) => {
         const studentNames = response.data.data.map((student) => student.UserFullName);
         setStudentNames(studentNames);
@@ -41,7 +41,7 @@ const TrainerDashGrade = () => {
         setError(error);
       });
 
-    axios.get(`http://localhost:8000/assignmentContent/getAssignmentByCourse/${selectedCourse}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/assignmentContent/getAssignmentByCourse/${selectedCourse}`)
       .then((response) => {
         const assignmentNames = response.data.data.map((assignment) => assignment.AssignmentName);
         setAssignmentNames(assignmentNames);
@@ -69,7 +69,7 @@ const TrainerDashGrade = () => {
   const handleGradeUpdate = () => {
     if (selectedAssignment && selectedStudent && selectedGrades) {
       axios
-        .put(`http://localhost:8000/myAssignments/update/${selectedAssignment}/${selectedStudent}`, {
+        .put(`${process.env.REACT_APP_API_URL}/myAssignments/update/${selectedAssignment}/${selectedStudent}`, {
           Grade: selectedGrades
         })
         .then((response) => {
@@ -86,7 +86,7 @@ const TrainerDashGrade = () => {
 
   useEffect(() => {
     if (selectedStudent && selectedAssignment) {
-      const apiUrl = `http://localhost:8000/myAssignments/getAssignmentFile/${selectedStudent}/${selectedAssignment}`;
+      const apiUrl = `${process.env.REACT_APP_API_URL}/myAssignments/getAssignmentFile/${selectedStudent}/${selectedAssignment}`;
 
       axios.get(apiUrl)
         .then((response) => {
