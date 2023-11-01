@@ -23,7 +23,10 @@ const AdminDashCourseToggle = () => {
     fetch(`${process.env.REACT_APP_API_URL}/courses/getAllAdmin`)
       .then((response) => response.json())
       .then((data) => setCourses(data.data))
-      .catch((error) => console.error('Error fetching courses:', error));
+      .catch((error) => {
+        console.error('Error fetching courses:', error);
+        toast.error('Error fetching courses');
+      });
   }, []);
 
   const handleDeleteCourse = (courseId) => {
@@ -32,23 +35,27 @@ const AdminDashCourseToggle = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        toast.success('Course Deleted Successfully', { autoClose: 2000 });
-        // Update the course list after a successful delete
-        setCourses(courses.filter((course) => course.Course_id !== courseId));
+        if (data.success) {
+          toast.success('Course Deleted Successfully', { autoClose: 2000 });
+          setCourses(courses.filter((course) => course.Course_id !== courseId));
+        } else {
+          toast.error('Error deleting course');
+        }
       })
-      .catch((error) => console.error('Error deleting course:', error));
+      .catch((error) => {
+        console.error('Error deleting course:', error);
+        toast.error('Error deleting course');
+      });
   };
 
-  const handleEditCourse = (updatedCourse) => {
-    // Update the course list with the edited course
-    const updatedCourses = courses.map((course) => {
-      if (course.Course_id === updatedCourse.Course_id) {
-        return updatedCourse;
-      }
-      return course;
-    });
-
-    setCourses(updatedCourses);
+  const handleEditCourse = () => {
+    fetch(`${process.env.REACT_APP_API_URL}/courses/getAllAdmin`)
+      .then((response) => response.json())
+      .then((data) => setCourses(data.data))
+      .catch((error) => {
+        console.error('Error fetching courses:', error);
+        toast.error('Error fetching courses');
+      });
   };
 
   return (

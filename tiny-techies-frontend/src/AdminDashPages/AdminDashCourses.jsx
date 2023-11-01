@@ -1,43 +1,114 @@
-import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
-  const [editingCourseId, setEditingCourseId] = useState(null);
-  const [editedCourse, setEditedCourse] = useState({});
+  const [editingCourse, setEditingCourse] = useState(null);
+  const [trainerList, setTrainerList] = useState([]);
+  const [selectedTrainer, setSelectedTrainer] = useState('');
+  const [oldFile, setOldFile] = useState(null);
 
-  const handleEditClick = (courseId) => {
-    setEditingCourseId(courseId);
-    const courseToEdit = courses.find((course) => course.Course_id === courseId);
-    setEditedCourse(courseToEdit);
+  const handleEditClick = (course) => {
+    setEditingCourse({
+      ...course,
+      CourseStartTime: course.CourseStartTime.split('T')[0],
+      CourseEndTime: course.CourseEndTime.split('T')[0],
+    });
+    setSelectedTrainer(course.TrainerName);
+
+    // Set old file value
+    setOldFile(course.file);
   };
 
   const handleEditInputChange = (e) => {
     const { name, value } = e.target;
-    setEditedCourse({
-      ...editedCourse,
+    setEditingCourse({
+      ...editingCourse,
       [name]: value,
     });
   };
 
+  const handleEditFileChange = (e) => {
+    const { name, files } = e.target;
+
+    if (files.length > 0) {
+      setEditingCourse({
+        ...editingCourse,
+        [name]: files[0],
+      });
+    } else {
+      // No new file selected, so set it back to the old file
+      setEditingCourse({
+        ...editingCourse,
+        [name]: oldFile,
+      });
+    }
+  };
+
   const handleEditSubmit = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/courses/update/${editingCourseId}`, {
+    console.log('Submitting edit:', editingCourse);
+    const formData = new FormData();
+    formData.append('Course_id', editingCourse.Course_id);
+    formData.append('CourseName', editingCourse.CourseName);
+
+    const selectedTrainerObject = trainerList.find(
+      (trainer) => trainer.UserFullName === selectedTrainer
+    );
+
+    if (selectedTrainerObject) {
+      console.log('Selected Trainer:', selectedTrainerObject);
+      formData.append('Trainer_id', selectedTrainerObject.User_id);
+    } else {
+      console.error('Selected trainer not found in the list.');
+      return;
+    }
+
+    formData.append('CourseDescription', editingCourse.CourseDescription);
+    formData.append('CourseStartTime', editingCourse.CourseStartTime);
+    formData.append('CourseEndTime', editingCourse.CourseEndTime);
+    formData.append('image', editingCourse.image);
+    formData.append('file', editingCourse.file);
+
+    fetch(`${process.env.REACT_APP_API_URL}/courses/update/${editingCourse.Course_id}`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(editedCourse),
+      body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
-        toast.success(`${editedCourse.CourseName} updated successfully`, {
-          autoClose: 2000,
-        });
-        setEditingCourseId(null); // Exit edit mode
-        onEditCourse(); // Notify the parent component that an edit is done
+        console.log('Edit Response Data:', data);
+        if (data.success) {
+          toast.success(`${editingCourse.CourseName} updated successfully`, {
+            autoClose: 2000,
+          });
+          setEditingCourse(null);
+          onEditCourse();
+        } else {
+          toast.error(`Error updating ${editingCourse.CourseName}`);
+          setEditingCourse(null);
+        }
       })
-      .catch((error) => console.error('Error updating course:', error));
+      .catch((error) => {
+        console.error('Error updating course:', error);
+        toast.error(`Error updating ${editingCourse.CourseName}`);
+        setEditingCourse(null);
+      });
   };
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/trainers/getAllTrainers`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          setTrainerList(data.data);
+        } else {
+          toast.error('Error fetching trainers');
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching trainers:', error);
+        toast.error('Error fetching trainers');
+      });
+  }, []);
 
   return (
     <div>
@@ -49,7 +120,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
                 <th>Course Name</th>
                 <th>Trainer Name</th>
                 <th>Course Description</th>
-                <th>StudentsCount</th>
+                <th>Students Count</th>
                 <th>Course file</th>
                 <th>Course Image</th>
                 <th>Start date</th>
@@ -60,35 +131,100 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
               {courses.map((course) => (
                 <tr key={course.Course_id}>
                   <td>
-                    {editingCourseId === course.Course_id ? (
+                    {editingCourse && editingCourse.Course_id === course.Course_id ? (
                       <input
                         type="text"
                         name="CourseName"
-                        value={editedCourse.CourseName}
+                        value={editingCourse.CourseName}
                         onChange={handleEditInputChange}
                       />
                     ) : (
                       course.CourseName
                     )}
                   </td>
-                  <td>{course.TrainerName}</td>
-                  <td>{course.CourseDescription}</td>
+                  <td>
+                    {editingCourse && editingCourse.Course_id === course.Course_id ? (
+                      <select
+                        name="TrainerName"
+                        value={selectedTrainer}
+                        onChange={(e) => setSelectedTrainer(e.target.value)}
+                      >
+                        {trainerList.map((trainer) => (
+                          <option key={trainer.User_id} value={trainer.UserFullName}>
+                            {trainer.UserFullName}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
+                      course.TrainerName
+                    )}
+                  </td>
+                  <td>
+                    {editingCourse && editingCourse.Course_id === course.Course_id ? (
+                      <input
+                        type="text"
+                        name="CourseDescription"
+                        value={editingCourse.CourseDescription}
+                        onChange={handleEditInputChange}
+                      />
+                    ) : (
+                      course.CourseDescription
+                    )}
+                  </td>
                   <td>{course.StudentCount}</td>
                   <td>
-                    <a href={course.CourseFile} target="_blank" rel="noopener noreferrer">
-                      Click here
-                    </a>
+                    {editingCourse && editingCourse.Course_id === course.Course_id ? (
+                      <input
+                        type="file"
+                        name="file"
+                        onChange={handleEditFileChange}
+                      />
+                    ) : (
+                      <a href={course.CourseFile} target="_blank" rel="noopener noreferrer">
+                        Click here
+                      </a>
+                    )}
                   </td>
                   <td>
-                    <img src={course.CourseImage} alt="Course" width="50" height="50" />
+                    {editingCourse && editingCourse.Course_id === course.Course_id ? (
+                      <input
+                        type="file"
+                        name="image"
+                        onChange={handleEditFileChange}
+                      />
+                    ) : (
+                      <img src={course.CourseImage} alt="Course" width="50" height="50" />
+                    )}
                   </td>
-                  <td>{course.CourseStartTime.split('T')[0]}</td>
-                  <td>{course.CourseEndTime.split('T')[0]}</td>
                   <td>
-                    {editingCourseId === course.Course_id ? (
+                    {editingCourse && editingCourse.Course_id === course.Course_id ? (
+                      <input
+                        type="date"
+                        name="CourseStartTime"
+                        value={editingCourse.CourseStartTime}
+                        onChange={handleEditInputChange}
+                      />
+                    ) : (
+                      course.CourseStartTime.split('T')[0]
+                    )}
+                  </td>
+                  <td>
+                    {editingCourse && editingCourse.Course_id === course.Course_id ? (
+                      <input
+                        type="date"
+                        name="CourseEndTime"
+                        value={editingCourse.CourseEndTime}
+                        onChange={handleEditInputChange}
+                      />
+                    ) : (
+                      course.CourseEndTime.split('T')[0]
+                    )}
+                  </td>
+                  <td>
+                    {editingCourse && editingCourse.Course_id === course.Course_id ? (
                       <button onClick={handleEditSubmit}>Save</button>
                     ) : (
-                      <button onClick={() => handleEditClick(course.Course_id)}>Edit</button>
+                      <button onClick={() => handleEditClick(course)}>Edit</button>
                     )}
                   </td>
                   <td>
