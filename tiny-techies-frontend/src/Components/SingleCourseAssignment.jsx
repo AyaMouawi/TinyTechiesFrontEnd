@@ -8,22 +8,15 @@ import { useParams } from "react-router-dom";
 import axios from 'axios'; 
 
 const SingleCourseAssignment = () => {
-  const {CourseId } = useParams();
+  const { CourseId } = useParams();
   const [modal, setModal] = useState(false);
-  const [assignments, setAssignments] = useState([]); 
+  const [assignments, setAssignments] = useState([]);
   const toggle = () => setModal(!modal);
 
   useEffect(() => {
-   
-    axios.get(`${process.env.REACT_APP_API_URL}/myAssignments/get/${CourseId}/${localStorage.getItem('userId')}`)
-      .then(response => {
-        const data = response.data.data;
-        setAssignments(data);
-      })
-      .catch(error => {
-        console.error('Error fetching assignment data:', error);
-      });
-  }, []);
+    // Fetch assignments on initial load and whenever assignments change
+    fetchAssignments();
+  }, [assignments]);
 
   function formatDueDate(dueDate) {
     const date = new Date(dueDate);
@@ -36,6 +29,17 @@ const SingleCourseAssignment = () => {
     const options = { day: 'numeric', month: 'short', year: 'numeric' };
     return date.toLocaleDateString('en-US', options);
   }
+
+  const fetchAssignments = () => {
+    axios.get(`${process.env.REACT_APP_API_URL}/myAssignments/get/${CourseId}/${localStorage.getItem('userId')}`)
+      .then(response => {
+        const data = response.data.data;
+        setAssignments(data);
+      })
+      .catch(error => {
+        console.error('Error fetching assignment data:', error);
+      });
+  };
 
   return (
     <div className='p-3' id='SingleAssignment'>
@@ -74,6 +78,5 @@ const SingleCourseAssignment = () => {
     </div>
   );
 };
-
 
 export default SingleCourseAssignment;

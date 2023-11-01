@@ -17,7 +17,8 @@ const TrainerDashboardButtons = () => {
   };
 
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('userId');
     navigate('/');
   };
 

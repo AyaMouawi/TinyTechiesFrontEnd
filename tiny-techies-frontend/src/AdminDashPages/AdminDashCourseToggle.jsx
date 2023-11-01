@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AdminDashAddcourse from './AdminDashAddcourse';
 import AdminDashCourses from './AdminDashCourses';
-import '../AdminDashCSS/AdminDash.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,7 +20,7 @@ const AdminDashCourseToggle = () => {
   };
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/courses/getAll`)
+    fetch(`${process.env.REACT_APP_API_URL}/courses/getAllAdmin`)
       .then((response) => response.json())
       .then((data) => setCourses(data.data))
       .catch((error) => console.error('Error fetching courses:', error));
@@ -34,9 +33,22 @@ const AdminDashCourseToggle = () => {
       .then((response) => response.json())
       .then((data) => {
         toast.success('Course Deleted Successfully', { autoClose: 2000 });
+        // Update the course list after a successful delete
         setCourses(courses.filter((course) => course.Course_id !== courseId));
       })
       .catch((error) => console.error('Error deleting course:', error));
+  };
+
+  const handleEditCourse = (updatedCourse) => {
+    // Update the course list with the edited course
+    const updatedCourses = courses.map((course) => {
+      if (course.Course_id === updatedCourse.Course_id) {
+        return updatedCourse;
+      }
+      return course;
+    });
+
+    setCourses(updatedCourses);
   };
 
   return (
@@ -54,7 +66,11 @@ const AdminDashCourseToggle = () => {
       <div className="dash-toggle-center">
         {addCourse && <AdminDashAddcourse />}
         {viewCourses && (
-          <AdminDashCourses courses={courses} onDeleteCourse={handleDeleteCourse} />
+          <AdminDashCourses
+            courses={courses}
+            onDeleteCourse={handleDeleteCourse}
+            onEditCourse={handleEditCourse}
+          />
         )}
       </div>
     </div>

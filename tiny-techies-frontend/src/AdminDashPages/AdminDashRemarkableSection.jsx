@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AdminDashAddRemarkableProjects from "./AdminDashAddRemarkableProjects";
-import "../css/remarkableSection.css";
-import "../AdminDashCSS/AdminDash.css";
+import '../css/remarkableSection.css';
+import '../AdminDashCSS/AdminDash.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -15,7 +15,6 @@ const AdminDashRemarkableSection = () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/projects/getAllProjects`);
         setProjectsData(response.data.data);
-        
         setCheckedProjects(response.data.data.filter((project) => project.ShowProject).map((project) => project.Project_id));
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -25,9 +24,17 @@ const AdminDashRemarkableSection = () => {
     fetchData();
   }, []);
 
+ 
+  const handleDeleteProject = (projectId) => {
+   
+    setProjectsData((prevProjectsData) => prevProjectsData.filter((project) => project.Project_id !== projectId));
+
+  
+    toast.success(`${projectsData.find((project) => project.Project_id === projectId).ProjectName} deleted successfully`);
+  };
+
   const handleShowProjectChange = async (id, showProject, projectName) => {
     if (showProject && checkedProjects.length >= 3) {
-
       toast.error('You can only show 3 projects');
       return;
     }
@@ -39,7 +46,6 @@ const AdminDashRemarkableSection = () => {
 
       await axios.put(url);
 
-   
       setProjectsData((prevProjectsData) => {
         return prevProjectsData.map((project) => {
           if (project.Project_id === id) {
@@ -81,6 +87,7 @@ const AdminDashRemarkableSection = () => {
           onShowProjectChange={() =>
             handleShowProjectChange(project.Project_id, !project.ShowProject, project.ProjectName)
           }
+          onDeleteProject={handleDeleteProject} 
         />
       ))}
       <ToastContainer />

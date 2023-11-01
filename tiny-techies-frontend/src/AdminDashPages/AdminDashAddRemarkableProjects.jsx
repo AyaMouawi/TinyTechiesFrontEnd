@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'; 
 import '../css/remarkableSection.css';
 
 const AdminDashAddRemarkableProjects = ({
@@ -10,7 +11,22 @@ const AdminDashAddRemarkableProjects = ({
   StudentProject,
   showProject,
   onShowProjectChange,
+  onDeleteProject,
 }) => {
+
+  const handleDelete = () => {
+    if (window.confirm(`Are you sure you want to delete ${ProjectName}?`)) {
+      // Make an API call to delete the project
+      axios.delete(`${process.env.REACT_APP_API_URL}/projects/delete/${StudentProject}`)
+        .then(() => {
+          onDeleteProject(StudentProject); // Notify the parent component of the deletion
+        })
+        .catch((error) => {
+          console.error('Error deleting project: ', error);
+        });
+    }
+  };
+
   return (
     <div className='remarkable-card AdminCard'>
       <div className="video-container">
@@ -39,6 +55,7 @@ const AdminDashAddRemarkableProjects = ({
           onChange={onShowProjectChange}
         />
       </div>
+      <div>  <img className="TrashRemarkableSection" src="Images/trash-solid.svg" alt="Delete" onClick={handleDelete} /> </div>
     </div>
   );
 };

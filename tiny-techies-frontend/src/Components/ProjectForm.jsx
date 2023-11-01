@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { toast, ToastContainer} from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useParams } from "react-router-dom";
+import { Spinner } from "reactstrap"; 
 
 const ProjectForm = () => {
-  const {CourseId } = useParams();
+  const { CourseId } = useParams();
   const [formState, setFormState] = useState({
     ProjectName: "",
     StudentImage: null,
@@ -15,12 +16,14 @@ const ProjectForm = () => {
   });
 
   const [successMessage, setSuccessMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const formData = new FormData();
-    formData.append("Student_id", localStorage.getItem('userId'));
+    formData.append("Student_id", localStorage.getItem("userId"));
     formData.append("Course_id", CourseId);
     formData.append("ProjectName", formState.ProjectName);
     formData.append("ProjectDescription", formState.ProjectDescription);
@@ -56,7 +59,7 @@ const ProjectForm = () => {
       });
 
       toast.success("Great Job Buddy");
-      setSuccessMessage("Thank you! Data added successfully.");
+      setSuccessMessage("Thank you! Data added successfully");
 
       setTimeout(() => {
         setSuccessMessage(null);
@@ -69,6 +72,8 @@ const ProjectForm = () => {
       console.error("Unable to add data:", error);
       setSuccessMessage("Unable to add data. Please try again.");
       toast.error("Oops, something went wrong!", { autoClose: 5000 });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -133,10 +138,17 @@ const ProjectForm = () => {
           </button>
         </div>
       </form>
+
+      {loading && (
+        <div className="loading-spinner">
+          <Spinner  style={{ width: "3rem", height: "3rem" }} />
+        </div>
+      )}
+
       {successMessage && (
         <div className="success-message">{successMessage}</div>
       )}
-       <ToastContainer />
+      <ToastContainer />
     </div>
   );
 };

@@ -69,7 +69,7 @@ font-size:xxx-large;
     .slick-prev, .slick-next{
         border-radius: 50%;
         display: block;
-    background: rgb(0, 195, 201);
+    background: #00c3c9;
     z-index: 1;
     height: 40px;
     width: 40px;

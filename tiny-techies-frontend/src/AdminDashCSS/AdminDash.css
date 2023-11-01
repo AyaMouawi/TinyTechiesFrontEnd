@@ -48,13 +48,11 @@
     justify-content: center;
     text-align: center;
     border-radius: 80px 80px;
+
 }
 .bgcardcourses{
     padding:0.7rem;
     margin-top: 4rem;
-
- 
-    /* height: 200%; */
     background-image: url('../../public/Images/counter-bg.jpg'); 
     background-size: cover; 
     display: flex;

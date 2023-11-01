@@ -16,10 +16,14 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage/>} />
       <Route path="/login" element={<Login/>} />
-      <Route path="/SingleCoursePage/:CourseId" element={<SingleCoursePage/>} />
       <Route path="/CoursesPage" element={<CoursesPage/>} />
       <Route path='/NotAuth' element={<NoAccess/>}/>
       <Route path='*' element={<PageNotFound/>}/>
+
+      <Route 
+        path="/SingleCoursePage/:CourseId" 
+        element={<PrivateRoute element={<SingleCoursePage/>} allowedRoles={'Student'} fallbackPath="/NotAuth" />}
+         />
 
       <Route 
         path="/MyCoursesPage" 
