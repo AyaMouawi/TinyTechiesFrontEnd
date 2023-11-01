@@ -25,13 +25,14 @@ const AdminDashRemarkableSection = () => {
   }, []);
 
  
-  const handleDeleteProject = (projectId) => {
-   
-    setProjectsData((prevProjectsData) => prevProjectsData.filter((project) => project.Project_id !== projectId));
-
+  const handleDeleteProject = (project) => {
+    setProjectsData((prevProjectsData) =>
+      prevProjectsData.filter((p) => p.Project_id !== project.Project_id)
+    );
   
-    toast.success(`${projectsData.find((project) => project.Project_id === projectId).ProjectName} deleted successfully`);
+    toast.success(`${project.ProjectName} deleted successfully`);
   };
+  
 
   const handleShowProjectChange = async (id, showProject, projectName) => {
     if (showProject && checkedProjects.length >= 3) {
@@ -74,22 +75,27 @@ const AdminDashRemarkableSection = () => {
 
   return (
     <div className='AdminprojectWrap'>
-      {projectsData.map((project) => (
-        <AdminDashAddRemarkableProjects
-          key={project.Project_id}
-          StudentName={project.UserName}
-          ProjectName={project.ProjectName}
-          ProjectDesc={project.ProjectDescription}
-          ProjectUrl={project.ProjectFile}
-          StudentImage={project.StudentImage}
-          StudentProject={project.StudentProject}
-          showProject={project.ShowProject}
-          onShowProjectChange={() =>
-            handleShowProjectChange(project.Project_id, !project.ShowProject, project.ProjectName)
-          }
-          onDeleteProject={handleDeleteProject} 
-        />
-      ))}
+     {projectsData.map((project) => (
+  <AdminDashAddRemarkableProjects
+    key={project.Project_id}
+    StudentName={project.UserName}
+    ProjectName={project.ProjectName}
+    ProjectDesc={project.ProjectDescription}
+    ProjectUrl={project.ProjectFile}
+    StudentImage={project.StudentImage}
+    StudentProject={project.StudentProject}
+    showProject={project.ShowProject}
+    onShowProjectChange={() =>
+      handleShowProjectChange(
+        project.Project_id,
+        !project.ShowProject,
+        project.ProjectName
+      )
+    }
+    onDeleteProject={() => handleDeleteProject(project)}
+  />
+))}
+
       <ToastContainer />
     </div>
   );

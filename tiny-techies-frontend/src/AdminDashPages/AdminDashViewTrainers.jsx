@@ -14,23 +14,26 @@ const AdminDashViewTrainers = () => {
   }, []);
 
   const handleDelete = (trainerId) => {
-    fetch(`${process.env.REACT_APP_API_URL}/trainers/delete/${trainerId}`, {
-      method: 'DELETE',
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          setTrainers((prevTrainers) => prevTrainers.filter((trainer) => trainer.User_id !== trainerId));
-    
-          toast.success('Trainer Deleted Successfully');
-        } else {
-          console.error('Failed to delete trainer.');
-          toast.error('Failed to delete trainer');
-        }
+    const confirmDelete = window.confirm('Are you sure you want to delete this trainer?');
+
+    if (confirmDelete) {
+      fetch(`${process.env.REACT_APP_API_URL}/trainers/delete/${trainerId}`, {
+        method: 'DELETE',
       })
-      .catch((error) => {
-        console.error('Error deleting trainer:', error);
-        toast.error('Error deleting trainer');
-      });
+        .then((response) => {
+          if (response.status === 200) {
+            setTrainers((prevTrainers) => prevTrainers.filter((trainer) => trainer.User_id !== trainerId));
+            toast.success('Trainer Deleted Successfully');
+          } else {
+            console.error('Failed to delete trainer.');
+            toast.error('Failed to delete trainer');
+          }
+        })
+        .catch((error) => {
+          console.error('Error deleting trainer:', error);
+          toast.error('Error deleting trainer');
+        });
+    }
   };
 
   return (

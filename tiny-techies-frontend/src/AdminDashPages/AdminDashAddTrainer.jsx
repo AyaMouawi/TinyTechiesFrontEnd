@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import { Spinner } from 'reactstrap';
 
 const AdminDashAddTrainer = () => {
   const [UserFullName, setUserFullName] = useState('');
@@ -9,6 +10,7 @@ const AdminDashAddTrainer = () => {
   const [UserEmail, setUserEmail] = useState('');
   const [UserAge, setUserAge] = useState('');
   const [image, setImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const imageInputRef = useRef(); 
 
@@ -32,6 +34,8 @@ const AdminDashAddTrainer = () => {
       return;
     }
 
+    setIsLoading(true); 
+
     try {
       const formData = new FormData();
       formData.append('UserFullName', UserFullName);
@@ -54,6 +58,8 @@ const AdminDashAddTrainer = () => {
     } catch (error) {
       console.error('Error adding trainer:', error);
       toast.error('Unable to add trainer');
+    }finally {
+      setIsLoading(false); 
     }
   };
 
@@ -104,7 +110,9 @@ const AdminDashAddTrainer = () => {
                 onChange={handleImageChange}
                 ref={imageInputRef} 
               />
-              <input type="submit" className="addcoursebutton" value="Add Trainer" />
+               <button type="submit" className="addcoursebutton">
+                {isLoading ? <Spinner size="l" color="primary" /> : "Add Trainer"}
+              </button>
             </form>
           </div>
         </div>

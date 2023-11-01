@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../TrainerDashCSS/TrainerDashAssignment.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Spinner } from 'reactstrap';
 import axios from 'axios';
 
 const TrainerDashAssignment = () => {
@@ -13,6 +14,7 @@ const TrainerDashAssignment = () => {
   const [assignmentFile, setAssignmentFile] = useState(null);
   const [assignmentRequirement, setAssignmentRequirement] = useState("");
   const [courses, setCourses] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/courses/getCoursesByTrainerId/${localStorage.getItem('userId')}`)
@@ -31,6 +33,13 @@ const TrainerDashAssignment = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+
+    if (!selectedCourseId || !zoomLink || !assignmentName || !meetingDate || !dueDate || !assignmentFile || !assignmentRequirement) {
+      toast.error('Please fill in all the fields');
+      return;
+    }
+
+    setIsLoading(true); 
 
     const formData = new FormData();
     formData.append("Course_id", selectedCourseId);
@@ -66,6 +75,8 @@ const TrainerDashAssignment = () => {
     } catch (error) {
       console.error("Error adding assignment:", error);
       toast.error("Error adding assignment. Please try again.");
+    }finally {
+      setIsLoading(false); 
     }
   };
 
@@ -147,7 +158,7 @@ const TrainerDashAssignment = () => {
           </div>
           <div className='assignment-input'>
             <button type='submit' className='assignment-btn-submit'>
-              Submit
+            {isLoading ? <Spinner size="sm" color="primary" /> : "Submit"}
             </button>
           </div>
         </form>

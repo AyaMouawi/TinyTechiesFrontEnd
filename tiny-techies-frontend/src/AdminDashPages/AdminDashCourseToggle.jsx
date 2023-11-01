@@ -30,22 +30,25 @@ const AdminDashCourseToggle = () => {
   }, []);
 
   const handleDeleteCourse = (courseId) => {
-    fetch(`${process.env.REACT_APP_API_URL}/courses/delete/${courseId}`, {
-      method: 'DELETE',
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          toast.success('Course Deleted Successfully', { autoClose: 2000 });
-          setCourses(courses.filter((course) => course.Course_id !== courseId));
-        } else {
-          toast.error('Error deleting course');
-        }
+    // Display a confirmation alert
+    const shouldDelete = window.confirm('Are you sure you want to delete this course?');
+    if (shouldDelete) {
+      fetch(`${process.env.REACT_APP_API_URL}/courses/delete/${courseId}`, {
+        method: 'DELETE',
       })
-      .catch((error) => {
-        console.error('Error deleting course:', error);
-        toast.error('Error deleting course');
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            setCourses(courses.filter((course) => course.Course_id !== courseId));
+          } else {
+            toast.error('Error deleting course');
+          }
+        })
+        .catch((error) => {
+          console.error('Error deleting course:', error);
+          toast.error('Error deleting course');
+        });
+    }
   };
 
   const handleEditCourse = () => {

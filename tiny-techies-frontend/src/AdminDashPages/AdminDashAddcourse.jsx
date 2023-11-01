@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Spinner } from 'reactstrap';
 
 const AdminDashAddcourse = () => {
   const [trainers, setTrainers] = useState([]);
@@ -13,6 +14,8 @@ const AdminDashAddcourse = () => {
     image: null,
     file: null,
   });
+
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchTrainers = async () => {
@@ -52,6 +55,7 @@ const AdminDashAddcourse = () => {
   };
 
   const addCourse = async () => {
+    setIsLoading(true); 
     const formData = new FormData();
     formData.append('Trainer_id', courseData.Trainer_id);
     formData.append('CourseName', courseData.CourseName);
@@ -90,6 +94,9 @@ const AdminDashAddcourse = () => {
     } catch (error) {
       console.error('Error adding course:', error);
       toast.error('Failed to add course');
+    }
+    finally {
+      setIsLoading(false); 
     }
   };
 
@@ -165,12 +172,17 @@ const AdminDashAddcourse = () => {
                   />
                 </div>
               </div>
-              <input
-                type="button"
+              <button
                 className="addcoursebutton"
-                value="Add Course"
                 onClick={addCourse}
-              />
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <Spinner color="primary" className="spinner" />
+                ) : (
+                  'Add Course'
+                )}
+              </button>
             </form>
           </div>
         </div>

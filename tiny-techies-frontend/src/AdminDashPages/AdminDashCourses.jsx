@@ -17,7 +17,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
     setSelectedTrainer(course.TrainerName);
 
     // Set old file value
-    setOldFile(course.file);
+    setOldFile(course.CourseFile);
   };
 
   const handleEditInputChange = (e) => {
@@ -30,6 +30,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
 
   const handleEditFileChange = (e) => {
     const { name, files } = e.target;
+    console.log({name, files});
 
     if (files.length > 0) {
       setEditingCourse({
@@ -37,7 +38,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
         [name]: files[0],
       });
     } else {
-      // No new file selected, so set it back to the old file
+      console.log(oldFile);
       setEditingCourse({
         ...editingCourse,
         [name]: oldFile,
@@ -47,6 +48,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
 
   const handleEditSubmit = () => {
     console.log('Submitting edit:', editingCourse);
+
     const formData = new FormData();
     formData.append('Course_id', editingCourse.Course_id);
     formData.append('CourseName', editingCourse.CourseName);
@@ -66,8 +68,8 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
     formData.append('CourseDescription', editingCourse.CourseDescription);
     formData.append('CourseStartTime', editingCourse.CourseStartTime);
     formData.append('CourseEndTime', editingCourse.CourseEndTime);
-    formData.append('image', editingCourse.image);
-    formData.append('file', editingCourse.file);
+    formData.append('image', editingCourse.image?editingCourse.image:editingCourse.CourseImage); 
+    formData.append('file', editingCourse.file?editingCourse.file:editingCourse.CourseFile);
 
     fetch(`${process.env.REACT_APP_API_URL}/courses/update/${editingCourse.Course_id}`, {
       method: 'PUT',
@@ -92,6 +94,29 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
         toast.error(`Error updating ${editingCourse.CourseName}`);
         setEditingCourse(null);
       });
+  };
+
+  const handleDeleteCourse = (courseId) => {
+    // Display a confirmation alert
+    const shouldDelete = window.confirm('Are you sure you want to delete this course?');
+    if (shouldDelete) {
+      fetch(`${process.env.REACT_APP_API_URL}/courses/delete/${courseId}`, {
+        method: 'DELETE',
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            toast.success('Course Deleted Successfully', { autoClose: 2000 });
+               onDeleteCourse(courseId); 
+          } else {
+            toast.error('Error deleting course');
+          }
+        })
+        .catch((error) => {
+          console.error('Error deleting course:', error);
+          toast.error('Error deleting course');
+        });
+    }
   };
 
   useEffect(() => {
@@ -228,7 +253,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
                     )}
                   </td>
                   <td>
-                    <button onClick={() => onDeleteCourse(course.Course_id)}>
+                    <button onClick={() => handleDeleteCourse(course.Course_id)}>
                       <img src="Images/trash-solid.svg" className="imgedit" alt="Delete" />
                     </button>
                   </td>
