@@ -1,6 +1,8 @@
 import React from "react";
 import "../css/SingleCourseHero.css";
+import ReactPlayer from 'react-player/lazy';
 const SingleCourseHero = ({CourseName, CourseDesc, TutorName, Duration, StudentsCount, CourseFile}) => {
+console.log(CourseFile);
   return (
     <div className=' single-course-hero-navbar d-flex align-items-center justify-content-between  '>
       <div className='single-course-hero'>
@@ -36,10 +38,12 @@ const SingleCourseHero = ({CourseName, CourseDesc, TutorName, Duration, Students
         </div>
       </div>
       <div  className="single-course-hero-video">
-        <video controls >
-          <source src={CourseFile} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      <ReactPlayer
+      url={CourseFile}
+      width="640"
+      height="460"
+      controls
+    />
       </div>
     </div>
   );

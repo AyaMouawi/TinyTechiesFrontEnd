@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../TrainerDashCSS/TrainerDashAttendanceCourse.css";
+import TrainerDashAttendanceTable from "./TrainerDashAttendanceTable";
 
 const TrainerDashAttendanceCourse = () => {
   const [selectedCourse, setSelectedCourse] = useState("");
@@ -20,7 +23,8 @@ const TrainerDashAttendanceCourse = () => {
   }, []);
 
   const handleCourseChange = (event) => {
-    setSelectedCourse(event.target.value);
+    const selectedCourse = event.target.value;
+    setSelectedCourse(selectedCourse);
   };
 
   return (
@@ -33,12 +37,14 @@ const TrainerDashAttendanceCourse = () => {
         >
           <option value=''>Your Course</option>
           {courses.map((course, index) => (
-            <option key={index} value={course.Course_id}>
+            <option key={index} value={course.CourseName}>
               {course.CourseName}
             </option>
           ))}
         </select>
       </div>
+      <TrainerDashAttendanceTable selectedCourse={selectedCourse} />
+      <ToastContainer />
     </div>
   );
 };

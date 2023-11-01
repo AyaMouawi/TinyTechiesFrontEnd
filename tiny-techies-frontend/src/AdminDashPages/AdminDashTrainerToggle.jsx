@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AdminDashAddTrainer from "./AdminDashAddTrainer";
 import AdminDashViewTrainers from "./AdminDashViewTrainers";
-// css
 import "../AdminDashCSS/AdminDash.css";
 const AdminDashTrainerToggle = () => {
   const [addTrainer, setAddTrainer] = useState(false);

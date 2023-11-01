@@ -15,7 +15,7 @@ const TrainerDashAssignment = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/courses/getCoursesByTrainerId/${localStorage.getItem('userId')}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/courses/getCoursesByTrainerId/${localStorage.getItem('userId')}`)
       .then((response) => {
         setCourses(response.data.data);
       })
@@ -42,7 +42,7 @@ const TrainerDashAssignment = () => {
     formData.append("file", assignmentFile);
 
     try {
-      const response = await axios.post("http://localhost:8000/assignmentContent/add", formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/assignmentContent/add`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

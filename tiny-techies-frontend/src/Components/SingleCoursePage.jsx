@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import SingleCourseHero from "./SingleCourseHero";
 import SingleCourseAssignment from "./SingleCourseAssignment";
 import SingleCourseProject from "./SingleCourseProject";
+
 import SingleNav from "./SingleNav";
 
 function SingleCoursePage() {
@@ -20,7 +21,7 @@ function SingleCoursePage() {
 
   useEffect(() => {
    
-    axios.get(`http://localhost:8000/courses/get/${CourseId}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/courses/get/${CourseId}`)
       .then((response) => {
         const data = response.data.data[0];
         const startDate = new Date(data["Start Date"]);

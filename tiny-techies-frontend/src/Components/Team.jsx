@@ -10,7 +10,7 @@ function Team() {
   const [trainers, setTrainers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/trainers/getAllTrainers')
+    axios.get(`${process.env.REACT_APP_API_URL}/trainers/getAllTrainers`)
       .then(response => {
         setTrainers(response.data.data);
       })

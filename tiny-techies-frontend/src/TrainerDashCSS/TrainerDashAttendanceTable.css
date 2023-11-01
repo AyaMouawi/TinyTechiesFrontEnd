@@ -10,6 +10,19 @@
     padding-bottom: 1rem;
 }
 
+.AttendanceButton{
+    margin-top: 5%;
+    margin-left: 35%;
+    background-color: white;
+    border-radius: 26px;
+    box-shadow: cyan;
+    background-color: #5dcedc;
+    color: white;
+    height: 45px;
+    width: 150px;
+    border: white;
+}
+
 .TrainerDashAttendance-table-title {
     display: flex;
     align-items: center;
@@ -33,3 +46,14 @@
     border-bottom: 1px solid;
     padding: 10px 5px;
 }
+
+.TrainerDashAttendanceTR td,.TrainerDashAttendanceTR th {
+width: 33%;
+text-align: center;
+
+
+}
+
+.TrainerDashAttendanceTR.last-row {
+    border-bottom: none;
+  }

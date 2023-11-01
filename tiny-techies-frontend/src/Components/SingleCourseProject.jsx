@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import '../css/SingleCourseProject.css';
 import '../css/SingleCourseResponsive.css';
 
+
 function SingleCourseProject() {
   const {CourseId } = useParams();
   const [modal, setModal] = useState(false);
@@ -16,11 +17,13 @@ function SingleCourseProject() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/projects/getStudentProjects/${CourseId}/${localStorage.getItem('userId')}`)
+      .get(`${process.env.REACT_APP_API_URL}/projects/getStudentProjects/${CourseId}/${localStorage.getItem('userId')}`)
       .then(response => {
         const data = response.data.data;
         setProjects(data);
+     
       })
+      
       .catch(error => {
         console.error('Error fetching data:', error);
       });
@@ -58,6 +61,7 @@ function SingleCourseProject() {
           />
         ))}
       </div>
+  
     </div>
   );
 }

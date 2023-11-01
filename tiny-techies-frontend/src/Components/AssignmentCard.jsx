@@ -1,5 +1,8 @@
 import React, { useRef, useState } from "react";
-import axios from 'axios'; 
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Spinner } from "reactstrap";
 
 const AssignmentCard = ({
   AssignmentName,
@@ -11,45 +14,51 @@ const AssignmentCard = ({
   AssignmentID,
 }) => {
   const fileInputRef = useRef(null);
-  const [selectedFile, setSelectedFile] = useState('');
+  const [selectedFile, setSelectedFile] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const handleChooseFileClick = () => {
     fileInputRef.current.click();
   };
+
   const handleFileSelected = async (event) => {
     const selectedFile = event.target?.files[0];
-    setSelectedFile(selectedFile)}
+    setSelectedFile(selectedFile);
+  };
 
   const SubmitFileSelected = async () => {
-  
     if (!selectedFile) {
- 
       return;
     }
 
+    setLoading(true);
+
     const formData = new FormData();
-    formData.append('AssignmentContent_id', AssignmentID); 
-    formData.append('Student_id', localStorage.getItem('userId')); 
-    formData.append('file', selectedFile);
+    formData.append("AssignmentContent_id", AssignmentID);
+    formData.append("Student_id", localStorage.getItem("userId"));
+    formData.append("file", selectedFile);
 
     try {
-    
-      const response = await axios.post('http://localhost:8000/myAssignments/add', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data', 
-        },
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/myAssignments/add`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-    
+      toast.success("Great Job Buddy");
       console.log(response.data);
 
+      // After a successful submission, no need to refresh, but the assignments list will automatically update
     } catch (error) {
-      console.error('Error uploading file:', error);
+      console.error("Error uploading file:", error);
+    } finally {
+      setLoading(false);
     }
   };
-
-
-
-  
 
   return (
     <div>
@@ -82,7 +91,16 @@ const AssignmentCard = ({
             <button className="btnSingleCourse" onClick={handleChooseFileClick}>
               Choose File
             </button>
-            <button className="btnSingleCourse"  onClick={SubmitFileSelected}>Submit</button>
+            <button
+              className="btnSingleCourse"
+              onClick={SubmitFileSelected}
+            >
+              {loading ? (
+                <Spinner style={{ width: "1.5rem", height: "1.5rem" }} />
+              ) : (
+                "Submit"
+              )}
+            </button>
           </div>
 
           {/* Hidden file input element */}
@@ -94,6 +112,7 @@ const AssignmentCard = ({
           />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

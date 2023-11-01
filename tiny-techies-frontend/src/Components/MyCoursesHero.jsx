@@ -7,7 +7,7 @@ const MyCoursesHero = ({ StudentName }) => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const apiUrl = `http://localhost:8000/user/get/${localStorage.getItem('userId')}`;
+    const apiUrl = `${process.env.REACT_APP_API_URL}/user/get/${localStorage.getItem('userId')}`;
 
     axios.get(apiUrl)
       .then((response) => {

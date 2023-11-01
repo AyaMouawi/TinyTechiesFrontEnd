@@ -46,8 +46,8 @@
     display: block;
     text-align: left;
 }
+
 .assignment-select {
- 
     padding: 10px;
     width: 20rem;
     display: flex;
@@ -57,7 +57,12 @@
     outline: none;
     border-radius: 15px;
 }
-
+.AdminSelect{
+    width: 30rem;
+    border:black solid 1px;
+    font-size: large;
+    margin-top: 3%;
+}
 .assignment-zoom {
     padding: 10px;
     width: 19rem;

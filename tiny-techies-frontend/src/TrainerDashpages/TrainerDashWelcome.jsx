@@ -10,7 +10,7 @@ function TrainerDashWelcomeTrainer() {
 
   useEffect(() => {
     
-    axios.get("http://localhost:8000/statistics/getCount")
+    axios.get(`${process.env.REACT_APP_API_URL}/statistics/getCount`)
       .then((response) => {
         if (response.data && response.data.success) {
           setData({

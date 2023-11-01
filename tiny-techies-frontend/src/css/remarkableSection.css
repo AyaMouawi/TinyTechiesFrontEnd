@@ -12,6 +12,13 @@
     margin-bottom: 5%;
   
 }
+.TrashRemarkableSection{
+    margin-left: 7%;
+    margin-bottom: 3%;
+    height: 30px;
+    width: 30px;
+    
+}
 
 .ProjectShowCheckbox{
     display: flex;
@@ -45,6 +52,9 @@
     margin-bottom: 10%;
     border: 1px solid slategray;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.AdminCard{
+    margin-bottom: 6% !important;
 }
 
 .Project-card{

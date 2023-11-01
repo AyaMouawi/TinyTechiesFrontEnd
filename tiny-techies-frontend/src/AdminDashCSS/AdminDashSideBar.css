@@ -1,7 +1,7 @@
 
 .AdminDashSideBarSubContainer{
     width: 20vw;
-    height: 150vh; /* Adjusted to fill the entire screen height */
+    height: 260vw;
     background-image: url("../../public/Images/counter-bg.jpg");
     background-size: 100% 100%;
     background-position: center center;
@@ -18,6 +18,9 @@ align-items: flex-start;
 justify-content: flex-start;
 height: 100%;
 }
+.AdminDashSideBarTitle{
+    margin-bottom: 7%;
+}
 .AdminDashTinyTechiesImg{
     margin: 0 auto;
     width: 40%;
@@ -31,7 +34,7 @@ height: 100%;
     
 }
 .AdminDashSideBarButton{
-    
+    color: white;
     width: 80%;
     text-align: center;
     height: 40px;
@@ -44,9 +47,9 @@ height: 100%;
     align-items: center;
     justify-content: center; 
 }
-.AdminDashSideBarButton a{
+.AdminDashLink{
     color: white;
-    text-decoration: none;
+    text-decoration: none  !important;
 }
 .AdminDashSideBarSubContainer p{
     color: white;
