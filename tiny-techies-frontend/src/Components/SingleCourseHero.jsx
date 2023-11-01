@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/SingleCourseHero.css";
-import ReactPlayer from 'react-player/lazy';
+import ReactPlayer from 'react-player';
 const SingleCourseHero = ({CourseName, CourseDesc, TutorName, Duration, StudentsCount, CourseFile}) => {
 console.log(CourseFile);
   return (

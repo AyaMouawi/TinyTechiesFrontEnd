@@ -12,20 +12,24 @@ const AdminDashAddRemarkableProjects = ({
   showProject,
   onShowProjectChange,
   onDeleteProject,
+  
 }) => {
 
-  const handleDelete = () => {
-    if (window.confirm(`Are you sure you want to delete ${ProjectName}?`)) {
+  const handleDelete = (project) => {
+    if (window.confirm(`Are you sure you want to delete this project ?`)) {
       // Make an API call to delete the project
-      axios.delete(`${process.env.REACT_APP_API_URL}/projects/delete/${StudentProject}`)
+      axios
+        .delete(`${process.env.REACT_APP_API_URL}/projects/delete/${project.StudentProject}`)
         .then(() => {
-          onDeleteProject(StudentProject); // Notify the parent component of the deletion
+          onDeleteProject(project.Project_id); // Notify the parent component of the deletion
         })
         .catch((error) => {
           console.error('Error deleting project: ', error);
         });
     }
   };
+  
+  
 
   return (
     <div className='remarkable-card AdminCard'>
