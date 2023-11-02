@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Spinner } from 'reactstrap';
 
 const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
   const [editingCourse, setEditingCourse] = useState(null);
   const [trainerList, setTrainerList] = useState([]);
   const [selectedTrainer, setSelectedTrainer] = useState('');
   const [oldFile, setOldFile] = useState(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   const handleEditClick = (course) => {
     setEditingCourse({
@@ -16,7 +18,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
     });
     setSelectedTrainer(course.TrainerName);
 
-    // Set old file value
+
     setOldFile(course.CourseFile);
   };
 
@@ -47,6 +49,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
   };
 
   const handleEditSubmit = () => {
+    setIsSaving(true);
     console.log('Submitting edit:', editingCourse);
 
     const formData = new FormData();
@@ -88,16 +91,18 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
           toast.error(`Error updating ${editingCourse.CourseName}`);
           setEditingCourse(null);
         }
+        setIsSaving(false);
       })
       .catch((error) => {
         console.error('Error updating course:', error);
         toast.error(`Error updating ${editingCourse.CourseName}`);
         setEditingCourse(null);
+        setIsSaving(false);
       });
   };
 
   const handleDeleteCourse = (courseId) => {
-    // Display a confirmation alert
+    
     const shouldDelete = window.confirm('Are you sure you want to delete this course?');
     if (shouldDelete) {
       fetch(`${process.env.REACT_APP_API_URL}/courses/delete/${courseId}`, {
@@ -247,7 +252,9 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
                   </td>
                   <td>
                     {editingCourse && editingCourse.Course_id === course.Course_id ? (
-                      <button onClick={handleEditSubmit}>Save</button>
+                      <button onClick={handleEditSubmit} disabled={isSaving}>
+                      {isSaving ? <Spinner size="sm" color="primary" /> : 'Save'}
+                    </button>
                     ) : (
                       <button onClick={() => handleEditClick(course)}>Edit</button>
                     )}

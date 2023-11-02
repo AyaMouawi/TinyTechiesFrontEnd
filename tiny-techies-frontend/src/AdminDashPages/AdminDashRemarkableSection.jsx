@@ -25,13 +25,27 @@ const AdminDashRemarkableSection = () => {
   }, []);
 
  
-  const handleDeleteProject = (project) => {
-    setProjectsData((prevProjectsData) =>
-      prevProjectsData.filter((p) => p.Project_id !== project.Project_id)
-    );
+  const handleDeleteProject = async (project) => {
+    const confirmDelete = window.confirm(`Are you sure you want to delete ${project.ProjectName}?`);
   
-    toast.success(`${project.ProjectName} deleted successfully`);
+    if (!confirmDelete) {
+      return;
+    }
+    if (confirmDelete) {
+    try {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/projects/delete/${project.Project_id}`);
+      setProjectsData((prevProjectsData) =>
+        prevProjectsData.filter((p) => p.Project_id !== project.Project_id)
+      );
+  
+      toast.success(`${project.ProjectName} deleted successfully`);
+    } catch (error) {
+      console.error("Error deleting project: ", error);
+      toast.error(`Error deleting ${project.ProjectName}`);
+    }
+  }
   };
+  
   
 
   const handleShowProjectChange = async (id, showProject, projectName) => {

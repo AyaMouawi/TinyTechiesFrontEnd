@@ -14,7 +14,7 @@ const SingleCourseAssignment = () => {
   const toggle = () => setModal(!modal);
 
   useEffect(() => {
-    // Fetch assignments on initial load and whenever assignments change
+    
     fetchAssignments();
   }, [assignments]);
 

@@ -3,10 +3,19 @@ import "../css/footer.css";
 import emailjs from "@emailjs/browser";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Footer() {
   const form = useRef();
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_email: "",
+    message: "",
+  });
+
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -22,6 +31,15 @@ function Footer() {
         (result) => {
           console.log(result.text);
           console.log("message sent");
+
+          setFormData({
+            user_name: " ",
+            user_email: " ",
+            message: " ",
+          });
+
+     
+          toast.success("Thank you for contacting us!");
         },
         (error) => {
           console.log(error.text);
@@ -186,6 +204,7 @@ function Footer() {
         </div>
       </div>
       <div className="copyright">© {currentYear} by Group 4 </div>
+      <ToastContainer/>
     </div>
   );
 }

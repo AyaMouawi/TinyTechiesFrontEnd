@@ -15,19 +15,19 @@ const AdminDashAddRemarkableProjects = ({
   
 }) => {
 
-  const handleDelete = (project) => {
-    if (window.confirm(`Are you sure you want to delete this project ?`)) {
-      // Make an API call to delete the project
-      axios
-        .delete(`${process.env.REACT_APP_API_URL}/projects/delete/${project.StudentProject}`)
-        .then(() => {
-          onDeleteProject(project.Project_id); // Notify the parent component of the deletion
-        })
-        .catch((error) => {
-          console.error('Error deleting project: ', error);
-        });
-    }
-  };
+  // const handleDelete = (project) => {
+  //   if (window.confirm(`Are you sure you want to delete this project ?`)) {
+  //     // Make an API call to delete the project
+  //     axios
+  //       .delete(`${process.env.REACT_APP_API_URL}/projects/delete/${project.StudentProject}`)
+  //       .then(() => {
+  //         onDeleteProject(project.Project_id); // Notify the parent component of the deletion
+  //       })
+  //       .catch((error) => {
+  //         console.error('Error deleting project: ', error);
+  //       });
+  //   }
+  // };
   
   
 
@@ -59,7 +59,7 @@ const AdminDashAddRemarkableProjects = ({
           onChange={onShowProjectChange}
         />
       </div>
-      <div>  <img className="TrashRemarkableSection" src="Images/trash-solid.svg" alt="Delete" onClick={handleDelete} /> </div>
+      <div>  <img className="TrashRemarkableSection" src="Images/trash-solid.svg" alt="Delete" onClick={onDeleteProject} /> </div>
     </div>
   );
 };

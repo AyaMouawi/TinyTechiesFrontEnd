@@ -1,25 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 import '../AdminDashCSS/AdminDash.css';
 
 const AdminDashViewTrainers = () => {
   const [trainers, setTrainers] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/trainers/getAllTrainers`)
-      .then((response) => response.json())
-      .then((data) => setTrainers(data.data))
-      .catch((error) => console.error('Error fetching data:', error));
+    axios.get(`${process.env.REACT_APP_API_URL}/trainers/getAllTrainers`)
+      .then((response) => {
+        setTrainers(response.data.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
   }, []);
 
   const handleDelete = (trainerId) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this trainer?');
+    if (!confirmDelete) {
+      return;
+    }
 
     if (confirmDelete) {
-      fetch(`${process.env.REACT_APP_API_URL}/trainers/delete/${trainerId}`, {
-        method: 'DELETE',
-      })
+      axios.delete(`${process.env.REACT_APP_API_URL}/trainers/delete/${trainerId}`)
         .then((response) => {
           if (response.status === 200) {
             setTrainers((prevTrainers) => prevTrainers.filter((trainer) => trainer.User_id !== trainerId));

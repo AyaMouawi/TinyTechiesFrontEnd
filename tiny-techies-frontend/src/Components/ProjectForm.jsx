@@ -58,7 +58,7 @@ const ProjectForm = () => {
         ProjectDescription: "",
       });
 
-      toast.success("Great Job Buddy");
+ 
       setSuccessMessage("Thank you! Data added successfully");
 
       setTimeout(() => {

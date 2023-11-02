@@ -3,6 +3,7 @@ import AdminDashAddcourse from './AdminDashAddcourse';
 import AdminDashCourses from './AdminDashCourses';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const AdminDashCourseToggle = () => {
   const [addCourse, setAddCourse] = useState(false);
@@ -20,9 +21,10 @@ const AdminDashCourseToggle = () => {
   };
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/courses/getAllAdmin`)
-      .then((response) => response.json())
-      .then((data) => setCourses(data.data))
+    axios.get(`${process.env.REACT_APP_API_URL}/courses/getAllAdmin`)
+      .then((response) => {
+        setCourses(response.data.data);
+      })
       .catch((error) => {
         console.error('Error fetching courses:', error);
         toast.error('Error fetching courses');
@@ -30,15 +32,14 @@ const AdminDashCourseToggle = () => {
   }, []);
 
   const handleDeleteCourse = (courseId) => {
-    // Display a confirmation alert
     const shouldDelete = window.confirm('Are you sure you want to delete this course?');
+    if (!shouldDelete) {
+      return;
+    }
     if (shouldDelete) {
-      fetch(`${process.env.REACT_APP_API_URL}/courses/delete/${courseId}`, {
-        method: 'DELETE',
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
+      axios.delete(`${process.env.REACT_APP_API_URL}/courses/delete/${courseId}`)
+        .then((response) => {
+          if (response.data.success) {
             setCourses(courses.filter((course) => course.Course_id !== courseId));
           } else {
             toast.error('Error deleting course');
@@ -52,9 +53,10 @@ const AdminDashCourseToggle = () => {
   };
 
   const handleEditCourse = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/courses/getAllAdmin`)
-      .then((response) => response.json())
-      .then((data) => setCourses(data.data))
+    axios.get(`${process.env.REACT_APP_API_URL}/courses/getAllAdmin`)
+      .then((response) => {
+        setCourses(response.data.data);
+      })
       .catch((error) => {
         console.error('Error fetching courses:', error);
         toast.error('Error fetching courses');
