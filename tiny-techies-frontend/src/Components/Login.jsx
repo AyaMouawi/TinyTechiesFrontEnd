@@ -69,11 +69,12 @@ function Login() {
         UserAge: age,
         Password: password,
       });
-
+  
       if (response.status === 201) {
-        showMessage('Data added successfully');
-        localStorage.setItem('userRole', 'Student');
-        navigate('/');
+        showMessage('Please log in now .');
+        setTimeout(() => {
+          handleSignInClick(); 
+        }, 1000);
       } else {
         showMessage('Unable to add new data');
       }

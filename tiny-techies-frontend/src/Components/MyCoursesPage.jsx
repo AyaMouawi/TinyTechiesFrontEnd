@@ -5,12 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MyCoursesHero from './MyCoursesHero';
 import SingleCourse from './SingleCourse';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const MyCoursesPage = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    
     axios.get(`${process.env.REACT_APP_API_URL}/courses/getStudentCourse/${localStorage.getItem('userId')}`)
       .then((response) => {
         setCourses(response.data.data);
@@ -28,17 +28,25 @@ const MyCoursesPage = () => {
         <div className="MyPageCourses-Wrapper">
           <h2 className="MyCoursesTitle">Your Courses</h2>
           <div className="MyPageCourses">
-            {courses.map((course) => (
-              <SingleCourse
-                key={course.Course_id}
-                CourseName={course.CourseName}
-                CourseDesc={course.CourseDescription}
-                StudentsCount={course.StudentCount}
-                Duration={formatDuration(course.CourseStartTime, course.CourseEndTime)}
-                imageUrl={course.CourseImage}
-                CourseId={course.Course_id}
-              />
-            ))}
+            {courses.length === 0 ? (
+              <div className='GoRegisterContainer'>
+              <p>What Are You Waiting For ?? </p>
+              <Link to="/CoursesPage"> <button className='btnGoRegister'>
+                GO REGISTER
+              </button> </Link> </div>
+            ) : (
+              courses.map((course) => (
+                <SingleCourse
+                  key={course.Course_id}
+                  CourseName={course.CourseName}
+                  CourseDesc={course.CourseDescription}
+                  StudentsCount={course.StudentCount}
+                  Duration={formatDuration(course.CourseStartTime, course.CourseEndTime)}
+                  imageUrl={course.CourseImage}
+                  CourseId={course.Course_id}
+                />
+              ))
+            )}
           </div>
         </div>
       </div>
@@ -47,7 +55,6 @@ const MyCoursesPage = () => {
 };
 
 export default MyCoursesPage;
-
 
 function formatDuration(startDate, endDate) {
   const start = new Date(startDate);
@@ -58,6 +65,3 @@ function formatDuration(startDate, endDate) {
 
   return `from ${start.getDate()}/${startMonth} to ${end.getDate()}/${endMonth}`;
 }
-
-
-

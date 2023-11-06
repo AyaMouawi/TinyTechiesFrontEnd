@@ -61,7 +61,7 @@ const AdminDashStudents = () => {
                       </ul>
                     )}
                   </td>
-                  <td>{student.UserAbsence}</td>
+                  <td>{student.Absence}</td>
                   <td>
                     <button onClick={() => handleDeleteStudent(student.User_id)}>
                       <img src="Images/trash-solid.svg" className="imgedit"  alt="Delete" />

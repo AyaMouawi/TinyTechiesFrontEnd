@@ -42,15 +42,24 @@ const CoursesPage = () => {
         Course_id: courseId,
         Student_id: localStorage.getItem('userId'),
       })
-      .then((response) => {
-        if (response.data.success) {
-          setSuccessMessageModal(true);
-          toggleModal();
-        }
-      })
-      .catch((error) => {
-        console.error("Error enrolling the student: ", error);
-      });
+        .then((response) => {
+          if (response.data.success) {
+            setSuccessMessageModal(true);
+            toggleModal();
+
+            axios.get(`${process.env.REACT_APP_API_URL}/courses/getByStudent/${localStorage.getItem('userId')}`)
+              .then((response) => {
+                const courseData = response.data.data;
+                setCourses(courseData);
+              })
+              .catch((error) => {
+                console.error("Error fetching data: ", error);
+              });
+          }
+        })
+        .catch((error) => {
+          console.error("Error enrolling the student: ", error);
+        });
     }
   };
 

@@ -20,6 +20,17 @@ const AdminDashCourseToggle = () => {
     setViewCourses(!viewCourses);
   };
 
+  const updateCourses = () => {
+    axios.get(`${process.env.REACT_APP_API_URL}/courses/getAllAdmin`)
+      .then((response) => {
+        setCourses(response.data.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching courses:', error);
+        toast.error('Error fetching courses');
+      });
+  };
+
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/courses/getAllAdmin`)
       .then((response) => {
@@ -65,7 +76,7 @@ const AdminDashCourseToggle = () => {
 
   return (
     <div className="TrainerDashMainContainer">
-      <ToastContainer />
+      
       <div className="transitionbtns">
         <button className="mainbuttons" onClick={toggleAddCourse}>
           Add Course
@@ -76,7 +87,7 @@ const AdminDashCourseToggle = () => {
         </button>
       </div>
       <div className="dash-toggle-center">
-        {addCourse && <AdminDashAddcourse />}
+        {addCourse && <AdminDashAddcourse updateCourses={updateCourses} />}
         {viewCourses && (
           <AdminDashCourses
             courses={courses}
@@ -85,6 +96,7 @@ const AdminDashCourseToggle = () => {
           />
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 };

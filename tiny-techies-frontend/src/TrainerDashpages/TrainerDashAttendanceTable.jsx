@@ -21,7 +21,7 @@ const TrainerDashAttendanceTable = (props) => {
           }))
         );
 
-        // Check if attendance has been saved for this course on the current date
+
         const savedDateKey = `attendanceSaved_${selectedCourse}_${new Date().toDateString()}`;
         const isAttendanceSavedToday = localStorage.getItem(savedDateKey);
         setAttendanceSaved(isAttendanceSavedToday === "true");
@@ -74,7 +74,6 @@ const TrainerDashAttendanceTable = (props) => {
       }
     }
 
-    // Mark attendance as saved for today in local storage
     const savedDateKey = `attendanceSaved_${selectedCourse}_${new Date().toDateString()}`;
     localStorage.setItem(savedDateKey, "true");
 

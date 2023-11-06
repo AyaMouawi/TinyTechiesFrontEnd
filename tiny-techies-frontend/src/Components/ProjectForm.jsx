@@ -133,22 +133,21 @@ const ProjectForm = () => {
           ></textarea>
         </div>
         <div className="btn-submit">
-          <button type="submit" className="project-form-btn-submit">
-            Submit
+        <button type="submit" className="project-form-btn-submit" disabled={loading}>
+            {loading ? (
+              <Spinner style={{ width: "2rem", height: "2rem" }} />
+            ) : (
+              "Submit"
+            )}
           </button>
         </div>
       </form>
-
-      {loading && (
-        <div className="loading-spinner">
-          <Spinner  style={{ width: "3rem", height: "3rem" }} />
-        </div>
-      )}
+      <ToastContainer />
 
       {successMessage && (
         <div className="success-message">{successMessage}</div>
       )}
-      <ToastContainer />
+     
     </div>
   );
 };

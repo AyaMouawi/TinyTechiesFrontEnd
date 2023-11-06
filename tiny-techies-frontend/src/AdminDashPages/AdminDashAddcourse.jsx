@@ -3,7 +3,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Spinner } from 'reactstrap';
 
-const AdminDashAddcourse = () => {
+const AdminDashAddcourse = ({ updateCourses }) => {
   const [trainers, setTrainers] = useState([]);
   const [courseData, setCourseData] = useState({
     Trainer_id: '',
@@ -87,6 +87,8 @@ const AdminDashAddcourse = () => {
 
         document.getElementById('image-upload').value = '';
         document.getElementById('file-upload').value = '';
+        updateCourses();
+
       } else {
         toast.error('Failed to add course');
       }
