@@ -42,12 +42,14 @@ const AdminDashSideBar = () => {
         <p className='AdminDashSideBarSubContainer-p'>Welcome</p>
         {AdminData && <p className='AdminDashSideBarSubContainer-p'>{AdminData.UserFullName}</p>}
         </div>
+
+           <a href="#AdminDashStatistics" className="AdminDashLink" onClick={() => handleMenuClick("AdminDashStatistics")}>  <button className='AdminDashSideBarButton'>Statistics </button></a>
        
         
           <a href="#AdminDashCourseToggle" className="AdminDashLink" onClick={() => handleMenuClick("AdminDashCourseToggle")}><button className='AdminDashSideBarButton'>Courses  </button></a>
       
        
-          <a href="#AdminDashStatistics" className="AdminDashLink" onClick={() => handleMenuClick("AdminDashStatistics")}>  <button className='AdminDashSideBarButton'>Statistics </button></a>
+          
        
        
           <a href="#AdminDashTrainerToggle" className="AdminDashLink" onClick={() => handleMenuClick("AdminDashTrainerToggle")}>  <button className='AdminDashSideBarButton'>Trainers</button></a>

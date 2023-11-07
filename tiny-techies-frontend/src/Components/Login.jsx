@@ -12,6 +12,29 @@ function Login() {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
+  const [passwordStrengthMessage, setPasswordStrengthMessage] = useState('');
+
+  const checkPasswordStrength = (password) => {
+    const hasCapitalLetter = /[A-Z]/.test(password);
+    const hasSmallLetter = /[a-z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    const hasSymbol = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/\-|=]/.test(password);
+
+    if (hasCapitalLetter && hasSmallLetter && hasNumber && hasSymbol) {
+      setPasswordStrengthMessage('Your Password Is Strong');
+    } else {
+      setPasswordStrengthMessage(
+        'Your Password should Contain small and capital letters, numbers, and symbols'
+      );
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword); 
+    checkPasswordStrength(newPassword); 
+  };
+
   const showMessage = (message) => {
     setMessage(message);
     setTimeout(() => {
@@ -62,27 +85,33 @@ function Login() {
   };
 
   const handleSignUp = async () => {
-    try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/user/addStudent`, {
-        UserFullName: name,
-        UserEmail: email,
-        UserAge: age,
-        Password: password,
-      });
+    if (passwordStrengthMessage.includes('Strong')) {
+      try {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/user/addStudent`, {
+          UserFullName: name,
+          UserEmail: email,
+          UserAge: age,
+          Password: password,
+        });
   
-      if (response.status === 201) {
-        showMessage('Please log in now .');
-        setTimeout(() => {
-          handleSignInClick(); 
-        }, 1000);
-      } else {
-        showMessage('Unable to add new data');
+        if (response.status === 201) {
+          setPasswordStrengthMessage(''); // Reset the password strength message
+          showMessage('Please log in now .');
+          setTimeout(() => {
+            handleSignInClick();
+          }, 1000);
+        } else {
+          showMessage('Unable to add new data');
+        }
+      } catch (error) {
+        console.error('Error during Sign Up:', error);
       }
-    } catch (error) {
-      console.error('Error during Sign Up:', error);
+    } else {
+      showMessage('Your Password is not strong. Please follow the criteria.');
     }
   };
 
+  
   return (
     <div className="Login">
       <NavBar />
@@ -137,10 +166,13 @@ function Login() {
               type="password"
               placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handlePasswordChange}
             />
             <br />
             <p>{message}</p>
+            <p style={{ color: passwordStrengthMessage.includes('Strong') ? 'green' : 'red' }} className='PassMessage'>
+              {passwordStrengthMessage}
+            </p>
             <button className='Sign' type="submit">Sign Up</button>
           </form>
         </div>

@@ -15,6 +15,12 @@
 	margin: -20px 0 50px;
 }
 
+.PassMessage{
+	font-size: 15px;
+    width: 400px;
+    margin-top: -15%;
+}
+
 .h1login {
 	font-weight: bold;
 	margin: 0;

@@ -51,7 +51,6 @@ const AdminDashViewTrainers = () => {
                 <th>Trainer Name</th>
                 <th>Email</th>
                 <th>Age</th>
-                <th>Password</th>
                 <th>Trainer Image</th>
                 <th>Delete</th>
               </tr>
@@ -60,7 +59,6 @@ const AdminDashViewTrainers = () => {
                   <td>{trainer.UserFullName}</td>
                   <td>{trainer.UserEmail}</td>
                   <td>{trainer.UserAge}</td>
-                  <td>{trainer.Password}</td>
                   <td>
                     <img
                       src={trainer.TrainerImage}
