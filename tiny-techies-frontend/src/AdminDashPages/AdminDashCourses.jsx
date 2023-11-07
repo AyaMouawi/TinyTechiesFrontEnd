@@ -10,6 +10,11 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
   const [oldFile, setOldFile] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
 
+  // declare the variable current 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  // set the pages to show only 5 rows
+  const dataPerPage = 5;
+
   const handleEditClick = (course) => {
     setEditingCourse({
       ...course,
@@ -140,6 +145,15 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
       });
   }, []);
 
+  // create next previous buttons
+  const handleNext = () => {
+    setCurrentIndex(currentIndex + dataPerPage);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex(currentIndex - dataPerPage);
+  };
+
   return (
     <div>
       <div className="cardiv">
@@ -158,7 +172,8 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
-              {courses.map((course) => (
+              {/* you should make slice to the array */}
+              {courses.slice(currentIndex, currentIndex + dataPerPage).map((course) => (
                 <tr key={course.Course_id}>
                   <td>
                     {editingCourse && editingCourse.Course_id === course.Course_id ? (
@@ -267,6 +282,19 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
                 </tr>
               ))}
             </table>
+            {/* add the buttons next and previous */}
+            <div className="pagination">
+              <button disabled={currentIndex === 0} onClick={handlePrevious} className="btn-next">
+                Previous
+              </button>
+              <button
+                disabled={currentIndex + dataPerPage >= courses.length}
+                onClick={handleNext}
+                className="btn-next"
+              >
+                Next
+              </button>
+              </div>
           </div>
         </div>
       </div>
