@@ -1,0 +1,55 @@
+
+.single-course-hero-video video {
+    height: 500px;
+    width: 600px;
+    border-radius: 20px;
+    object-fit: cover; 
+}
+
+.single-course-hero{
+    margin-bottom: 15%;
+    margin-top: 7%;
+
+}
+
+.single-course-hero-icon {
+    width: 24px;
+    margin-bottom: 11px;
+}
+
+.single-course-hero-subTitle{
+   width: 100%;
+   color: grey; 
+}
+.single-course-hero-time {
+    
+    align-items: center;
+    
+}
+
+.single-course-hero-title{
+    overflow-y: hidden;
+}
+
+.single-course-hero-Tutor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.single-course-hero-time-one {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 120px;
+}
+
+.single-course-hero-students {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.single-course-hero-navbar{
+    margin-bottom: 5%;
+}

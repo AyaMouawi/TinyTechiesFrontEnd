@@ -1,0 +1,59 @@
+.TrainerDashAttendancetable-attendance {
+    background-image: url(/public/Images/counter-bg.jpg);
+    width: 37rem;
+    height: 29rem;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    border-radius: 20px;
+    background-size: cover;
+    padding-bottom: 1rem;
+}
+
+.AttendanceButton{
+    margin-top: 5%;
+    margin-left: 35%;
+    background-color: white;
+    border-radius: 26px;
+    box-shadow: cyan;
+    background-color: #5dcedc;
+    color: white;
+    height: 45px;
+    width: 150px;
+    border: white;
+}
+
+.TrainerDashAttendance-table-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    color: #ffff;
+    font-size: 1.5rem;
+}
+
+.TrainerDashAttendancetable {
+    width: 30rem;
+
+    border-radius: 20px;
+    background: white;
+}
+
+.TrainerDashAttendanceTR {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid;
+    padding: 10px 5px;
+}
+
+.TrainerDashAttendanceTR td,.TrainerDashAttendanceTR th {
+width: 33%;
+text-align: center;
+
+
+}
+
+.TrainerDashAttendanceTR.last-row {
+    border-bottom: none;
+  }

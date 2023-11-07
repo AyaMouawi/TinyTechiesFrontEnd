@@ -1,0 +1,36 @@
+.MyPageCourses-Wrapper {
+  
+    padding-top: 10%;
+    height: 100%;
+    padding-bottom: 5%;
+    
+  }
+.btnGoRegister{
+  border-radius: 10px;
+  border: 2px solid #00C3C9;
+  background: #FFF;
+  padding: 5px 10px;
+  text-align: center; 
+  
+}
+.GoRegisterContainer{
+display: flex;
+    flex-direction: column;
+    text-align: center;}
+ 
+.MyCoursesTitle{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.MyPageCourses{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.KeepLearning{
+    overflow-y: hidden;
+}

@@ -1,0 +1,145 @@
+body {
+    background: rgb(176, 245, 247, 23%);
+}
+
+/* the first div for all content */
+.single-course-assignment-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 8%;
+    margin-top: 3%;
+    flex-wrap: wrap; 
+    max-width: 100%; 
+}
+
+/* end single-course-assignment-nav */
+
+/* cards */
+.card {
+    width: 250px;
+    border-radius: 30px;
+    margin: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-text {
+    font-size: 13px;
+    color: rgb(0, 0, 0, 37%);
+}
+
+.card-img-top {
+    border-radius: 30px 30px 0px 0px;
+}
+
+.btnSingleCourse {
+    border-radius: 10px;
+    border: 2px solid #00C3C9;
+    background: #FFF;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.assignment-card-icon {
+    width: 24px;
+    margin-bottom: 11px;
+}
+
+.assignment-card-time {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+
+.assignment-content {
+    
+    border-radius: 20px;
+    width: 450px;
+    min-height: 490px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.assignment-content-title {
+    color: #ffffff;
+}
+
+.assignment-items {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.assignment-table {
+    background: #ffffff;
+    width: 350px;
+    height: 350px;
+
+}
+
+.assignment-grades{
+    margin-right: 20%;
+}
+
+.assignment-subtitle{
+    margin-left: 15%;
+}
+.assignment-table tr td {
+    border: 1px solid #000000;
+}
+
+.assignment-table tr {
+    text-align: center;
+}
+
+.assignment-table td {
+    text-align: center;
+    width: 100px;
+}
+
+/* end  the content side and table*/
+
+.AssignmentModal{
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+ 
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.AssignmentModalBody{
+    height: 90vh;
+    padding-bottom: 0px;
+    background-image: url("../../public/Images/counter-bg.jpg");
+    background-size: cover;
+}
+.AssignmentModalHeader{
+    background-image: url("../../public/Images/counter-bg.jpg");
+}
+
+.text-center{
+    overflow-y: hidden;
+}
+
+
+
+@media (max-width: 500px) {
+    .single-course-assignment-nav{
+        margin-left: 0px;
+    }
+    .card {
+        width: 250px;
+        border-radius: 30px;
+     margin:0;
+        margin-bottom: 10px;
+    }
+    
+  }

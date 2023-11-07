@@ -1,0 +1,91 @@
+.PopularCourses-Title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5%;
+  }
+  
+  .TitleLeftCourses {
+    flex: 1;
+    margin-left: 14%;
+    
+
+  }
+  .TitleLeftCourses h1{
+    overflow-y: hidden;
+    text-align: center;
+    margin-left: 100px;
+
+  }
+  
+  .TitleRightCourses {
+    margin-right: 10%;
+  }
+  .TitleRightCourses h6{
+    overflow-y: hidden;
+
+  }
+
+  .TitleRightCourses h6 a:hover{
+  color : #ff6699
+  
+  }
+  
+  
+  .PopularCourses-Title a {
+    text-decoration: none;
+    color: rgba(0, 195, 201, 1);
+  }
+.PopularCourses-Wrapper{
+    background-color: #ECFCFD;
+    padding-top: 5%;
+    height: 100vh;
+
+}    
+.Courses{
+    display: flex;
+    justify-content: center;
+   
+}
+
+
+
+@media (max-width: 500px) {
+  .PopularCourses-Wrapper{
+    height: 100%;
+  }
+    .Courses {
+      flex-direction: column; 
+      align-items: center; 
+      
+    }
+    .PopularCourses-Title {
+        display: inline;
+        justify-content: none;
+        align-items: center;
+        margin-bottom: 5%;
+      }
+     
+      .TitleLeftCourses {
+        flex: 0;
+        margin-left: 0px;
+      }
+    .TitleRightCourses {
+        visibility: collapse;
+      }
+      
+      
+      .PopularCourses-Title a {
+        visibility: collapse;}
+        .TitleLeftCourses h1 {
+          margin-left: 0px
+      }
+  }
+
+
+  @media (min-width: 501px) and (max-width: 900px) {
+    .Courses {
+        flex-wrap: wrap;
+     
+    }
+    }

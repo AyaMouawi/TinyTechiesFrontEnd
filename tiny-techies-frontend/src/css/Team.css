@@ -1,0 +1,181 @@
+
+/* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} */
+
+.section-white{
+    background: rgb(176, 245, 247, 23%);
+    padding: 70px 0;
+
+}
+.OurTrainers{
+
+
+text-align: center ;
+overflow-y: hidden ;
+font-size:xxx-large;
+}
+
+
+.team-carousel{
+    height: 100vh;
+    padding-top: 5%;
+    background-color:#ECFCFD;
+    width:100%;
+}
+.team-item{
+    background: none;
+    text-align: center;
+    padding:50px 20px 40px 20px;
+    margin: 20px ;
+    border-radius: 8px 8px ;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition:all 0.25s ease-in-out ;
+    transition: all 0.25s ease-in-out;
+    text-align: center;
+
+}
+/* .team-item:hover{
+    background:rgba(104, 206, 250, 0.548);
+    color: white;
+    
+} */
+.team-item h3{
+    margin: 20px 0 1px 0 !important;
+    font-size: 18px;
+    font-weight: 550;
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    overflow-y: hidden;
+   
+
+}
+
+.section-subtitle {
+    white-space: pre-line;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+    /* .team-item:hover h3{
+        color: #ddd;
+    } */
+    .slick-prev, .slick-next{
+        border-radius: 50%;
+        display: block;
+    background: #00c3c9;
+    z-index: 1;
+    height: 40px;
+    width: 40px;
+    }
+    .slick-prev:hover, .slick-next:hover{
+        border-radius: 50%;
+        display: block;
+    background: rgb(0, 195, 201);
+    z-index: 1;
+    height: 40px;
+    width: 40px;
+    }
+    .slick-prev:before, .slick-next:before {
+        
+        color: #61dafb !important }
+        
+        .slick-prev{
+            
+            left: 0px;
+            
+        }
+        .slick-next{
+            right: 0;
+           
+            
+        }
+    .team-info p{
+        color: #acacac;
+        font-style: italic;
+        
+    }
+    .team-info::after{
+        background: #88afd1;
+        font-style: italic;
+        display: inline-block;
+        content: '';
+        
+
+    }
+
+    
+
+    .team-img{
+        width: 300px;
+        height: 300px;
+        /* padding: 6px 6px; */
+        background-color: #dedede;
+        -webkit-border-radius:50%;
+        -moz-border-radius:50%;
+        border-radius:10%;
+        display: block;
+        margin: 0 auto;
+        border: 1px solid black;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    }
+    /* .carousel{
+        padding: 5rem;
+        height: 100vh;
+        width: 100vw;
+
+    }
+     */
+
+     @media (max-width: 500px) {
+        .slick-prev:hover, .slick-next:hover{
+            
+        height: 30px;
+        width: 30px;
+        }
+        .slick-prev, .slick-next{
+            margin-top: -10%;
+
+            border-radius: 50%;
+            display: block;
+        background: rgb(0, 195, 201);
+        z-index: 1;
+        height: 30px;
+        width: 30px;
+        }
+        .team-img{
+            width: 100%;
+            height: 100%;
+          
+    
+        }
+
+        .team-carousel{
+            height: initial;
+        }
+      }
+      
+      
+      @media (min-width: 501px) and (max-width: 900px) {
+        .slick-prev, .slick-next{
+            margin-top: -5%;
+        }
+       
+        .team-img{
+            width: 300px;
+            height: 300px;
+          
+    
+        }
+
+        .team-carousel{
+            height: initial;
+        }
+      }

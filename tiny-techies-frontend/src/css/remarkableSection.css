@@ -1,0 +1,132 @@
+.remarkable-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: white;
+}
+
+.remarkable-title {
+    text-align: center;
+    margin-bottom: 5%;
+  
+}
+.TrashRemarkableSection{
+    margin-left: 7%;
+    margin-bottom: 3%;
+    height: 30px;
+    width: 30px;
+    
+}
+
+.ProjectShowCheckbox{
+    display: flex;
+    margin-left: 1rem;
+}
+.ProjectInputCheckbox{
+    margin: 0 0 3% 3%;
+}
+.card-des p {
+    overflow-y: hidden;
+}
+.AdminprojectWrap{
+    display: flex;
+    width: 79vw;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.remarkable-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap: 20px;
+}
+
+.remarkable-card {
+    border-radius: 50px;
+    background: rgba(176, 245, 247, 0.23);
+    width: 390px;
+    min-height: 400px;
+    max-width: 100%;
+    margin-bottom: 10%;
+    border: 1px solid slategray;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.AdminCard{
+    margin-bottom: 6% !important;
+}
+
+.Project-card{
+    border-radius: 50px;
+    background: rgb(255, 255, 255);
+    width: 390px;
+    min-height: 400px;
+    max-width: 100%;
+    margin-bottom: 10%;
+   
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.remarkable-card-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: 5%;
+}
+
+.card-des {
+    line-height: 1;
+}
+
+.card-subTitle {
+    color: #A1A1A1;
+}
+
+.remarkable-card-des {
+    font-size: 16px;
+    color: #A1A1A1;
+    padding: 15px;
+}
+
+.video-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.videoRemarkable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px 50px 0 0;
+}
+
+.remarkable-card-image-name {
+    width: 50px;
+    border-radius: 50%;
+}
+
+/* media */
+@media (max-width: 700px) {
+    .remarkable-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .remarkable-card {
+        width: 300px;
+    }
+
+    .remarkable-card-des {
+        font-size: 14px;
+        padding: 3px;
+    }
+
+    .remarkable-wrapper {
+        height: initial;
+    }
+}
