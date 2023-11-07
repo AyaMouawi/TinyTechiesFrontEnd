@@ -165,3 +165,22 @@ height: 100px;}
   margin-right: auto;
   max-width: initial;
 }}
+
+@media(min-width: 768px) and (max-width: 1024px) {
+.About-girl{
+  width: 100%;
+    margin-left: -15%;
+    margin-top: -50%;
+}
+.About_P{
+  width: 400px;
+    margin-left: -20%;
+    margin-top: -10%;
+}
+
+.About-content h1 {
+  width: max-content;
+    margin-bottom: 20%;
+    margin-left: -35%;
+}
+}

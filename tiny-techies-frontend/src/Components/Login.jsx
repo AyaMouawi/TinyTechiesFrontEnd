@@ -197,17 +197,17 @@ function Login() {
         <div className="overlay-container">
           <div className="overlay">
             <div className="overlay-panel overlay-left">
-              <h1 className='h1login'>Welcome Back!</h1>
+              <h1 className='h1login'>Hello, Friend!</h1>
               <p className='plogin'>
-                To stay connected with us, please login with your personal info
+              Enter your info and start your coding journey!
               </p>
               <button className="ghost Sign" id="signIn" onClick={handleSignInClick}>
                 Sign In
               </button>
             </div>
             <div className="overlay-panel overlay-right">
-              <h1 className='h1login'>Hello, Friend!</h1>
-              <p className='plogin'>Enter your info and start your coding journey!</p>
+              <h1 className='h1login'>Welcome Back!</h1>
+              <p className='plogin'>To stay connected with us, please login with your personal info</p>
               <button className="ghost Sign" id="signUp" onClick={handleSignUpClick}>
                 Sign Up
               </button>
