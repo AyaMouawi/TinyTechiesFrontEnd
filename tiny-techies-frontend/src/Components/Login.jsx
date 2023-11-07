@@ -12,6 +12,8 @@ function Login() {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const [passwordStrengthMessage, setPasswordStrengthMessage] = useState('');
 
   const checkPasswordStrength = (password) => {
@@ -95,7 +97,7 @@ function Login() {
         });
   
         if (response.status === 201) {
-          setPasswordStrengthMessage(''); // Reset the password strength message
+          setPasswordStrengthMessage(''); 
           showMessage('Please log in now .');
           setTimeout(() => {
             handleSignInClick();
@@ -128,11 +130,19 @@ function Login() {
             />
             <input
               className='inputlogin'
-              type="password"
+              type={showPassword ? 'text' : 'password'} 
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <label>
+              <input
+                type="checkbox"
+                checked={showPassword}
+                onChange={() => setShowPassword(!showPassword)}
+              />
+              Show Pass
+            </label>
             <p>{message}</p>
             <button className='Sign' type="submit">Sign In</button>
           </form>
@@ -163,11 +173,19 @@ function Login() {
             />
             <input
               className='inputlogin'
-              type="password"
+              type={showPassword ? 'text' : 'password'} 
               placeholder="Password"
               value={password}
               onChange={handlePasswordChange}
             />
+             <label>
+              <input
+                type="checkbox"
+                checked={showPassword}
+                onChange={() => setShowPassword(!showPassword)}
+              />
+              Show Pass
+            </label>
             <br />
             <p>{message}</p>
             <p style={{ color: passwordStrengthMessage.includes('Strong') ? 'green' : 'red' }} className='PassMessage'>
