@@ -1,7 +1,7 @@
 
 .AdminDashSideBarSubContainer{
     width: 20vw;
-    height: 260vw;
+    height: 130vw; /*fixed height */
     background-image: url("../../public/Images/counter-bg.jpg");
     background-size: 100% 100%;
     background-position: center center;

@@ -6,6 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AdminDashStudents = () => {
   const [studentsData, setStudentsData] = useState([]);
+  // declare the variable current 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  // set the pages to show only 5 rows
+  const dataPerPage = 5;
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/student/getAllStudentsAndCourses`)
@@ -33,6 +37,15 @@ const AdminDashStudents = () => {
     }
   };
 
+  // create next previous buttons
+  const handleNext = () => {
+    setCurrentIndex(currentIndex + dataPerPage);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex(currentIndex - dataPerPage);
+  };
+
   return (
     <div className='AdminDashMainContainer'>
       <div className="cardiv">
@@ -47,7 +60,8 @@ const AdminDashStudents = () => {
                 <th>Absence</th>
                 <th>Actions</th>
               </tr>
-              {studentsData.map((student) => (
+              {/* you should make slice to the array */}
+              {studentsData.slice(currentIndex, currentIndex + dataPerPage).map((student) => (
                 <tr key={student.User_id}>
                   <td>{student.UserFullName}</td>
                   <td>{student.UserAge}</td>
@@ -70,6 +84,19 @@ const AdminDashStudents = () => {
                 </tr>
               ))}
             </table>
+            {/*added buttons next previous*/}
+            <div className="pagination">
+              <button disabled={currentIndex === 0} onClick={handlePrevious} className="btn-next">
+                Previous
+              </button>
+              <button
+                disabled={currentIndex + dataPerPage >= studentsData.length }
+                onClick={handleNext}
+                className="btn-next"
+              >
+                Next
+              </button>
+              </div>
           </div>
         </div>
       </div>
