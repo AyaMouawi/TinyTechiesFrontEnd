@@ -43,7 +43,7 @@ const AdminDashAddcourse = ({ updateCourses }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setCourseData({ ...courseData, [name]: value });
-    console.log(`Updated ${name} to ${value}`);
+    
   };
 
   const handleImageUpload = (e) => {
@@ -92,7 +92,7 @@ const AdminDashAddcourse = ({ updateCourses }) => {
       } else {
         toast.error('Failed to add course');
       }
-      console.log("Server Response:", response);
+    
     } catch (error) {
       console.error('Error adding course:', error);
       toast.error('Failed to add course');

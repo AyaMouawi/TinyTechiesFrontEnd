@@ -9,7 +9,7 @@ import SingleNav from "./SingleNav";
 
 function SingleCoursePage() {
   const {CourseId } = useParams();
-  console.log(CourseId)
+  
   const [courseData, setCourseData] = useState({
     CourseName: "",
     CourseDesc: "",

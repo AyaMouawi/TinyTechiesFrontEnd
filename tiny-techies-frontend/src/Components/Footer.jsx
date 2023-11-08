@@ -203,7 +203,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="copyright">© {currentYear} by Group 4 </div>
+      <div className="copyright">© {currentYear} by PineRidge</div>
       <ToastContainer/>
     </div>
   );

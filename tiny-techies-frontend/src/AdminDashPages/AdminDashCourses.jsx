@@ -37,7 +37,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
 
   const handleEditFileChange = (e) => {
     const { name, files } = e.target;
-    console.log({name, files});
+   
 
     if (files.length > 0) {
       setEditingCourse({
@@ -45,7 +45,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
         [name]: files[0],
       });
     } else {
-      console.log(oldFile);
+    
       setEditingCourse({
         ...editingCourse,
         [name]: oldFile,
@@ -55,7 +55,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
 
   const handleEditSubmit = () => {
     setIsSaving(true);
-    console.log('Submitting edit:', editingCourse);
+  
 
     const formData = new FormData();
     formData.append('Course_id', editingCourse.Course_id);
@@ -66,7 +66,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
     );
 
     if (selectedTrainerObject) {
-      console.log('Selected Trainer:', selectedTrainerObject);
+     
       formData.append('Trainer_id', selectedTrainerObject.User_id);
     } else {
       console.error('Selected trainer not found in the list.');
@@ -85,7 +85,7 @@ const AdminDashCourses = ({ courses, onDeleteCourse, onEditCourse }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Edit Response Data:', data);
+       
         if (data.success) {
           toast.success(`${editingCourse.CourseName} updated successfully`, {
             autoClose: 2000,

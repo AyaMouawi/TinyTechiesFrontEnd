@@ -50,9 +50,9 @@ const AssignmentCard = ({
       );
 
       toast.success("Great Job Buddy");
-      console.log(response.data);
+   
 
-      // After a successful submission, no need to refresh, but the assignments list will automatically update
+      
     } catch (error) {
       console.error("Error uploading file:", error);
     } finally {

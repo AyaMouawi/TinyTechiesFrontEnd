@@ -91,7 +91,7 @@ const TrainerDashGrade = () => {
       axios.get(apiUrl)
         .then((response) => {
           const assignmentFileURL = response.data.data;
-          console.log("Fetched Assignment File URL:", assignmentFileURL);
+         
           setAssignmentFileURL(assignmentFileURL);
         })
         .catch((error) => {
