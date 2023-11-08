@@ -26,6 +26,7 @@ const TrainerDashCoursesPage = () => {
             CourseName={course.CourseName}
             CourseDesc={course.CourseDescription}
             StudentCount={course.StudentCount}
+            CourseImage={course.CourseImage}
             Duration={formatDuration(course.CourseStartTime, course.CourseEndTime)}
           />
         ))}

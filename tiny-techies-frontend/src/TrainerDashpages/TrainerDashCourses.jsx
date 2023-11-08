@@ -1,11 +1,11 @@
 import React from "react";
 import "../TrainerDashCSS/TrainerDashcourse.css";
-const TrainerDashCourses = ({CourseName, CourseDesc, StudentCount, Duration}) => {
+const TrainerDashCourses = ({CourseName, CourseDesc, StudentCount, Duration, CourseImage}) => {
   return (
  
     <div className='trainerdash-course-container'>
       <div className='trainerdash-image-container'>
-        <img src='images/b1.jpg' alt='' />
+        <img src={CourseImage} alt='' />
       </div>
       <div className='trainerdash-course-details'>
         <div className='trainerdash-Course-Title'>
