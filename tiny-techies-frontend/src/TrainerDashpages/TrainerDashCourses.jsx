@@ -21,7 +21,7 @@ const TrainerDashCourses = ({CourseName, CourseDesc, StudentCount, Duration, Cou
         <div className='trainerdash-Footer-Course'>
           <div className='trainerdash-footer-course-item'>
             <img
-              src='images/users-solid.svg'
+              src='Images/users-solid.svg'
               className='trainerdash-CourseFooterImage'
               alt=''
             />
@@ -29,7 +29,7 @@ const TrainerDashCourses = ({CourseName, CourseDesc, StudentCount, Duration, Cou
           </div>
           <div className='trainerdash-footer-course-item'>
             <img
-              src='images/clock-regular.svg'
+              src='Images/clock-regular.svg'
               className='trainerdash-CourseFooterImage'
               alt=''
             />
